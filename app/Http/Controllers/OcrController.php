@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Ocr;
 use Illuminate\Http\Request;
+use Google\Cloud\Vision\VisionClient;
 
 class OcrController extends Controller
 {
