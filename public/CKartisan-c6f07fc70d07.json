@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "ckartisan",
+  "private_key_id": "c6f07fc70d07ef48aaf542fe047d5f35f2d5e3ea",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDbIvuSkvRBMSqr\npLDQMVBldendxPu2WpOu9vmH3pLYAbOF6SkynwXcbZMNKPM4aIzpHVr0I9jqMsMK\nLtWQtrkKwwjk4kfsF9AHtebmV8qnnlbz9IXVT4ZyQ0O5umO04Cgofm9fqp8n16Ky\nR3f9M3y3m9wv3TcF71XgG70cnbwFdqavhIkOo8RgHsp6dYnk0rKoUTv7T0A6nVJR\nYMKfBaL0GSRAxZdGyk+lvrSi4g3/TBjL03/D+isV6+NgomVmxgiwiMTqsftYDenp\n21Hd8HJZh2dmBykTU/T7bOqlv4jYSCP5HlxD+aoW/5klPqNPldGFEWNGSldcM0/z\n2OKBTFT7AgMBAAECggEAHTA3r3pWK9N6CjV8PP7p5S8ji3U6zJCcAz4aVqKq5I1g\nICzCXrUXzsM5nGh2nRjaoWJWRGv8meqmWADiVCLtMCXHqtUJHMVp4Ye1IxFRM6pq\nN+xmDIJJ4jEGIFhXV4xT97DU8jqDyzF0a6gMBMngNC9VJiWiYplSfZte68+GxSNI\nTKWDN4rQ9jSTGtnPuNdDqeATyQZ+Urgjd/A9pWcZ5L11kocS7euslwsR7YiKz6ty\nhs8K9gXL8YFQc36Wk16sK1l3iC77hLKq+BofQ130AYHpeBeeblbDlsqe/ktLxnxl\nDQBFjNJpCgPvHq17DD9XfFmF+ZZ3q+BgDcKpSPlkQQKBgQDxf4klEjJWhabQgS8n\ny2gwIApGD2BxCHwGNVrknRghm1M+i1ZnSCSW3IJ398gG2lYfWepcF7qcT9Q5jl4I\nsYMtX+uWIIJSsDTjjMS6m7mJJzk9KlM1d3yhpqyilg8TqD71PGdjiEWRZwhXrUec\n4EX/acHBkE94g+PvlcJR9pUZYwKBgQDoS7Dx0RkBRtBi8KVJRR9hYS7TPrkQOczP\n622E2J0/7xmB685bmm5brtn8Der6bhfjt2NH45gk3gZmsuV6uFBIO4d5lRcckCCD\nSoWepPM+dFTNnstWtrVKGLQ5kRamA0Jc9ClZFlfC7Kma73FTBhjF6nt5lEzeiqcB\ne5vQDdL1iQKBgH2TEZ9DLQWsjadR5VFOBakwn+b6S+26ubMIv3Cs90VSXSDil1Ux\nQEVp+DWllE9r7Oh0etbUR+bL49Dh5Keklk9b10bDNMEGexnvssROAVX+HVde0NG2\nhgoQfygz2zcff01J0YEB9Rq8dqwQoHJEdGFxfpzGC2zhN/724op4K+N9AoGBAN5H\nZ2bNNcch8s9qBE9LRE7TRpI/B6j+FfyzA9ZFzJrb+SV39btz17wFYXMuAjZmWJe+\n6NJmdzR3+9oTv0Ch07h6thTiU/4x79qR2bBHmLafbHJhS6OLK4hegT5AllJ+9eaq\ngFJN7eaIvXaTPnY6dEQWLtbU0IV2WX4ywJLiV4Y5AoGAZvSLQrzanVzlYIBHyeZG\n2P7hRKbO/AxOGD1fzZgdv7fZoMJV14w6sf5pN3Vl2er4S9pn9izdPL4Hl1vjOIth\nkhVEWnKfzh2nEU57YZH4GJ+K0poL+L9O5IDpaWvEnizHKkqU1LjDOxxomcydB3TE\nX0w8X+YmITcd9GB5Qx0HJZM=\n-----END PRIVATE KEY-----\n",
+  "client_email": "detect-text-in-image-with-no-r@ckartisan.iam.gserviceaccount.com",
+  "client_id": "108936352655243650255",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/detect-text-in-image-with-no-r%40ckartisan.iam.gserviceaccount.com"
+}
