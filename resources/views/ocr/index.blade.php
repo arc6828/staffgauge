@@ -1,11 +1,10 @@
-@extends('layouts.app')
+@extends('layout.main')
 
 @section('content')
     <div class="container">
         <div class="row">
-            @include('admin.sidebar')
 
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Ocr</div>
                     <div class="card-body">
@@ -26,11 +25,17 @@
 
                         <br/>
                         <br/>
-                        <div class="table-responsive">
+                        <div class="table-responsive" >
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Photo</th><th>Datetime</th><th>Level</th><th>Extract Data</th><th>Actions</th>
+                                        <th>#</th>
+                                        <th>Photo</th>
+                                        <th>Owner</th>
+                                        <th>Datetime</th>
+                                        <th>Level</th>
+                                        <th>Extract Data</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -38,6 +43,7 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td><img src="{{ url('storage') }}/{{ $item->photo }}" width=100 /></td>
+                                        <td>{{ $item->user->name }}</td>
                                         <td>{{ $item->created_at }}</td>
                                         <td>{{ $item->title }}</td>
                                         <td style="max-width:200px;">{{ $item->content }}</td>

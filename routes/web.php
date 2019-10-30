@@ -16,3 +16,6 @@ Route::get('/', function () {
 });
 
 Route::resource('ocr', 'OcrController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

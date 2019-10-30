@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\Auth;
+use App\Profile;
+use App\User;
 use App\Ocr;
 use Illuminate\Http\Request;
 use Google\Cloud\Vision\VisionClient;
@@ -26,8 +29,10 @@ class OcrController extends Controller
                 ->orWhere('content', 'LIKE', "%$keyword%")
                 ->orWhere('photo', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
-        } else {
-            $ocr = Ocr::latest()->paginate($perPage);
+        }
+        else {
+            $ocr = Ocr::where('user_id' , '=', Auth::user()->id)
+            ->latest()->paginate($perPage);
         }
 
         return view('ocr.index', compact('ocr'));
@@ -66,7 +71,8 @@ class OcrController extends Controller
 
             $requestData['title'] = $detected_text['title'];
             $requestData['content'] = $detected_text['content'];
-            
+            $requestData['user_id'] = Auth::user()->id;
+
         }
         Ocr::create($requestData);
 

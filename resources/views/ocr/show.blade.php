@@ -1,11 +1,10 @@
-@extends('layouts.app')
+@extends('layout.main')
 
 @section('content')
     <div class="container">
         <div class="row">
-            @include('admin.sidebar')
 
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Ocr {{ $ocr->id }}</div>
                     <div class="card-body">
@@ -27,7 +26,10 @@
                                     <tr>
                                         <th>ID</th><td>{{ $ocr->id }}</td>
                                     </tr>
-                                    <tr><th> Title </th><td> {{ $ocr->title }} </td></tr><tr><th> Content </th><td> {{ $ocr->content }} </td></tr><tr><th> Photo </th><td> {{ $ocr->photo }} </td></tr>
+                                    <tr><th> Owner </th><td> {{ $ocr->user->name }} </td></tr>
+                                    <tr><th> Title </th><td> {{ $ocr->title }} </td></tr>
+                                    <tr><th> Content </th><td> {{ $ocr->content }} </td></tr>
+                                    <tr><th> Photo </th><td><img src="{{ url('storage') }}/{{ $ocr->photo }}" width=100 /></td></tr>
                                 </tbody>
                             </table>
                         </div>
