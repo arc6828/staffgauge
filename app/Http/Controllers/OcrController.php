@@ -25,10 +25,16 @@ class OcrController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $ocr = Ocr::where('title', 'LIKE', "%$keyword%")
+            $ocr = Ocr::where('user_id' , '=', Auth::user()->id)
+            ->where(function($query) use ($keyword){
+                $query->where('title', 'LIKE', "%$keyword%")
                 ->orWhere('content', 'LIKE', "%$keyword%")
-                ->orWhere('photo', 'LIKE', "%$keyword%")
-                ->latest()->paginate($perPage);
+                ->orWhere('photo', 'LIKE', "%$keyword%");
+            })
+            ->latest()->paginate($perPage);
+        }
+        elseif (Auth::user()->profile->role == "admin"){
+            $ocr = Ocr::latest()->paginate($perPage);
         }
         else {
             $ocr = Ocr::where('user_id' , '=', Auth::user()->id)
