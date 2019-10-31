@@ -24,21 +24,31 @@ class OcrController extends Controller
         $keyword = $request->get('search');
         $perPage = 25;
 
-        if (!empty($keyword)) {
-            $ocr = Ocr::where('user_id' , '=', Auth::user()->id)
-            ->where(function($query) use ($keyword){
-                $query->where('title', 'LIKE', "%$keyword%")
-                ->orWhere('content', 'LIKE', "%$keyword%")
-                ->orWhere('photo', 'LIKE', "%$keyword%");
-            })
-            ->latest()->paginate($perPage);
-        }
-        elseif (Auth::user()->profile->role == "admin"){
-            $ocr = Ocr::latest()->paginate($perPage);
-        }
-        else {
-            $ocr = Ocr::where('user_id' , '=', Auth::user()->id)
-            ->latest()->paginate($perPage);
+        switch(Auth::user()->profile->role){
+            case "admin" : //FOR ADMIN SEE ALL
+                if (!empty($keyword)) {
+                    $ocr = Ocr::where('title', 'LIKE', "%$keyword%")
+                        ->orWhere('content', 'LIKE', "%$keyword%")
+                        ->orWhere('photo', 'LIKE', "%$keyword%")
+                        ->latest()->paginate($perPage);
+                }
+                else {
+                    $ocr = Ocr::latest()->paginate($perPage);
+                }
+                break;
+            default : //FOR NON ADMIN SEE ONLY SELF
+                if (!empty($keyword)) {
+                    $ocr = Ocr::where('user_id' , Auth::user()->id)
+                        ->where(function($query) use ($keyword){
+                            $query->where('title', 'LIKE', "%$keyword%")
+                                ->orWhere('content', 'LIKE', "%$keyword%")
+                                ->orWhere('photo', 'LIKE', "%$keyword%");
+                        })->latest()->paginate($perPage);
+                }
+                else {
+                    $ocr = Ocr::where('user_id' , Auth::user()->id)->latest()->paginate($perPage);
+                }
+                break; 
         }
 
         return view('ocr.index', compact('ocr'));
@@ -202,9 +212,9 @@ class OcrController extends Controller
     {
         
         $requestData = $request->all();
-                if ($request->hasFile('photo')) {
+        if ($request->hasFile('photo')) {
             $requestData['photo'] = $request->file('photo')
-                ->store('uploads', 'public');
+                ->store('uploads/ocr', 'public');
         }
 
         $ocr = Ocr::findOrFail($id);

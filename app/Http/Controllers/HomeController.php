@@ -29,6 +29,6 @@ class HomeController extends Controller
             ['user_id' => Auth::id()],
             ['role' => 'guest']
         );
-        return view('home' , compact('profile') );
+        return view('home/show' , compact('profile') );
     }
 }
