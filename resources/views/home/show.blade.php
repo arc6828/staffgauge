@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="text-center">
-                            <a class="btn btn-success" href="{{ url('ocr/create') }}">Go to OCR Project</a>
+                            <a class="btn btn-success" href="{{ url('ocr') }}">Go to OCR Project</a>
                         </div>
 
                     </div>
