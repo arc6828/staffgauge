@@ -37,7 +37,10 @@
               @else
                 <li class="nav-item dropdown">
                   <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ Auth::user()->name }} / {{ Auth::user()->profile->role }} <span class="caret"></span>
+                  @if(Auth::user()->profile->photo)
+                    <img src="{{ url('storage') }}/{{Auth::user()->profile->photo}}" width=30 height=30 class="mr-2 rounded-circle">
+                  @endif
+                  {{ Auth::user()->name }}<span class="caret"></span>
                   </a>
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -49,6 +52,7 @@
                   <a class="dropdown-item" href="{{ url('/logout') }}"
                   onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
+                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                     Logout
                   </a>
                   <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
