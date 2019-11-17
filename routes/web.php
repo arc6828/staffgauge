@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::post('/ocr/lineoa', 'OcrController@store2');
+
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('ocr', 'OcrController');
     Route::resource('profile', 'ProfileController');

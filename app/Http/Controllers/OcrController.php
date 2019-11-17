@@ -95,6 +95,14 @@ class OcrController extends Controller
         return redirect('ocr')->with('flash_message', 'Ocr added!');
     }
 
+
+    public function store2(Request $request)
+    {
+        $requestData = $request->json()->all();
+        Ocr::create($requestData);
+        return redirect('ocr/lineoa');
+    }
+
     function detect_text($path)
     {
         //https://onlinelearningportal.website/google-vision-api-implementation-with-laravel-5-8/
