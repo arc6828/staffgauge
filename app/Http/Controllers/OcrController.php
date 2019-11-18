@@ -73,7 +73,9 @@ class OcrController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $this->store2($request);
+        return  "{'status':'success'}";
+
         $requestData = $request->all();
         if ($request->hasFile('photo')) {
             $requestData['photo'] = $request->file('photo')
@@ -98,9 +100,11 @@ class OcrController extends Controller
 
     public function store2(Request $request)
     {
-        $requestData = $request->json()->all();
-        Ocr::create($requestData);
-        return redirect('ocr/lineoa');
+        $requestData = $request->all();        
+        $text = jsonjson_encode( $requestData, JSON_UNESCAPED_UNICODE );
+        Ocr::create(["content"=>$text,"user_id"=>1]);
+        //return "{'status':'success'}";
+        //return redirect('ocr/lineoa');
     }
 
     function detect_text($path)
