@@ -54,6 +54,7 @@ class OcrController extends Controller
         return view('ocr.index', compact('ocr'));
     }
 
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -73,8 +74,8 @@ class OcrController extends Controller
      */
     public function store(Request $request)
     {
-        $this->store2($request);
-        return  "{'status':'success'}";
+        //$this->store2($request);
+        //return  "{'status':'success'}";
 
         $requestData = $request->all();
         if ($request->hasFile('photo')) {
@@ -98,14 +99,14 @@ class OcrController extends Controller
     }
 
 
-    public function store2(Request $request)
+    /*public function store2(Request $request)
     {
         $requestData = $request->all();        
         $text = jsonjson_encode( $requestData, JSON_UNESCAPED_UNICODE );
         Ocr::create(["content"=>$text,"user_id"=>1]);
         //return "{'status':'success'}";
         //return redirect('ocr/lineoa');
-    }
+    }*/
 
     function detect_text($path)
     {

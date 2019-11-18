@@ -5,7 +5,7 @@
         <div class="row">
 
             <div class="col-md-12">
-                <div class="card">
+                <div class="card mb-4">
                     <div class="card-header">Ocr</div>
                     <div class="card-body">
                         <a href="{{ url('/ocr/create') }}" class="btn btn-success btn-sm" title="Add New Ocr">
@@ -66,6 +66,9 @@
 
                     </div>
                 </div>
+
+               
+                
             </div>
         </div>
     </div>
