@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Ocr;
+use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
 
 
