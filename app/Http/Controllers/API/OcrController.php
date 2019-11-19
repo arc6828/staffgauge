@@ -8,6 +8,7 @@ use App\Ocr;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
 
+use Google\Cloud\Vision\VisionClient;
 use Intervention\Image\ImageManagerStatic as Image;
 
 class OcrController extends Controller
@@ -63,7 +64,7 @@ class OcrController extends Controller
             Image::make($path)->save($requestData['photo']);
 
             //echo $path;
-            $detected_text = $this->detect_text($path);
+            //$detected_text = $this->detect_text($path);
 
             //$requestData['title'] = $detected_text['title'];
             //$requestData['content'] = $detected_text['content'];
