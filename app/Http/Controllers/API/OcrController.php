@@ -5,6 +5,8 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Ocr;
+use Illuminate\Support\Facades\Storage;
+
 
 class OcrController extends Controller
 {
@@ -36,30 +38,35 @@ class OcrController extends Controller
      */
     public function store(Request $request)
     {
-        $requestData = $request->all();        
-        $text = json_encode( $requestData, JSON_UNESCAPED_UNICODE );
-        Ocr::create(["content"=>$text,"user_id"=>1]);
-        return  "{'status':'success'}";
-
-        $requestData = $request->all();
-        if ($request->hasFile('photo')) {
-            $requestData['photo'] = $request->file('photo')
-                ->store('uploads/ocr', 'public');
+        /* example format of $requestData
+        [
+            "title" => "100",                //level of water
+            "content" => [],                 //raw data (everything)
+            "photo" => "https://......jpg" , //URL IMAGE
+            "social_user_id" => "",          //line id
+            "numbers" => [],                 //Array of only number
+        ]
+        */
+        $requestData = $request->all();      
+        if ($request->has('photo')) {
+            $requestData['photo'] =  Storage::putFile('uploads/ocr', new File($requestData['photo']));
+            //$requestData['photo'] = $request->file('photo')->store('uploads/ocr', 'public');
 
             //FOR OCR 
-
             $path = storage_path('app/public/'.$requestData['photo']);
             //echo $path;
             $detected_text = $this->detect_text($path);
 
-            $requestData['title'] = $detected_text['title'];
-            $requestData['content'] = $detected_text['content'];
-            $requestData['user_id'] = Auth::user()->id;
+            //$requestData['title'] = $detected_text['title'];
+            //$requestData['content'] = $detected_text['content'];
+            $requestData['user_id'] = 1;
 
-        }
+        }  
+        //$text = json_encode( $requestData, JSON_UNESCAPED_UNICODE );
         Ocr::create($requestData);
+        return  "{'status':'success'}";
 
-        return redirect('ocr')->with('flash_message', 'Ocr added!');
+        
     }
 
 
