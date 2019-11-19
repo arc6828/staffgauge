@@ -60,9 +60,9 @@ class OcrController extends Controller
 
             $path = 'https://i.stack.imgur.com/koFpQ.png';
             $filename = basename($path);
-            $requestData['photo'] = storage_path('app/public/uploads/ocr/'.$filename);
-            Image::make($path)->save($requestData['photo']);
-
+            $new_path = storage_path('app/public/uploads/ocr/'.$filename);
+            Image::make($path)->save(new_path);
+            $requestData['photo'] = 'uploads/ocr/'.$filename;
             //echo $path;
             //$detected_text = $this->detect_text($path);
 
