@@ -41,7 +41,7 @@ class OcrController extends Controller
      */
     public function store(Request $request)
     {
-        /* example format of $requestData
+        /* example format of $requestData : http://staffgauge.ckartisan.com/api/ocr
         [
             "title" => "100",                //level of water
             "content" => [],                 //raw data (everything)
