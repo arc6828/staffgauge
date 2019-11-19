@@ -36,7 +36,7 @@ class OcrController extends Controller
     public function store(Request $request)
     {
         $requestData = $request->all();        
-        $text = jsonjson_encode( $requestData, JSON_UNESCAPED_UNICODE );
+        $text = json_encode( $requestData, JSON_UNESCAPED_UNICODE );
         Ocr::create(["content"=>$text,"user_id"=>1]);
         return  "{'status':'success'}";
 
