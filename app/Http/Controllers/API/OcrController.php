@@ -8,6 +8,7 @@ use App\Ocr;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
 
+use Intervention\Image\ImageManagerStatic as Image;
 
 class OcrController extends Controller
 {
@@ -50,11 +51,17 @@ class OcrController extends Controller
         */
         $requestData = $request->all();      
         if ($request->has('photo')) {
-            $requestData['photo'] =  Storage::putFile('uploads/ocr', new File($requestData['photo']));
+            //$requestData['photo'] =  Storage::putFile('uploads/ocr', new File($requestData['photo']));
             //$requestData['photo'] = $request->file('photo')->store('uploads/ocr', 'public');
 
             //FOR OCR 
-            $path = storage_path('app/public/'.$requestData['photo']);
+            //$path = storage_path('app/public/'.$requestData['photo']);
+
+            $path = 'https://i.stack.imgur.com/koFpQ.png';
+            $filename = basename($path);
+            $requestData['photo'] = storage_path('app/public/uploads/ocr/'.$filename);
+            Image::make($path)->save($requestData['photo']);
+
             //echo $path;
             $detected_text = $this->detect_text($path);
 

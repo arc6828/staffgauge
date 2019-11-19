@@ -12,6 +12,9 @@ use App\Ocr;
 use Illuminate\Http\Request;
 use Google\Cloud\Vision\VisionClient;
 
+use Intervention\Image\ImageManagerStatic as Image;
+
+
 class OcrController extends Controller
 {
     /**
@@ -21,6 +24,14 @@ class OcrController extends Controller
      */
     public function index(Request $request)
     {
+        
+
+        // Automatically generate a unique ID for file name...
+        /*$path = 'https://i.stack.imgur.com/koFpQ.png';
+            $filename = basename($path);
+            $requestData['photo'] = storage_path('app/public/uploads/ocr/'.$filename);
+            Image::make($path)->save($requestData['photo']);*/
+
         $keyword = $request->get('search');
         $perPage = 25;
 
