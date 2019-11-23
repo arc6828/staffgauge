@@ -68,9 +68,17 @@ class OcrController extends Controller
 
             //$requestData['title'] = $detected_text['title'];
             //$requestData['content'] = $detected_text['content'];
-            $requestData['user_id'] = 1;
 
         }  
+        if ($request->has('content')) {
+            $requestData['content'] = json_encode( $requestData['content'], JSON_UNESCAPED_UNICODE );
+        }        
+        if ($request->has('numbers')) {
+            $requestData['numbers'] = json_encode( $requestData['numbers'], JSON_UNESCAPED_UNICODE );
+        }   
+        if (!$request->has('user_id')) {
+            $requestData['user_id'] = 1;
+        }       
         //$text = json_encode( $requestData, JSON_UNESCAPED_UNICODE );
         Ocr::create($requestData);
         return  "{'status':'success'}";
