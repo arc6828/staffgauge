@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Ocr;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 use Google\Cloud\Vision\VisionClient;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -58,7 +59,7 @@ class OcrController extends Controller
             //FOR OCR 
             //$path = storage_path('app/public/'.$requestData['photo']);
 
-            $path = 'https://i.stack.imgur.com/koFpQ.png';
+            $path = $photo;
             $filename = basename($path);
             $new_path = storage_path('app/public/uploads/ocr/'.$filename);
             Image::make($path)->save($new_path);
@@ -69,16 +70,16 @@ class OcrController extends Controller
             //$requestData['title'] = $detected_text['title'];
             //$requestData['content'] = $detected_text['content'];
 
-        }  
+        }
         if ($request->has('content')) {
             $requestData['content'] = json_encode( $requestData['content'], JSON_UNESCAPED_UNICODE );
-        }        
+        }
         if ($request->has('numbers')) {
             $requestData['numbers'] = json_encode( $requestData['numbers'], JSON_UNESCAPED_UNICODE );
         }   
         if (!$request->has('user_id')) {
             $requestData['user_id'] = 1;
-        }       
+        }
         //$text = json_encode( $requestData, JSON_UNESCAPED_UNICODE );
         Ocr::create($requestData);
         return  "{'status':'success'}";
