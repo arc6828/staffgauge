@@ -31,6 +31,13 @@ class OcrController extends Controller
             $filename = basename($path);
             $requestData['photo'] = storage_path('app/public/uploads/ocr/'.$filename);
             Image::make($path)->save($requestData['photo']);*/
+/*
+            $path = "https:\/\/firebasestorage.googleapis.com\/v0\/b\/royalirrigationfb.appspot.com\/o\/U239469c374d4e2337bbc5b4925938af8%2F10993624191976.jpg?alt=media&token=c7951209-1387-4eed-981e-919c86e82100";
+            $path = str_replace("\/","/", $path);
+            $new_path = storage_path('app/public/uploads/test.jpg');
+            Image::make($path)->save($new_path);
+            */
+            //$requestData['photo'] = str_replace("\/","/", $requestData['photo']);
 
         $keyword = $request->get('search');
         $perPage = 25;
