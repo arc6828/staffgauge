@@ -71,7 +71,7 @@ class OcrController extends Controller
             $new_path = storage_path('app/public/uploads/ocr/'.$filename);
             Image::make($path)->save($new_path);
             //$requestData['json_line'] = json_encode( $requestData );
-            $requestData['json_line'] = $requestData['photo'];
+            $requestData['json_line'] = basename($requestData['photo']);
             $requestData['photo'] = 'uploads/ocr/'.$filename;
             
             //echo $path;
