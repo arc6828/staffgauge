@@ -59,8 +59,11 @@ class OcrController extends Controller
             //FOR OCR 
             //$path = storage_path('app/public/'.$requestData['photo']);
 
-            $path = $photo;
+            //GET PATH LIKE : http://............/xxx.jpg
+            $path = $requestData['photo'];
+            //EXTRACT ONLY : xxx.jpg
             $filename = basename($path);
+            //NEW PATH : storage/app/public/uploads/ocr/xxx.jpg
             $new_path = storage_path('app/public/uploads/ocr/'.$filename);
             Image::make($path)->save($new_path);
             $requestData['photo'] = 'uploads/ocr/'.$filename;
