@@ -62,7 +62,7 @@ class OcrController extends Controller
 
             //GET PATH LIKE : http://............/xxx.jpg
             $path = 'https://i.stack.imgur.com/koFpQ.png';
-            $requestData['photo'] = str_replace("\/","/", $requestData['photo']);
+            //$requestData['photo'] = str_replace("\/","/", $requestData['photo']);
             //$path = $requestData['photo'];
             
             //EXTRACT ONLY : xxx.jpg
@@ -70,7 +70,8 @@ class OcrController extends Controller
             //NEW PATH : storage/app/public/uploads/ocr/xxx.jpg
             $new_path = storage_path('app/public/uploads/ocr/'.$filename);
             Image::make($path)->save($new_path);
-            $requestData['json_line'] = json_encode( $requestData );
+            //$requestData['json_line'] = json_encode( $requestData );
+            $requestData['json_line'] = $requestData['photo'];
             $requestData['photo'] = 'uploads/ocr/'.$filename;
             
             //echo $path;
