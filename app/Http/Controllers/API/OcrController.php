@@ -62,7 +62,9 @@ class OcrController extends Controller
 
             //GET PATH LIKE : http://............/xxx.jpg
             $path = 'https://i.stack.imgur.com/koFpQ.png';
-            //$path = $requestData['photo'];
+            $requestData['photo'] = str_replace("\/","/", $requestData['photo']);
+            $path = $requestData['photo'];
+            
             //EXTRACT ONLY : xxx.jpg
             $filename = basename($path);
             //NEW PATH : storage/app/public/uploads/ocr/xxx.jpg
