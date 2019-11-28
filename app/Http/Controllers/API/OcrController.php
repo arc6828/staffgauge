@@ -52,7 +52,7 @@ class OcrController extends Controller
         ]
         */
         $requestData = $request->all();      
-        Ocr::create(["json_line" => json_encode( $requestData, JSON_UNESCAPED_UNICODE ) ]);
+        //Ocr::create(["json_line" => json_encode( $requestData, JSON_UNESCAPED_UNICODE ) ]);
         if ($request->has('photo')) {
             //$requestData['photo'] =  Storage::putFile('uploads/ocr', new File($requestData['photo']));
             //$requestData['photo'] = $request->file('photo')->store('uploads/ocr', 'public');
