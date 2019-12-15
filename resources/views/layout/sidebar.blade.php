@@ -10,24 +10,30 @@
       </a>
  
       <!-- Divider -->
-      <hr class="sidebar-divider">
+      <hr class="sidebar-divider" style="display:none">
  
       <!-- Heading -->
       <div class="sidebar-heading">
         Menu
       </div>
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('/home') }}">
-          <i class="fas fa-fw fa-home"></i>
-          <span>Home</span></a>
+        <a class="nav-link" href="{{ url('/dashboard') }}">
+          <i class="fas fa-fw fa-book"></i>
+          <span>Dashboard</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ url('/ocr') }}">
           <i class="fas fa-fw fa-image"></i>
           <span>Ocr</span></a>
       </li>
- 
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('/home') }}">
+          <i class="fas fa-fw fa-home"></i>
+          <span>Profile</span></a>
+      </li>
+
       <!-- Nav Item - Pages Collapse Menu -->
+      <!--
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
           <i class="fas fa-fw fa-cog"></i>
@@ -41,6 +47,7 @@
           </div>
         </div>
       </li>
+      -->
  
     </ul>
 <!-- End of Sidebar -->

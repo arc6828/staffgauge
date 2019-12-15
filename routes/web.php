@@ -24,5 +24,11 @@ Route::post('/ocr/lineoa', 'OcrController@store2');
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('ocr', 'OcrController');
     Route::resource('profile', 'ProfileController');
+    Route::resource('dashboard', 'DashboardController');
+});
+
+Route::prefix('login')->group(function () {
+    Route::get('/{provider}', 'Auth\LoginController@redirectToProvider')->name('login.provider');
+    Route::get('/{provider}/callback', 'Auth\LoginController@handleProviderCallback')->name('login.provider.callback');
 });
 

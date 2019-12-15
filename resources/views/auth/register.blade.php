@@ -61,6 +61,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="lineid" class="col-md-4 col-form-label text-md-right">{{ __('Line ID') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="lineid" type="text" class="form-control @error('lineid') is-invalid @enderror" lineid="lineid" value="{{ request('lineid') }}" autocomplete="lineid" readonly>
+
+                                @error('lineid')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
