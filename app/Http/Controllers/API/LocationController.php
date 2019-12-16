@@ -66,7 +66,10 @@ class LocationController extends Controller
         }*/
         //$text = json_encode( $requestData, JSON_UNESCAPED_UNICODE );
         Location::create($requestData);
-        return  "{'status':'success'}";
+        $arr = [
+            'status' => 'success'
+        ];
+        return  json_encode( $arr, JSON_UNESCAPED_UNICODE );
 
         
     }
