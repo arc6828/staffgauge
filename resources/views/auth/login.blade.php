@@ -65,13 +65,13 @@
                             </div>
                         </div>
                     </form>
-                    <p>____________________________________________________________________</p>
+                    <p>_________________________________________________________________________</p>
                         
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button class="btn btn-success" href="{{ route('login') }}">
+                                <a class="btn btn-success" href="{{ route('line') }}">
                                     {{ __('LOGIN WITH LINE') }}
-                                </button>
+                                </a>
                             </div>
                         </div>
                 </div>
