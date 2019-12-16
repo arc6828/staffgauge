@@ -11,7 +11,7 @@ class Location extends Model
      *
      * @var string
      */
-    protected $table = 'location';
+    protected $table = 'locations';
 
     /**
     * The database primary key value.

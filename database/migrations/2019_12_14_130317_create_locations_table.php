@@ -15,11 +15,11 @@ class CreateLocationsTable extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('address')->nullable();;
-            $table->float('latitude')->nullable();;
-            $table->float('longitude')->nullable();;
-            $table->string('typegroup')->nullable();;
-            $table->string('lineid')->nullable();;
+            $table->string('address')->nullable();
+            $table->float('latitude')->nullable();
+            $table->float('longitude')->nullable();
+            $table->string('typegroup')->nullable();
+            $table->string('lineid')->nullable();
             $table->timestamps();
         });
     }
