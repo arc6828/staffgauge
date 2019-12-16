@@ -28,8 +28,8 @@ Route::group(['middleware' => ['auth']], function () {
 });
 
 Route::prefix('login')->group(function () {
-    Route::get('/{provider}', 'Auth\LoginController@redirectToProvider')->name('login.provider');
-    Route::get('/{provider}/callback', 'Auth\LoginController@handleProviderCallback')->name('login.provider.callback');
+    Route::get('/line', 'Auth\LoginController@redirectToProvider')->name('login.provider');
+    Route::get('/line/callback', 'Auth\LoginController@handleProviderCallback')->name('login.provider.callback');
 });
 
 
