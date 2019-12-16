@@ -32,3 +32,6 @@ Route::prefix('login')->group(function () {
     Route::get('/{provider}/callback', 'Auth\LoginController@handleProviderCallback')->name('login.provider.callback');
 });
 
+
+Route::resource('log-ocr', 'LogOcrController');
+Route::resource('my-log-ocr', 'MyLogOcrController');

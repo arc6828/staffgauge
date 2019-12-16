@@ -1,3 +1,7 @@
 php artisan crud:generate Ocr --fields_from_file="resources/crud-generator/json/ocr.json"
 
 php artisan crud:generate Profile --fields_from_file="resources/crud-generator/json/profile.json"
+
+
+
+php artisan crud:generate LogOcr --fields_from_file="resources/crud-generator/json/log_ocr.json"
