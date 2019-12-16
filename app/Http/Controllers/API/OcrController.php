@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Ocr;
 
-use App\LogOcr;
+use App\MyLogOcr;
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
@@ -55,7 +55,7 @@ class OcrController extends Controller
         */
         $requestData = $request->all();      
         //KEEP LOG BEFORE DO ANYTHINGS
-        LogOcr::create(["json" => json_encode( $requestData, JSON_UNESCAPED_UNICODE ) ]);
+        MyLogOcr::create(["json" => json_encode( $requestData, JSON_UNESCAPED_UNICODE ) ]);
         if ($request->has('photo')) {
             //$requestData['photo'] =  Storage::putFile('uploads/ocr', new File($requestData['photo']));
             //$requestData['photo'] = $request->file('photo')->store('uploads/ocr', 'public');

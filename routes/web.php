@@ -34,3 +34,4 @@ Route::prefix('login')->group(function () {
 
 
 Route::resource('log-ocr', 'LogOcrController');
+Route::resource('my-log-ocr', 'MyLogOcrController');
