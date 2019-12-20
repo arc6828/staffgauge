@@ -25,6 +25,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('ocr', 'OcrController');
     Route::resource('profile', 'ProfileController');
     Route::resource('dashboard', 'DashboardController');
+    Route::resource('location', 'LocationController');
 });
 
 Route::prefix('login')->group(function () {
