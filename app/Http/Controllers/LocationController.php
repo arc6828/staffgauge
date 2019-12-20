@@ -78,7 +78,10 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $requestData = $request->all();
+        Location::create($requestData);
+
+        return redirect('location')->with('flash_message', 'Location added!');
     }
 
     /**
