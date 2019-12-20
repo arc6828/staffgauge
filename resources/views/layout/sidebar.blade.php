@@ -4,7 +4,7 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
         <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+          <i class="fas fa-tint"></i>
         </div>
         <div class="sidebar-brand-text mx-3">STAFFGAUGE<sup>V1</sup></div>
       </a>
@@ -25,6 +25,11 @@
         <a class="nav-link" href="{{ url('/ocr') }}">
           <i class="fas fa-fw fa-image"></i>
           <span>Ocr</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('/location') }}">
+          <i class="fas fa-fw fa-location-arrow"></i>
+          <span>Location</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ url('/home') }}">

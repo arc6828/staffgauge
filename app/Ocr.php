@@ -25,7 +25,7 @@ class Ocr extends Model
      *
      * @var array
      */
-    protected $fillable = ['title', 'content', 'photo','user_id','json_line','social_user_id','numbers'];
+    protected $fillable = ['title', 'content', 'photo','user_id','json_line','social_user_id','numbers','staffgaugeid','locationid'];
 
     public function user(){
         return $this->belongsTo('App\User', 'user_id');
@@ -33,6 +33,14 @@ class Ocr extends Model
 
     public function profile(){
         return $this->belongsTo('App\Profile', 'user_id');
+    }
+
+    public function location(){
+        return $this->hasOne('App\Location', 'id');
+    }
+
+    public function staffgauge(){
+        return $this->hasOne('App\Staffgauge', 'id');
     }
     
 }

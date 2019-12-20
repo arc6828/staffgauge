@@ -46,6 +46,8 @@ class OcrController extends Controller
             case "admin" : //FOR ADMIN SEE ALL
                 if (!empty($keyword)) {
                     $ocr = Ocr::where('title', 'LIKE', "%$keyword%")
+                        ->orWhere('staffgaugeid', 'LIKE', "%$keyword%")
+                        ->orWhere('locationid', 'LIKE', "%$keyword%")
                         ->orWhere('content', 'LIKE', "%$keyword%")
                         ->orWhere('photo', 'LIKE', "%$keyword%")
                         ->latest()->paginate($perPage);
@@ -59,6 +61,8 @@ class OcrController extends Controller
                     $ocr = Ocr::where('user_id' , Auth::user()->id)
                         ->where(function($query) use ($keyword){
                             $query->where('title', 'LIKE', "%$keyword%")
+                                ->orWhere('staffgaugeid', 'LIKE', "%$keyword%")
+                                ->orWhere('locationid', 'LIKE', "%$keyword%")
                                 ->orWhere('content', 'LIKE', "%$keyword%")
                                 ->orWhere('photo', 'LIKE', "%$keyword%");
                         })->latest()->paginate($perPage);

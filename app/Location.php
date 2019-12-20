@@ -25,5 +25,13 @@ class Location extends Model
      *
      * @var array
      */
-    protected $fillable = ['address', 'latitude', 'longitude','typegroup','lineid'];
+    protected $fillable = ['address', 'latitude', 'longitude','typegroup','lineid','staffgaugeid'];
+
+    public function staffgauge(){
+        return $this->belongsTo('App\Staffgauge', 'staffgaugeid');
+    }
+
+    public function ocr(){
+        return $this->belongsTo('App\Ocr', 'id');
+    }
 }
