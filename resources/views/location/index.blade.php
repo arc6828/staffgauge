@@ -48,7 +48,7 @@
                                         <td>{{ $item->longitude }}</td>
                                         <td>{{ $item->typegroup }}</td>
                                         <td>{{ $item->lineid }}</td>
-                                        <td>{{ $item->staffgauge->id }}</td>
+                                        <td>{{ $item->staffgaugeid }}</td>
                                         <td>
                                             <a href="{{ url('/location/' . $item->id) }}" title="View Location"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/location/' . $item->id . '/edit') }}" title="Edit Location"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
