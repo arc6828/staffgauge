@@ -116,7 +116,12 @@ class LocationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $requestData = $request->all();
+
+        $location = Location::findOrFail($id);
+        $location->update($requestData);
+
+        return redirect('location')->with('flash_message', 'Location updated!');
     }
 
     /**
@@ -127,6 +132,8 @@ class LocationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Location::destroy($id);
+
+        return redirect('location')->with('flash_message', 'Location deleted!');
     }
 }
