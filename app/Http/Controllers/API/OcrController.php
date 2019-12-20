@@ -99,7 +99,10 @@ class OcrController extends Controller
         }
         //$text = json_encode( $requestData, JSON_UNESCAPED_UNICODE );
         Ocr::create($requestData);
-        return  "{'status':'success'}";
+        $arr = [
+            'status' => 'success'
+        ];
+        return  json_encode( $arr, JSON_UNESCAPED_UNICODE );
 
         
     }
