@@ -26,6 +26,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('profile', 'ProfileController');
     Route::resource('dashboard', 'DashboardController');
     Route::resource('location', 'LocationController');
+    Route::resource('staffgauge', 'StaffgaugeController');
 });
 
 Route::prefix('login')->group(function () {
