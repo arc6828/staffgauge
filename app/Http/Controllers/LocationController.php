@@ -78,7 +78,11 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $requestData = $request->all();
+
+        Location::create($requestData);
+
+        return redirect('location')->with('flash_message', 'Location added!');
     }
 
     /**
@@ -116,7 +120,12 @@ class LocationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $requestData = $request->all();
+
+        $location = Ocr::findOrFail($id);
+        $location->update($requestData);
+
+        return redirect('location')->with('flash_message', 'Location updated!');
     }
 
     /**
@@ -127,6 +136,8 @@ class LocationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Location::destroy($id);
+
+        return redirect('location')->with('flash_message', 'Location deleted!');
     }
 }

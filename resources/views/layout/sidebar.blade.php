@@ -18,7 +18,7 @@
       </div>
       <li class="nav-item">
         <a class="nav-link" href="{{ url('/dashboard') }}">
-          <i class="fas fa-fw fa-book"></i>
+          <i class="fas fa-fw fa-map-marker"></i>
           <span>Dashboard</span></a>
       </li>
       <li class="nav-item">
@@ -30,6 +30,11 @@
         <a class="nav-link" href="{{ url('/location') }}">
           <i class="fas fa-fw fa-location-arrow"></i>
           <span>Location</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('/staffgauge') }}">
+          <i class="fas fa-fw fa-podcast"></i>
+          <span>Staffgauge</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ url('/home') }}">
