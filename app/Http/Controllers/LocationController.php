@@ -123,6 +123,7 @@ class LocationController extends Controller
         $requestData = $request->all();
 
         $location = Ocr::findOrFail($id);
+        
         $location->update($requestData);
 
         return redirect('location')->with('flash_message', 'Location updated!');
