@@ -108,10 +108,14 @@ class OcrController extends Controller
         //$requestData['locationid'] = "";
             
         Ocr::create($requestData);
+        return  "{'status':'success'}";
+        
+        /*
         $arr = [
             'status' => 'success'
         ];
         return  json_encode( $arr, JSON_UNESCAPED_UNICODE );
+        */
 
         
     }
