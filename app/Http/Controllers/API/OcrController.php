@@ -5,6 +5,8 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Ocr;
+use App\Staffgauge;
+use App\Location;
 
 use App\MyLogOcr;
 use Illuminate\Http\File;
@@ -53,7 +55,7 @@ class OcrController extends Controller
             "numbers" => [],                 //Array of only number
         ]
         */
-        $requestData = $request->all();      
+        $requestData = $request->all();
         //KEEP LOG BEFORE DO ANYTHINGS
         MyLogOcr::create(["json" => json_encode( $requestData, JSON_UNESCAPED_UNICODE ) ]);
         if ($request->has('photo')) {
@@ -95,9 +97,16 @@ class OcrController extends Controller
             $requestData['numbers'] = json_encode( $requestData['numbers'], JSON_UNESCAPED_UNICODE );
         }   
         if (!$request->has('user_id')) {
-            $requestData['user_id'] = 1;
+            $requestData['user_id'] = Auth::user()->id;
         }
         //$text = json_encode( $requestData, JSON_UNESCAPED_UNICODE );
+        //MAPPING
+        //ดึงข้อมูล location จาก linesocialid
+
+        //WRITE CODE HERE
+        //$requestData['staffgaugeid'] = "xxxxxx";
+        //$requestData['locationid'] = "";
+            
         Ocr::create($requestData);
         $arr = [
             'status' => 'success'

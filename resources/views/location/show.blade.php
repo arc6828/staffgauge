@@ -31,7 +31,7 @@
                                     <tr><th> Longitude </th><td> {{ $location->longitude }} </td></tr>
                                     <tr><th> TypeGroup </th><td> {{ $location->typegroup }} </td></tr>
                                     <tr><th> LineId </th><td> {{ $location->lineid }} </td></tr>
-                                    <tr><th> StaffgaugeId </th><td> {{ $location->staffgauge->id }} </td></tr>
+                                    <tr><th> StaffgaugeId </th><td> {{ $location->staffgaugeid }} </td></tr>
                                 </tbody>
                             </table>
                         </div>
