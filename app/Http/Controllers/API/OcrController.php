@@ -97,7 +97,7 @@ class OcrController extends Controller
             $requestData['numbers'] = json_encode( $requestData['numbers'], JSON_UNESCAPED_UNICODE );
         }   
         if (!$request->has('user_id')) {
-            $requestData['user_id'] = Auth::user()->id;
+            $requestData['user_id'] = 1;
         }
         //$text = json_encode( $requestData, JSON_UNESCAPED_UNICODE );
         //MAPPING
