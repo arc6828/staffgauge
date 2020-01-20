@@ -13,7 +13,7 @@ class AddColumnToProfiles extends Migration
      */
     public function up()
     {
-        Schema::table('Profiles', function (Blueprint $table) {
+        Schema::table('profiles', function (Blueprint $table) {
             $table->string("lineid")->nullable();
         });
     }
