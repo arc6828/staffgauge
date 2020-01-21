@@ -36,11 +36,11 @@ class Ocr extends Model
     }
 
     public function location(){
-        return $this->hasOne('App\Location', 'id');
+        return $this->hasOne('App\Location', 'lineid');
     }
 
     public function staffgauge(){
-        return $this->hasOne('App\Staffgauge', 'id');
+        return $this->hasOne('App\Staffgauge', 'lineid');
     }
     
 }

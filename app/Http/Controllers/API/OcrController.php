@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Ocr;
 use App\Staffgauge;
 use App\Location;
+use App\Profile;
 
 use App\MyLogOcr;
 use Illuminate\Http\File;
@@ -97,7 +98,13 @@ class OcrController extends Controller
             $requestData['numbers'] = json_encode( $requestData['numbers'], JSON_UNESCAPED_UNICODE );
         }
         if (!$request->has('user_id')) {
-            $requestData['user_id'] = 1;
+            $requestData['user_id'] = Profile::find('user_id');
+        }
+        if (!$request->has('locationid')) {
+            $requestData['locationid'] = Location::find('locationid');
+        }
+        if (!$request->has('staffgaugeid')) {
+            $requestData['staffgaugeid'] = Location::find('staffgaugeid');
         }
         //$text = json_encode( $requestData, JSON_UNESCAPED_UNICODE );
         //MAPPING

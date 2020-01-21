@@ -32,6 +32,6 @@ class Location extends Model
     }
 
     public function ocr(){
-        return $this->belongsTo('App\Ocr', 'id');
+        return $this->belongsTo('App\Ocr', 'lineid');
     }
 }
