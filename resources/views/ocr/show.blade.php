@@ -32,6 +32,8 @@
                                     <tr><th> Numbers </th><td> {{ $ocr->numbers }} </td></tr>
                                     <tr><th> LineId </th><td> {{ $ocr->lineid }} </td></tr>
                                     <tr><th> UserId </th><td> {{ $ocr->user->name }} </td></tr>
+                                    <tr><th> LocationId </th><td> {{ $ocr->locationid }} </td></tr>
+                                    <tr><th> StaffgaugeId </th><td> {{ $ocr->staffgaugeid }} </td></tr>
                                     <tr><th> Photo </th><td><img src="{{ url('storage') }}/{{ $ocr->photo }}" width=100 /></td></tr>
                                 </tbody>
                             </table>
