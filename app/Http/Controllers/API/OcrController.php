@@ -98,13 +98,13 @@ class OcrController extends Controller
             $requestData['numbers'] = json_encode( $requestData['numbers'], JSON_UNESCAPED_UNICODE );
         }
         if (!$request->has('user_id')) {
-            $requestData['user_id'] = Profile::find('user_id');
+            $requestData['user_id'] = Profile::findOrFail()->user_id;
         }
         if (!$request->has('locationid')) {
-            $requestData['locationid'] = Location::find('locationid');
+            $requestData['locationid'] = Location::findOrFail()->locationid;
         }
         if (!$request->has('staffgaugeid')) {
-            $requestData['staffgaugeid'] = Location::find('staffgaugeid');
+            $requestData['staffgaugeid'] = Location::findOrFail()->staffgaugeid;
         }
         //$text = json_encode( $requestData, JSON_UNESCAPED_UNICODE );
         //MAPPING

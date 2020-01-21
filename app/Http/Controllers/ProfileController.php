@@ -24,6 +24,7 @@ class ProfileController extends Controller
         if (!empty($keyword)) {
             $profile = Profile::where('role', 'LIKE', "%$keyword%")
                 ->orWhere('user_id', 'LIKE', "%$keyword%")
+                ->orWhere('lineid', 'LIKE', "%$keyword%")
                 ->orWhere('photo', 'LIKE', "%$keyword%")
                 ->latest()->paginate($perPage);
         } else {
