@@ -99,12 +99,6 @@ class OcrController extends Controller
         if (!$request->has('user_id')) {
             $requestData['user_id'] = 1;
         }
-        if (!$request->has('locationid')) {
-            $requestData['locationid'] = Location::find('locationid')->first();
-        }
-        if (!$request->has('staffgaugeid')) {
-            $requestData['staffgaugeid'] = Location::find('staffgaugeid')->first();
-        }
         //$text = json_encode( $requestData, JSON_UNESCAPED_UNICODE );
         //MAPPING
         //ดึงข้อมูล location จาก linesocialid

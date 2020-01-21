@@ -30,8 +30,8 @@
                                     <tr><th> Title </th><td> {{ $ocr->title }} </td></tr>
                                     <tr><th> Content </th><td> {{ $ocr->content }} </td></tr>
                                     <tr><th> Numbers </th><td> {{ $ocr->numbers }} </td></tr>
-                                    <tr><th> social_user_id </th><td> {{ $ocr->social_user_id }} </td></tr>
-                                    <tr><th> user_id </th><td> {{ $ocr->user->name }} </td></tr>
+                                    <tr><th> LineId </th><td> {{ $ocr->lineid }} </td></tr>
+                                    <tr><th> UserId </th><td> {{ $ocr->user->name }} </td></tr>
                                     <tr><th> Photo </th><td><img src="{{ url('storage') }}/{{ $ocr->photo }}" width=100 /></td></tr>
                                 </tbody>
                             </table>
