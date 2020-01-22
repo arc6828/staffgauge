@@ -97,9 +97,10 @@ class OcrController extends Controller
         if ($request->has('numbers')) {
             $requestData['numbers'] = json_encode( $requestData['numbers'], JSON_UNESCAPED_UNICODE );
         }
-        $requestData['user_id'] = 1;
-        $requestData['locationid'] = 1;
-        $requestData['staffgaugeid'] = 1;
+
+        // $requestData['user_id'] = 1;
+        // $requestData['locationid'] = 1;
+        // $requestData['staffgaugeid'] = 1;
         
         //ดึงข้อมูล location จาก lineid
         if ($request->has('lineid')) {
