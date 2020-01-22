@@ -19,4 +19,8 @@ class Staffgauge extends Model
     public function ocr(){
         return $this->belongsTo('App\Ocr', 'lineid');
     }
+
+    public function profile(){
+        return $this->belongsTo('App\Profile', 'lineid');
+    }
 }

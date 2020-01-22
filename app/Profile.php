@@ -20,4 +20,12 @@ class Profile extends Model
         return $this->hasMany('App\Ocr', 'user_id');
     }
 
+    public function location(){
+        return $this->hasMany('App\Location', 'lineid');
+    }
+
+    public function staffgauge(){
+        return $this->hasMany('App\Staffgauge', 'lineid');
+    }
+
 }
