@@ -98,16 +98,16 @@ class OcrController extends Controller
             $requestData['numbers'] = json_encode( $requestData['numbers'], JSON_UNESCAPED_UNICODE );
         }
 
-        // $requestData['user_id'] = 1;
-        // $requestData['locationid'] = 1;
-        // $requestData['staffgaugeid'] = 1;
+        $requestData['user_id'] = 1;
+        $requestData['locationid'] = 1;
+        $requestData['staffgaugeid'] = 1;
         
         //ดึงข้อมูล location จาก lineid
         if ($request->has('lineid')) {
             $lineid = $requestData['lineid'];
             
             $profile = Profile::where('lineid' , $lineid);
-            $requestData['user_id'] = $profile->user_id;
+            $requestData['user_id'] = $profile->id;
             
             $location = Location::where('lineid' , $lineid);
             $requestData['locationid'] = $location->id;
