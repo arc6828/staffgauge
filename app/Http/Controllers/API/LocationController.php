@@ -37,41 +37,16 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        /* example format of $requestData : http://staffgauge.ckartisan.com/api/ocr
-        [
-            "title" => "100",                //level of water
-            "content" => [],                 //raw data (everything)
-            "photo" => "https://......jpg" , //URL IMAGE
-            "social_user_id" => "",          //line id
-            "numbers" => [],                 //Array of only number
-        ]
-        */
-        $requestData = $request->all();    
-        //Location::create(["json_line" => json_encode( $requestData, JSON_UNESCAPED_UNICODE ) ]);
-        //$data = json_decode( $requestData['address']);
-        /*if ($request->has('address')) {
-            $requestData['address'] = $requestData['address'];
-        }
-        if ($request->has('latitude')) {
-            $requestData['latitude'] = json_encode( $requestData['latitude'], JSON_UNESCAPED_UNICODE );
-        }
-        if ($request->has('longitude')) {
-            $requestData['longitude'] = json_encode( $requestData['longitude'], JSON_UNESCAPED_UNICODE );
-        }
-        if ($request->has('typegroup')) {
-            $requestData['typegroup'] = json_encode( $requestData['typegroup'], JSON_UNESCAPED_UNICODE );
-        }  
-        if ($request->has('lineid')) {
-            $requestData['lineid'] = json_encode( $requestData['lineid'], JSON_UNESCAPED_UNICODE );
-        }*/
-        //$text = json_encode( $requestData, JSON_UNESCAPED_UNICODE );
+
+        $requestData = $request->all();
+        // $requestData['latitude']
+        // $requestData['longitude']
         Location::create($requestData);
         $arr = [
             'status' => 'success'
         ];
         return  json_encode( $arr, JSON_UNESCAPED_UNICODE );
 
-        
     }
     
 

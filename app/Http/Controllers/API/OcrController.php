@@ -97,22 +97,22 @@ class OcrController extends Controller
         if ($request->has('numbers')) {
             $requestData['numbers'] = json_encode( $requestData['numbers'], JSON_UNESCAPED_UNICODE );
         }
-        if (!$request->has('user_id')) {
-            $requestData['user_id'] = Profile::findOrFail($user_id);
+        $requestData['user_id'] = 1;
+        $requestData['locationid'] = 1;
+        $requestData['staffgaugeid'] = 1;
+        
+        //ดึงข้อมูล location จาก lineid
+        if ($request->has('lineid')) {
+            $lineid = $requestData['lineid'];
+            
+            $profile = Profile::where('lineid' , $lineid);
+            $requestData['user_id'] = $profile->user_id;
+            
+            $location = Location::where('lineid' , $lineid);
+            $requestData['locationid'] = $location->id;
+            $requestData['staffgaugeid'] = $location->staffgaugeid;        
         }
-        if (!$request->has('locationid')) {
-            $requestData['locationid'] = Location::findOrFail($locationid);
-        }
-        if (!$request->has('staffgaugeid')) {
-            $requestData['staffgaugeid'] = Location::findOrFail($staffgaugeid);
-        }
-        //$text = json_encode( $requestData, JSON_UNESCAPED_UNICODE );
-        //MAPPING
-        //ดึงข้อมูล location จาก linesocialid
-
-        //WRITE CODE HERE
-        //$requestData['staffgaugeid'] = "xxxxxx";
-        //$requestData['locationid'] = "";
+        
             
         Ocr::create($requestData);
         $arr = [
