@@ -107,7 +107,7 @@ class OcrController extends Controller
             $lineid = $requestData['lineid'];
             
             $profile = Profile::where('lineid' , $lineid);
-            $requestData['user_id'] = $profile->first()->id;
+            $requestData['user_id'] = $profile->first()->user_id;
             
             $location = Location::where('lineid' , $lineid);
             $requestData['locationid'] = $location->latest()->first()->id;
