@@ -28,17 +28,13 @@ class DashboardController extends Controller
 
         GMapsFacade::initialize($config);
 
-        $marker1['position'] = '14.039731691604512, 100.66684383908346';
-        $marker1['infowindow_content'] = `Home`;
-        GmapsFacade::add_marker($marker1);
-
-        $marker2['position'] = '14.13373938749426, 100.61768407876879';
-        $marker2['infowindow_content'] = 'VRU';
-        GmapsFacade::add_marker($marker2);
-
-        $marker3['position'] = '13.989577152673931, 100.61710125020257';
-        $marker3['infowindow_content'] = 'Future Park';
-        GmapsFacade::add_marker($marker3);
+        function markers($marker) {
+            $location = Location::findOrFail();
+            $marker['position'] = `$location->latitude , $location->longitude`; // ``
+            $marker['infowindow_content'] = `$location->address`;
+            GmapsFacade::add_marker($marker);
+            return $marker;
+        }
 
 
         $map = GMapsFacade::create_map();
