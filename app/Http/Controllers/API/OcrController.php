@@ -111,7 +111,7 @@ class OcrController extends Controller
             
             $location = Location::where('lineid' , $lineid)->latest()->first();
             $requestData['locationid'] = $location->staffgaugeid;
-            $requestData['staffgaugeid'] = $location->staffgaugeid;
+            $requestData['staffgaugeid'] = $location->id;
         }
         
             
