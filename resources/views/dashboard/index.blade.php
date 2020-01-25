@@ -35,14 +35,14 @@
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: new google.maps.LatLng(14.133982043026919, 100.61786002773624),
-          zoom: 12
+          zoom: 14
         });
         var infoWindow = new google.maps.InfoWindow;
 
           // Change this depending on the name of your PHP or XML file
-          fetch('https://smartstaffgauge.com/api/map/staffgauges', function(data) {
+          $.getJSON('https://smartstaffgauge.com/api/map/staffgauges', function(data) {
             console.log('data',data);
-            var json = data;
+            var json = data.address;
             console.log('json',json);
             var markers = json.documentElement.getElementsByTagName('marker');
             Array.prototype.forEach.call(markers, function(markerElem) {
