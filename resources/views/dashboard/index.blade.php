@@ -3,7 +3,7 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <title>Using MySQL and PHP with Google Maps</title>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -41,7 +41,7 @@
         var infoWindow = new google.maps.InfoWindow;
 
           // Change this depending on the name of your PHP or XML file
-          getJSON('https://smartstaffgauge.com/api/map/staffgauges', function(err, data) {
+          getJSONP('https://smartstaffgauge.com/api/map/staffgauges', function(err, data) {
             if (err !== null) {
               alert('Something went wrong: ' + err);
               console.log('Something went wrong: ' + err);
@@ -84,20 +84,22 @@
 
 
 
-        var getJSON = function (url, callback) {
-          var xhr = new XMLHttpRequest();
-          xhr.open('GET', url, true);
-          xhr.responseType = 'json';
-          xhr.onload = function() {
-            var status = xhr.status;
-            if (status === 200) {
-              callback(null, xhr.response);
-            } else {
-              callback(status, xhr.response);
-            }
+        function getJSONP(url, success) {
+
+          var ud = '_' + +new Date,
+              script = document.createElement('script'),
+              head = document.getElementsByTagName('head')[0] 
+                    || document.documentElement;
+
+          window[ud] = function(data) {
+              head.removeChild(script);
+              success && success(data);
           };
-          xhr.send();
-        };
+
+          script.src = url.replace('callback=?', 'callback=' + ud);
+          head.appendChild(script);
+
+          }
 
       function doNothing() {}
     </script>
