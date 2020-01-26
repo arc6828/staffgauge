@@ -3,6 +3,7 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <title>Using MySQL and PHP with Google Maps</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -40,10 +41,14 @@
         var infoWindow = new google.maps.InfoWindow;
 
           // Change this depending on the name of your PHP or XML file
-          jQuery.getJSON('https://smartstaffgauge.com/api/map/staffgauges', function(data) {
-            console.log('data',data);
-            var json = data.json();
-            console.log('json',json);
+          getJSON('https://smartstaffgauge.com/api/map/staffgauges', function(err, data) {
+            if (err !== null) {
+              alert('Something went wrong: ' + err);
+              console.log('Something went wrong: ' + err);
+            } else {
+              alert('Your query count: ' + data.query.count);
+              console.log('Your query count: ' + data.query.count);
+            }
             var markers = json.documentElement.getElementsByTagName('marker');
             Array.prototype.forEach.call(markers, function(markerElem) {
               var id = markerElem.getAttribute('id');
@@ -79,21 +84,20 @@
 
 
 
-      function downloadUrl(url, callback) {
-        var request = window.ActiveXObject ?
-            new ActiveXObject('Microsoft.XMLHTTP') :
-            new XMLHttpRequest;
-
-        request.onreadystatechange = function() {
-          if (request.readyState == 4) {
-            request.onreadystatechange = doNothing;
-            callback(request, request.status);
-          }
+        var getJSON = function (url, callback) {
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', url, true);
+          xhr.responseType = 'json';
+          xhr.onload = function() {
+            var status = xhr.status;
+            if (status === 200) {
+              callback(null, xhr.response);
+            } else {
+              callback(status, xhr.response);
+            }
+          };
+          xhr.send();
         };
-
-        request.open('GET', url, true);
-        request.send(null);
-      }
 
       function doNothing() {}
     </script>
