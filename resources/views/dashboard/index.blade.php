@@ -33,15 +33,6 @@
         }
       };
 
-      $.ajax({
-          dataType: "json",
-          url: url,
-          data: data,
-          success: success
-        });
-
-        jQuery.getJSON( url [, data ] [, success ] )
-
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: new google.maps.LatLng(14.133982043026919, 100.61786002773624),
