@@ -40,7 +40,7 @@
         var infoWindow = new google.maps.InfoWindow;
 
           // Change this depending on the name of your PHP or XML file
-          fetch('https://smartstaffgauge.com/api/map/staffgauges', function(data) {
+          jQuery.getJSON('https://smartstaffgauge.com/api/map/staffgauges', function(data) {
             console.log('data',data);
             var json = data.json();
             console.log('json',json);
