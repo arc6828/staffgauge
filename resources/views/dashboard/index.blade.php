@@ -33,14 +33,7 @@
         }
       };
 
-      function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: new google.maps.LatLng(14.133982043026919, 100.61786002773624),
-          zoom: 14
-        });
-        var infoWindow = new google.maps.InfoWindow;
-
-        $.ajax({
+      $.ajax({
           dataType: "json",
           url: url,
           data: data,
@@ -48,6 +41,13 @@
         });
 
         jQuery.getJSON( url [, data ] [, success ] )
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: new google.maps.LatLng(14.133982043026919, 100.61786002773624),
+          zoom: 14
+        });
+        var infoWindow = new google.maps.InfoWindow;
 
           // Change this depending on the name of your PHP or XML file
           $.getJSON('https://smartstaffgauge.com/api/map/staffgauges', function(err, data) {
