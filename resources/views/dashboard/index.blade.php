@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html >
   <head>
-    <title>Simple Map</title>
-    <meta name="viewport" content="initial-scale=1.0">
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <title>Using MySQL and PHP with Google Maps</title>
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -12,57 +10,93 @@
         height: 100%;
       }
       /* Optional: Makes the sample page fill the window. */
-      html {
+      html, body {
         height: 100%;
         margin: 0;
         padding: 0;
-		text-align: center;
-      }
-
-      #map {
-        height: 500px;
-        width: 600px;
       }
     </style>
   </head>
+
+<html>
   <body>
-  <div id="map"></div>
+    <div id="map"></div>
+
     <script>
+      var customLabel = {
+        restaurant: {
+          label: 'R'
+        },
+        bar: {
+          label: 'B'
+        }
+      };
 
-      function initMap() {
-			var mapOptions = {
-			  center: {lat: 14.133982043026919, lng: 100.61786002773624},
-			  zoom: 14,
-			}
-				
-			var maps = new google.maps.Map(document.getElementById("map"),mapOptions);
+        function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: new google.maps.LatLng(-33.863276, 151.207977),
+          zoom: 12
+        });
+        var infoWindow = new google.maps.InfoWindow;
 
-			var marker, info;
+          // Change this depending on the name of your PHP or XML file
+          downloadUrl('https://storage.googleapis.com/mapsdevsite/json/mapmarkers2.xml', function(data) {
+            var xml = data.responseXML;
+            var markers = xml.documentElement.getElementsByTagName('marker');
+            Array.prototype.forEach.call(markers, function(markerElem) {
+              var id = markerElem.getAttribute('id');
+              var name = markerElem.getAttribute('name');
+              var address = markerElem.getAttribute('address');
+              var type = markerElem.getAttribute('type');
+              var point = new google.maps.LatLng(
+                  parseFloat(markerElem.getAttribute('lat')),
+                  parseFloat(markerElem.getAttribute('lng')));
 
-			$.getJSON( "json.php", function( jsonObj ) {
-					//*** loop
-					$.each(jsonObj, function(i, item){
-						marker = new google.maps.Marker({
-						   position: new google.maps.LatLng(item.latitude, item.longitude),
-						   map: maps,
-						   title: item.address
-						});
+              var infowincontent = document.createElement('div');
+              var strong = document.createElement('strong');
+              strong.textContent = name
+              infowincontent.appendChild(strong);
+              infowincontent.appendChild(document.createElement('br'));
 
-					  info = new google.maps.InfoWindow();
+              var text = document.createElement('text');
+              text.textContent = address
+              infowincontent.appendChild(text);
+              var icon = customLabel[type] || {};
+              var marker = new google.maps.Marker({
+                map: map,
+                position: point,
+                label: icon.label
+              });
+              marker.addListener('click', function() {
+                infoWindow.setContent(infowincontent);
+                infoWindow.open(map, marker);
+              });
+            });
+          });
+        }
 
-					  google.maps.event.addListener(marker, 'click', (function(marker, i) {
-						return function() {
-						  info.setContent(item.address);
-						  info.open(maps, marker);
-						}
-					  })(marker, i));
 
-					}); // loop
 
-			 });
+      function downloadUrl(url, callback) {
+        var request = window.ActiveXObject ?
+            new ActiveXObject('Microsoft.XMLHTTP') :
+            new XMLHttpRequest;
 
-		}
+        request.onreadystatechange = function() {
+          if (request.readyState == 4) {
+            request.onreadystatechange = doNothing;
+            callback(request, request.status);
+          }
+        };
+
+        request.open('GET', url, true);
+        request.send(null);
+      }
+
+      function doNothing() {}
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAG1_Wtq39qpBpTSaSne1jNv4GtMqIB920&callback=initMap" async defer></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAG1_Wtq39qpBpTSaSne1jNv4GtMqIB920&callback=initMap">
+    </script>
   </body>
 </html>
