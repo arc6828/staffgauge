@@ -43,10 +43,8 @@
           // Change this depending on the name of your PHP or XML file
           $.getJSON('https://smartstaffgauge.com/api/map/staffgauges', function(err, data) {
 
-            var text = `Date: ${data.address}<br>
-                        Time: ${data.latitude}<br>
-                        Unix time: ${data.longitude}`
-            console.log(text);
+            var json = data.responseJSON;
+            console.log(json);
 
             var markers = json.documentElement.getElementsByTagName('marker');
             Array.prototype.forEach.call(markers, function(markerElem) {
