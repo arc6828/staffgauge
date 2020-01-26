@@ -46,8 +46,8 @@
               alert('Something went wrong: ' + err);
               console.log('Something went wrong: ' + err);
             } else {
-              alert('Your query count: ' + data.query.count);
-              console.log('Your query count: ' + data.query.count);
+              alert('Your query count: ' + data);
+              console.log('Your query count: ' + data);
             }
             var markers = json.documentElement.getElementsByTagName('marker');
             Array.prototype.forEach.call(markers, function(markerElem) {
