@@ -40,15 +40,23 @@
         });
         var infoWindow = new google.maps.InfoWindow;
 
+        $.ajax({
+          dataType: "json",
+          url: url,
+          data: data,
+          success: success
+        });
+
+        jQuery.getJSON( url [, data ] [, success ] )
+
           // Change this depending on the name of your PHP or XML file
-          getJSONP('https://smartstaffgauge.com/api/map/staffgauges', function(err, data) {
-            if (err !== null) {
-              alert('Something went wrong: ' + err);
-              console.log('Something went wrong: ' + err);
-            } else {
-              alert('Your query count: ' + data);
-              console.log('Your query count: ' + data);
-            }
+          $.getJSON('https://smartstaffgauge.com/api/map/staffgauges', function(err, data) {
+
+            var text = `Date: ${data.address}<br>
+                        Time: ${data.latitude}<br>
+                        Unix time: ${data.longitude}`
+            console.log(text);
+
             var markers = json.documentElement.getElementsByTagName('marker');
             Array.prototype.forEach.call(markers, function(markerElem) {
               var id = markerElem.getAttribute('id');
