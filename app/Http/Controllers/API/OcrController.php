@@ -114,8 +114,8 @@ class OcrController extends Controller
             //ระวัง query นี้อาจมีผลลัพธ์ เป็น null
             $location = Location::where('lineid' , $lineid)->latest()->first();
 
-            $requestData['locationid'] = $location ? $location->staffgaugeid : 1 ;
-            $requestData['staffgaugeid'] = $location ? $location->id : 1 ;
+            $requestData['locationid'] = $location ? $location->id : 1 ;
+            $requestData['staffgaugeid'] = $location ? $location->staffgaugeid : 1 ;
         }
         
             

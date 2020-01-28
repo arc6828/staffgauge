@@ -46,8 +46,8 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td><img src="{{ url('storage') }}/{{ $item->photo }}" width=100 /></td>
                                         <td>{{ $item->user->name }}</td>
-                                        <td>{{ $item->staffgaugeid }}</td>
                                         <td>{{ $item->locationid }}</td>
+                                        <td>{{ $item->staffgaugeid }}</td>
                                         <td>{{ $item->created_at }}</td>
                                         <td>{{ $item->title }}</td>
                                         <td style="max-width:200px;">{{ $item->content }}</td>
