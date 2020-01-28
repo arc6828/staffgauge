@@ -40,6 +40,10 @@
         });
         var infoWindow = new google.maps.InfoWindow;
 
+        let fetchapi = fetch('https://smartstaffgauge.com/api/map/staffgauges').then((response)=> {
+          console.log(response);
+        });
+
           // Change this depending on the name of your PHP or XML file
           jQuery.getJSON('https://smartstaffgauge.com/api/map/staffgauges', function(data) {
             console.log(data);
