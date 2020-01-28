@@ -107,8 +107,8 @@ class OcrController extends Controller
             $lineid = $requestData['lineid'];
             
             //ระวัง query นี้อาจมีผลลัพธ์ เป็น null
-            $profile = Profile::where('lineid' , $lineid);
-            $requestData['user_id'] = $profile ? $profile->first()->user_id : 1 ;
+            $profile = Profile::where('lineid' , $lineid)->first();
+            $requestData['user_id'] = $profile ? $profile->user_id : 1 ;
             
             
             //ระวัง query นี้อาจมีผลลัพธ์ เป็น null
