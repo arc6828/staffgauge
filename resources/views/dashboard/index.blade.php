@@ -20,6 +20,7 @@
 
 <html>
   <body>
+  <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <div id="map"></div>
 
     <script>
