@@ -8,7 +8,9 @@
 </head>
  
 <body id="page-top">
- 
+  
+  @include('layout.js')
+  
   <!-- Page Wrapper -->
   <div id="wrapper">
  
@@ -41,7 +43,6 @@
   </div>
   <!-- End of Page Wrapper -->
  
-    @include('layout.js')
     
 </body>
  

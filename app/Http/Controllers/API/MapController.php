@@ -9,7 +9,7 @@ class MapController extends Controller
   public function locations()
   {
     $locations = Location::get();
-    return response()->json($locations);
+    return response()->json($locations); 
   }
   public function staffgauges()
   {

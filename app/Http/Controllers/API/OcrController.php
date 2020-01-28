@@ -106,12 +106,16 @@ class OcrController extends Controller
         if ($request->has('lineid')) {
             $lineid = $requestData['lineid'];
             
+            //ระวัง query นี้อาจมีผลลัพธ์ เป็น null
             $profile = Profile::where('lineid' , $lineid);
-            $requestData['user_id'] = $profile->first()->user_id;
+            $requestData['user_id'] = $profile ? $profile->first()->user_id : 1 ;
             
-            $location = Location::where('lineid' , $lineid);
-            $requestData['locationid'] = $location->latest()->first()->staffgaugeid;
-            $requestData['staffgaugeid'] = $location->latest()->first()->id;
+            
+            //ระวัง query นี้อาจมีผลลัพธ์ เป็น null
+            $location = Location::where('lineid' , $lineid)->latest()->first();
+
+            $requestData['locationid'] = $location->staffgaugeid;
+            $requestData['staffgaugeid'] = $location->id;
         }
         
             
