@@ -17,7 +17,7 @@ class Staffgauge extends Model
     }
 
     public function ocr(){
-        return $this->belongsTo('App\Ocr', 'lineid');
+        return $this->hasMany('App\Ocr', 'staffgaugeid');
     }
 
     public function profile(){
