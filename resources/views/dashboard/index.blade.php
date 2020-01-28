@@ -40,8 +40,10 @@
         });
         var infoWindow = new google.maps.InfoWindow;
 
-        let fetchapi = fetch('https://smartstaffgauge.com/api/map/staffgauges').then((response)=> {
-          console.log(response);
+        let fetchapi = fetch('https://smartstaffgauge.com/api/map/staffgauges')
+        .then((response) => response.json())
+        .then((responseJSON)=> {
+          console.log(responseJSON);
         });
 
           // Change this depending on the name of your PHP or XML file
