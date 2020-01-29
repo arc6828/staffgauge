@@ -126,7 +126,7 @@
         ]);
 
         var options = {
-          title: 'Company Performance',
+          title: `${data.name}`,
           hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
           vAxis: {minValue: 0}
         };
