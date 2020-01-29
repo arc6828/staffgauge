@@ -25,46 +25,48 @@
 
     <script>
       var customLabel = {
-        restaurant: {
-          label: 'R'
+        คลองหนี่ง: {
+          label: 'A'
         },
-        bar: {
+        ประชาธิปัตย์: {
           label: 'B'
         }
       };
 
         function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          center: new google.maps.LatLng(-33.863276, 151.207977),
+          center: new google.maps.LatLng(14.133982043026919, 100.61786002773624),
           zoom: 12
         });
         var infoWindow = new google.maps.InfoWindow;
 
+        /*
         let fetchapi = fetch('https://smartstaffgauge.com/api/map/staffgauges')
         .then((response) => response.json())
         .then((responseJSON)=> {
           console.log(responseJSON);
         });
+        */
 
           // Change this depending on the name of your PHP or XML file
           jQuery.getJSON('https://smartstaffgauge.com/api/map/staffgauges', function(data) {
             console.log(data);
-            var xml = data.responseXML;
-            var markers = xml.documentElement.getElementsByTagName('marker');
-            Array.prototype.forEach.call(markers, function(markerElem) {
-              var id = markerElem.getAttribute('id');
-              var name = markerElem.getAttribute('name');
-              var address = markerElem.getAttribute('address');
-              var type = markerElem.getAttribute('type');
+            // var xml = data.responseXML;
+            // var markers = data.getElementsByTagName('marker');
+            Array.prototype.forEach.call(data, function(data) {
+              var id = data.getAttribute('id');
+              var name = data.getAttribute('province');
+              var address = data.getAttribute('addressgauge');
+              var type = data.getAttribute('district');
               var point = new google.maps.LatLng(
-                  parseFloat(markerElem.getAttribute('lat')),
-                  parseFloat(markerElem.getAttribute('lng')));
+                  parseFloat(data.getAttribute('latitudegauge')),
+                  parseFloat(data.getAttribute('longitudegauge')));
 
               var infowincontent = document.createElement('div');
               var strong = document.createElement('strong');
               strong.textContent = name
               infowincontent.appendChild(strong);
-              infowincontent.appendChild(document.createElement('br'));
+              infowincontent.appendChild(document.createElement('ab'));
 
               var text = document.createElement('text');
               text.textContent = address
