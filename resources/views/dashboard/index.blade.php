@@ -113,98 +113,28 @@
     <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-  google.charts.load('current', {'packages':['scatter']});
-  google.charts.setOnLoadCallback(drawChart);
-  var contador = 0;
-  function fill(chart,options){
-        var json_prepared = new Array();        
-      jQuery.getJSON({
-        url: 'https://smartstaffgauge.com/api/map/staffgauges',
-        type: 'GET',
-        async: false,
-        dataType: 'json'
-    })
-    .done(function(res) {
-        // console.log(res);
-        console.log("success1");
-        for (var i = res.length - 1; i >= 0; i--) {
-            var ano = res[i][0];
-            var mes = res[i][1];
-            var dia = res[i][2];
-            var hora = res[i][3];
-            var fecha = new Date(ano,mes,dia);
-            var elemento  = new Array(fecha,hora);
-            json_prepared.push(elemento);
-        }
-    })
-     .fail(function() {
-        console.log("error1");
-    })
-    .always(function() {
-        console.log("complete1");
-    });
-    var data = new google.visualization.DataTable();
-    data.addColumn('date', 'Alertas');
-    data.addColumn('number', 'Alertas');
-    console.log(json_prepared);
-         data.addRows(json_prepared);
-        chart.draw(data, google.charts.Scatter.convertOptions(options));
-        console.log('actualizado');
-  }
-  function drawChart () {
-    contador++;
-    jQuery.getJSON({
-        url: 'https://smartstaffgauge.com/api/map/staffgauges',
-        type: 'GET',
-        dataType: 'json',
-    })
-    .done(function(res) {
-        var json_prepared = new Array();        
-        console.log("success2");
-        for (var i = res.length - 1; i >= 0; i--) {
-            var ano = res[i][0];
-            var mes = res[i][1];
-            var dia = res[i][2];
-            var hora = res[i][3];
-            var fecha = new Date(ano,mes,dia);
-            var elemento  = new Array(fecha,hora);
-            json_prepared.push(elemento);
-        }
-    var data = new google.visualization.DataTable();
-    data.addColumn('date', 'Date');
-    data.addColumn('number', 'Datas');
-        console.log(json_prepared);
-         data.addRows(json_prepared);
-    var options = {
-      width: 800,
-      height: 650,
-      chart: {
-        title: 'Students\' Final Grades',
-        subtitle: 'based on hours studied'
-      },    
-      hAxis: {
-             title: "Date",
-      },
-      vAxis: {
-        title: "Houar"         
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Time', 'Sales', 'Expenses'],
+          ['2013',  1000,      400],
+          ['2014',  1170,      460],
+          ['2015',  660,       1120],
+          ['2016',  1030,      540]
+        ]);
+
+        var options = {
+          title: 'Company Performance',
+          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
       }
-    };
-    var chart = new google.charts.Scatter(document.getElementById('scatterchart_material'));
-    google.visualization.events.addListener(chart, 'error', function (googleError) {
-        console.log(googleError);
-  google.visualization.errors.removeError(googleError.id);
-  document.getElementById("error_msg").innerHTML = "Message removed = '" + googleError.message + "'";}); chart.draw(data, google.charts.Scatter.convertOptions(options));setInterval(function(){
-        console.log(chart);
-        fill(chart,options);
-    },3000); })
-    .fail(function() {
-        console.log("error2");
-    })
-    .always(function() {
-        console.log("complete2");
-    });
-  }
-</script>
+    </script>
   </head>
   <body>
     <div id="chart_div" style="width: 100%; height: 500px;"></div>
