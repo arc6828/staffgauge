@@ -124,23 +124,27 @@
       Array.prototype.forEach.call(ocr, function(ocr) {
         var responseDate = moment(ocr.updated_at).format("YYYY, MM, DD");
         var numbers = parseFloat(ocr.title);
+        var datetimes = new google.visualization.DateFormat({pattern: 'dd/MM/yyyy HH:mm'})
+        datetimes.format(ocr.updated_at, 0);
         console.log('upd_at : ', ocr.updated_at);
         console.log('title : ', ocr.title);
         console.log('responseDate : ', responseDate);
         console.log('numbers : ', numbers);
+        console.log('datetimes : ', datetimes);
 
         var data = new google.visualization.DataTable();
           data.addColumn('date', 'Date');
           data.addColumn('number', 'Level');
           data.addRows([
-            [new Date(responseDate)-1, numbers],
+            [new Date(datetimes), numbers],
           ]);
 
           var logOptions = {
         title: 'Staffgauge',
         legend: 'none',
          hAxis: {
-          title: 'Date'
+          title: 'Date',
+          format: 'dd/MM/yyyy HH:mm'
         },
         vAxis: {
           title: 'Level',
