@@ -136,15 +136,23 @@
             [new Date(responseDate), numbers],
           ]);
 
-        var options = {
-          title: 'All Data',
-          legend: 'none',
-          hAxis: {title: 'Date'},
-          vAxis: {title: 'Level', ticks: [0, 50, 100, 150, 200]}
-        };
+          var logOptions = {
+        title: 'World Population Since 1400 A.D. in Log Scale',
+        legend: 'none',
+        width: 450,
+        height: 500,
+         hAxis: {
+          title: 'Date'
+        },
+        vAxis: {
+          title: 'Population (millions)',
+          scaleType: 'log',
+          ticks: [0, 10, 20, 40, 60, 80, 100]
+        }
+      };
 
         var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
+        chart.draw(data, logOptions);
         });
       });
     }
