@@ -119,9 +119,10 @@
       function drawChart() {
         jQuery.getJSON('https://smartstaffgauge.com/api/map/ocrs', function (ocr) {
           console.log('ocr : ', ocr);
-          console.log('cre_at : ', ocr.created_at);
-          console.log('title : ', ocr.title);
 
+      Array.prototype.forEach.call(ocr, function(ocr) {
+        console.log('cre_at : ', ocr.created_at);
+        console.log('title : ', ocr.title);
         var data = new google.visualization.DataTable();
           data.addColumn('string', 'Time');
           data.addColumn('string', 'Level');
@@ -137,7 +138,8 @@
 
         var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
         chart.draw(data, options);
-      });
+        });
+      }
     }
     </script>
   </head>
