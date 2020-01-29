@@ -123,8 +123,9 @@
       Array.prototype.forEach.call(ocr, function(ocr) {
         console.log('cre_at : ', ocr.created_at);
         console.log('title : ', ocr.title);
+        moment(ocr.created_at).format("YYYY MMMM Do, h:mm:ss")
         var data = new google.visualization.DataTable();
-          data.addColumn('date', 'Time');
+          data.addColumn('datetime', 'Time');
           data.addColumn('number', 'Level');
           data.addRows([
             [ocr.created_at, ocr.title],
