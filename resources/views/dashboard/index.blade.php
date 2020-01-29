@@ -133,7 +133,7 @@
           data.addColumn('date', 'Date');
           data.addColumn('number', 'Level');
           data.addRows([
-            [new Date(responseDate), numbers],
+            [new Date(responseDate)-1, numbers],
           ]);
 
           var logOptions = {
