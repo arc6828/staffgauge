@@ -122,35 +122,21 @@
           console.log('ocr : ', ocr);
 
       Array.prototype.forEach.call(ocr, function(ocr) {
-        moment(ocr.created_at).format("YYYY MMMM Do, h:mm:ss")
-
-        console.log('cre_at : ', ocr.created_at);
-
+        moment(ocr.updated_at).format("YYYY MMMM Do, h:mm:ss")
+        console.log('upd_at : ', ocr.updated_at);
         console.log('title : ', ocr.title);
 
         var data = new google.visualization.DataTable();
-          data.addColumn('string', 'Time');
-          data.addColumn('string', 'Level');
+          data.addColumn('datetime', 'Time');
+          data.addColumn('number', 'Level');
           data.addRows([
-            [ocr.created_at, ocr.title],
+            [ocr.updated_at, ocr.title],
           ]);
-
-          var myval = 0;
-
-          for (var i=0;i<ocr.created_at.length;i++){
-              myVal = parseFloat($.trim(ocr.created_at[i][1])); 
-              data.addRow([i, {v: myVal, f: myval.toFixed(6)}]); 
-          }
-
-          for (var i=0;i<ocr.title.length;i++){
-              myVal = parseFloat($.trim(ocr.title[i][1])); 
-              data.addRow([i, {v: myVal, f: myval.toFixed(6)}]); 
-          }
 
         var options = {
           title: 'All Data',
-          hAxis: {title: 'Date - Time',  titleTextStyle: {color: '#333'}},
-          vAxis: {title: 'Level',  titleTextStyle: {color: '#333'}}
+          hAxis: {title: 'Time'},
+          vAxis: {title: 'Level',  minvalue: 0}
         };
 
         var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
