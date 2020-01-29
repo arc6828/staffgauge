@@ -128,7 +128,7 @@
         console.log('responseDate : ', responseDate);
 
         var data = new google.visualization.DataTable();
-          data.addColumn('date', 'Date');
+          data.addColumn('datetime', 'Date');
           data.addColumn('string', 'Level');
           data.addRows([
             [responseDate, ocr.title],
