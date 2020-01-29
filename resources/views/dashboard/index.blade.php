@@ -122,10 +122,10 @@
           console.log('ocr : ', ocr);
 
       Array.prototype.forEach.call(ocr, function(ocr) {
-        var responseDate = moment(ocr.updated_at).format("YYYY, MM, DD");
+        var responseDate = moment(ocr.updated_at).format("dd/MM/yyyy HH:mm");
         var numbers = parseFloat(ocr.title);
-        var datetimes = new google.visualization.DateFormat({pattern: 'dd/MM/yyyy HH:mm'});
-        datetimes.format(ocr.updated_at, 0);
+        // var datetimes = new google.visualization.DateFormat({pattern: 'dd/MM/yyyy HH:mm'});
+        // datetimes.format(ocr.updated_at, 0);
         console.log('upd_at : ', ocr.updated_at);
         console.log('title : ', ocr.title);
         console.log('responseDate : ', responseDate);
