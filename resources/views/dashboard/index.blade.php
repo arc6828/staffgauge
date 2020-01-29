@@ -137,17 +137,14 @@
           ]);
 
           var logOptions = {
-        title: 'World Population Since 1400 A.D. in Log Scale',
+        title: 'Staffgauge',
         legend: 'none',
-        width: 450,
-        height: 500,
          hAxis: {
           title: 'Date'
         },
         vAxis: {
-          title: 'Population (millions)',
-          scaleType: 'log',
-          ticks: [0, 10, 20, 40, 60, 80, 100]
+          title: 'Level',
+          ticks: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
         }
       };
 
