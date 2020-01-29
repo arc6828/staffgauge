@@ -116,8 +116,8 @@
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
-      jQuery.getJSON('https://smartstaffgauge.com/api/map/ocrs', function drawChart(ocr) {
-        
+      function drawChart() {
+        jQuery.getJSON('https://smartstaffgauge.com/api/map/ocrs', function (ocr) {
           console.log('ocr : ', ocr);
 
         var data = google.visualization.arrayToDataTable([
@@ -133,6 +133,7 @@
         var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
         chart.draw(data, options);
       });
+    }
     </script>
   </head>
   <body>
