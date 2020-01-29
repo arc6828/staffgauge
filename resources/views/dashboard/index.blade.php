@@ -54,13 +54,13 @@
             // var xml = data.responseXML;
             // var markers = data.getElementsByTagName('marker');
             Array.prototype.forEach.call(data, function(data) {
-              var id = data.getAttribute('id');
-              var name = data.getAttribute('province');
-              var address = data.getAttribute('addressgauge');
-              var type = data.getAttribute('district');
+              var id = data.id;
+              var name = data.province;
+              var address = data.addressgauge;
+              var type = data.district;
               var point = new google.maps.LatLng(
-                  parseFloat(data.getAttribute('latitudegauge')),
-                  parseFloat(data.getAttribute('longitudegauge')));
+                  parseFloat(data.latitudegauge),
+                  parseFloat(data.longitudegauge));
 
               var infowincontent = document.createElement('div');
               var strong = document.createElement('strong');
