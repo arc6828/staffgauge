@@ -120,7 +120,7 @@
         jQuery.getJSON('https://smartstaffgauge.com/api/map/ocrs', function (ocr) {
           console.log('ocr : ', ocr);
 
-        var data = google.visualization.DataTable();
+        var data = new google.visualization.DataTable();
           data.addColumn('datetime', 'Time');
           data.addColumn('string', 'Level');
           data.addRows([
