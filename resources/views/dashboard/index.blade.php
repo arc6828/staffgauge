@@ -125,16 +125,8 @@
         moment(ocr.created_at).format("YYYY MMMM Do, h:mm:ss")
 
         console.log('cre_at : ', ocr.created_at);
-        for (var i=0;i<ocr.created_at.length;i++){
-              myVal = parseFloat($.trim(ocr.created_at[i][1])); 
-              data.addRow([i, {v: myVal, f: myval.toFixed(6)}]); 
-        }
 
         console.log('title : ', ocr.title);
-        for (var i=0;i<ocr.title.length;i++){
-              myVal = parseFloat($.trim(ocr.title[i][1])); 
-              data.addRow([i, {v: myVal, f: myval.toFixed(6)}]); 
-          }
 
         var data = new google.visualization.DataTable();
           data.addColumn('string', 'Time');
@@ -143,6 +135,15 @@
             [ocr.created_at, ocr.title],
           ]);
 
+          for (var i=0;i<ocr.created_at.length;i++){
+              myVal = parseFloat($.trim(ocr.created_at[i][1])); 
+              data.addRow([i, {v: myVal, f: myval.toFixed(6)}]); 
+          }
+
+          for (var i=0;i<ocr.title.length;i++){
+              myVal = parseFloat($.trim(ocr.title[i][1])); 
+              data.addRow([i, {v: myVal, f: myval.toFixed(6)}]); 
+          }
 
         var options = {
           title: 'All Data',
