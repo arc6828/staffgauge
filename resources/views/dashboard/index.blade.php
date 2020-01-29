@@ -117,6 +117,9 @@
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
+        jQuery.getJSON('https://smartstaffgauge.com/api/map/ocrs',(ocr));
+        console.log('ocr : ',ocr);
+
         var data = google.visualization.arrayToDataTable([
           ['Time', 'Sales', 'Expenses'],
           ['2013',  1000,      400],
