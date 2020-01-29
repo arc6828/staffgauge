@@ -133,16 +133,17 @@
           data.addColumn('date', 'Date');
           data.addColumn('number', 'Level');
           data.addRows([
-            [new Date(responseDate), numbers]
+            [new Date(responseDate), numbers],
           ]);
 
         var options = {
           title: 'All Data',
+          legend: 'none',
           hAxis: {title: 'Date'},
-          vAxis: {title: 'Level', minValue: 0 , ticks: [0, 50, 100, 150, 200]}
+          vAxis: {title: 'Level', ticks: [0, 50, 100, 150, 200]}
         };
 
-        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
         chart.draw(data, options);
         });
       });
