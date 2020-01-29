@@ -124,7 +124,7 @@
       Array.prototype.forEach.call(ocr, function(ocr) {
         var responseDate = moment(ocr.updated_at).format("YYYY, MM, DD");
         var numbers = parseFloat(ocr.title);
-        var datetimes = new google.visualization.DateFormat({pattern: 'dd/MM/yyyy HH:mm'})
+        var datetimes = new google.visualization.DateFormat({pattern: 'dd/MM/yyyy HH:mm'});
         datetimes.format(ocr.updated_at, 0);
         console.log('upd_at : ', ocr.updated_at);
         console.log('title : ', ocr.title);
