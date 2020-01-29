@@ -128,7 +128,7 @@
         console.log('responseDate : ', responseDate);
 
         var data = new google.visualization.DataTable();
-          data.addColumn('string', 'Time');
+          data.addColumn('timeofday', 'Time of Day');
           data.addColumn('string', 'Level');
           data.addRows([
             [responseDate, ocr.title],
@@ -136,7 +136,7 @@
 
         var options = {
           title: 'All Data',
-          hAxis: {title: 'Time'},
+          hAxis: {title: 'Time of Day', format: 'dddd, MMMM Do YYYY, h:mm:ss a'},
           vAxis: {title: 'Level'}
         };
 
