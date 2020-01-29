@@ -112,6 +112,7 @@
     <!--------------------google chart-------------------->
     <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
@@ -121,9 +122,9 @@
           console.log('ocr : ', ocr);
 
       Array.prototype.forEach.call(ocr, function(ocr) {
+        moment(ocr.created_at).format("YYYY MMMM Do, h:mm:ss")
         console.log('cre_at : ', ocr.created_at);
         console.log('title : ', ocr.title);
-        moment(ocr.created_at).format("YYYY MMMM Do, h:mm:ss")
         var data = new google.visualization.DataTable();
           data.addColumn('datetime', 'Time');
           data.addColumn('number', 'Level');
