@@ -136,7 +136,7 @@
         var options = {
           title: 'All Data',
           hAxis: {title: 'Time'},
-          vAxis: {title: 'Level',  minvalue: 0}
+          vAxis: {title: 'Level'}
         };
 
         var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
