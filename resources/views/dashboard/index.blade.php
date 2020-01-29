@@ -148,7 +148,7 @@
         }
       };
 
-        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        var chart = new google.visualization.LineChart(document.getElementById('log_div'));
         chart.draw(data, logOptions);
         });
       });
@@ -156,7 +156,7 @@
     </script>
   </head>
   <body>
-    <div id="chart_div" style="width: 100%; height: 500px;"></div>
+    <div id="log_div" style="width: 100%; height: 500px;"></div>
   </body>
   </body>
 </html>
