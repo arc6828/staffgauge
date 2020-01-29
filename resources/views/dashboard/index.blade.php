@@ -116,7 +116,7 @@
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
-      function drawChart() {
+      function drawChart(data) {
         var data = google.visualization.arrayToDataTable([
           ['Time', 'Sales', 'Expenses'],
           ['2013',  1000,      400],
@@ -125,8 +125,10 @@
           ['2016',  1030,      540]
         ]);
 
+        console.log('1 : ',data);
+
         var options = {
-          title: `${data.name}`,
+          title: 'Company Performance',
           hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
           vAxis: {minValue: 0}
         };
