@@ -122,7 +122,7 @@
           console.log('ocr : ', ocr);
 
       Array.prototype.forEach.call(ocr, function(ocr) {
-        var responseDate = moment(ocr.updated_at).format("MMMM Do YYYY, h:mm:ss");
+        var responseDate = moment(ocr.updated_at).format("MMMM Do YYYY");
         console.log('upd_at : ', ocr.updated_at);
         console.log('title : ', ocr.title);
         console.log('responseDate : ', responseDate);
