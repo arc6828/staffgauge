@@ -117,7 +117,7 @@
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart(data) {
-        var data = google.visualization.arrayToDataTable([
+        var datachart = google.visualization.arrayToDataTable([
           ['Time', 'Sales', 'Expenses'],
           ['2013',  1000,      400],
           ['2014',  1170,      460],
@@ -134,7 +134,7 @@
         };
 
         var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
+        chart.draw(datachart, options);
       }
     </script>
   </head>
