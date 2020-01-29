@@ -127,7 +127,7 @@
         console.log('title : ', ocr.title);
 
         var data = new google.visualization.DataTable();
-          data.addColumn('datetime', 'Time');
+          data.addColumn('number', 'Time');
           data.addColumn('number', 'Level');
           data.addRows([
             [ocr.updated_at, ocr.title],
