@@ -122,13 +122,13 @@
           console.log('ocr : ', ocr);
 
       Array.prototype.forEach.call(ocr, function(ocr) {
-        var responseDate = moment(ocr.updated_at).format("MMMM Do YYYY");
+        var responseDate = moment(ocr.updated_at).format("dddd, MMMM Do YYYY, h:mm:ss a");
         console.log('upd_at : ', ocr.updated_at);
         console.log('title : ', ocr.title);
         console.log('responseDate : ', responseDate);
 
         var data = new google.visualization.DataTable();
-          data.addColumn('date', 'Time');
+          data.addColumn('string', 'Time');
           data.addColumn('string', 'Level');
           data.addRows([
             [responseDate, ocr.title],
