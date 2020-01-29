@@ -113,29 +113,58 @@
     <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+      function drawChart(marker) {
 
-      function drawChart(data) {
-        var datachart = google.visualization.arrayToDataTable([
-          ['Time', 'Sales', 'Expenses'],
-          ['2013',  1000,      400],
-          ['2014',  1170,      460],
-          ['2015',  660,       1120],
-          ['2016',  1030,      540]
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['Mushrooms', 3],
+          ['Onions', 1],
+          ['Olives', 1],
+          ['Zucchini', 1],
+          ['Pepperoni', 2]
         ]);
 
-        console.log('1 : ',data);
-
-        var options = {
-          title: 'Company Performance',
-          hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-          vAxis: {minValue: 0}
-        };
-
-        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-        chart.draw(datachart, options);
+        // Set chart options
+        var options = {'title':'Pizza sold @ '+
+                               marker.getPosition().toString(),
+                       'width':400,
+                       'height':150};
+                       
+        var node        = document.createElement('div'),
+            infoWindow  = new google.maps.InfoWindow(),
+            chart       = new google.visualization.PieChart(node);
+            
+            chart.draw(data, options);
+            infoWindow.setContent(node);
+            infoWindow.open(marker.getMap(),marker);
       }
+
+
+function initialize() {
+
+    var mapOptions = {
+      center: new google.maps.LatLng(-33.891044,151.275537),
+      zoom: 10,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+        mapOptions);
+
+    var marker1 = new google.maps.Marker({
+        position: mapOptions.center,
+        map: map
+    });
+    
+    google.maps.event.addListener(marker1, 'click', function() {
+      drawChart(this);
+    });
+         
+  } 
+google.load('visualization', '1.0', {'packages':['corechart']});
     </script>
   </head>
   <body>
