@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Location;
 use App\Staffgauge;
+use App\Ocr;
 class MapController extends Controller
 {   
   public function locations()
@@ -15,5 +16,10 @@ class MapController extends Controller
   {
     $staffgauges = Staffgauge::get();
     return response()->json($staffgauges);
+  }
+  public function ocrs()
+  {
+    $ocrs = Ocr::get();
+    return response()->json($ocrs);
   }
 }
