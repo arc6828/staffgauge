@@ -127,8 +127,8 @@
 
         var options = {
           title: 'All Data',
-          hAxis: {title: 'Date - Time',  titleTextStyle: {color: '#333'}},
-          vAxis: {minValue: 0}
+          hAxis: {string},
+          vAxis: {datetime}
         };
 
         var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
