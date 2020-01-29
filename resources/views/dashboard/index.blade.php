@@ -120,15 +120,17 @@
         jQuery.getJSON('https://smartstaffgauge.com/api/map/ocrs', function (ocr) {
           console.log('ocr : ', ocr);
 
-        var data = google.visualization.arrayToDataTable([
-          ['Time' , 'Level'],
-          [ocr.created_at , ocr.title]
-        ]);
+        var data = google.visualization.arrayToDataTable();
+          data.addColumn('datetime', 'Time');
+          data.addColumn('string', 'Level');
+          data.addRows([
+            [ocr.created_at, ocr.title],
+          ]);
 
         var options = {
           title: 'All Data',
-          hAxis: {string},
-          vAxis: {datetime}
+          hAxis: {title: 'Date - Time',  titleTextStyle: {color: '#333'}},
+          vAxis: {title: 'Level',  titleTextStyle: {color: '#333'}}
         };
 
         var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
