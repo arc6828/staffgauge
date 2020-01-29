@@ -135,13 +135,15 @@
             [ocr.created_at, ocr.title],
           ]);
 
+          var myval = 0;
+
           for (var i=0;i<ocr.created_at.length;i++){
-              var myVal = parseFloat($.trim(ocr.created_at[i][1])); 
+              myVal = parseFloat($.trim(ocr.created_at[i][1])); 
               data.addRow([i, {v: myVal, f: myval.toFixed(6)}]); 
           }
 
           for (var i=0;i<ocr.title.length;i++){
-              var myVal = parseFloat($.trim(ocr.title[i][1])); 
+              myVal = parseFloat($.trim(ocr.title[i][1])); 
               data.addRow([i, {v: myVal, f: myval.toFixed(6)}]); 
           }
 
