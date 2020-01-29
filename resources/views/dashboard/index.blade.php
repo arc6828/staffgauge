@@ -123,15 +123,17 @@
 
       Array.prototype.forEach.call(ocr, function(ocr) {
         var responseDate = moment(ocr.updated_at).format("YYYY, MM, DD");
+        var numbers = parseFloat(ocr.title);
         console.log('upd_at : ', ocr.updated_at);
         console.log('title : ', ocr.title);
         console.log('responseDate : ', responseDate);
+        console.log('numbers : ', numbers);
 
         var data = new google.visualization.DataTable();
           data.addColumn('date', 'Date');
-          data.addColumn('string', 'Level');
+          data.addColumn('number', 'Level');
           data.addRows([
-            [new Date(responseDate), ocr.title]
+            [new Date(responseDate), numbers]
           ]);
 
         var options = {
