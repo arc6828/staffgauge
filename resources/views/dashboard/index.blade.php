@@ -119,6 +119,8 @@
       function drawChart() {
         jQuery.getJSON('https://smartstaffgauge.com/api/map/ocrs', function (ocr) {
           console.log('ocr : ', ocr);
+          console.log('cre_at : ', ocr.created_at);
+          console.log('title : ', ocr.title);
 
         var data = new google.visualization.DataTable();
           data.addColumn('string', 'Time');
