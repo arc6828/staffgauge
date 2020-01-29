@@ -138,8 +138,8 @@
 
         var options = {
           title: 'All Data',
-          hAxis: {title: 'Date', format: 'M/d/yy'},
-          vAxis: {title: 'Level'}
+          hAxis: {title: 'Date'},
+          vAxis: {title: 'Level', minValue: 0 , ticks: [0, 50, 100, 150, 200]}
         };
 
         var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
