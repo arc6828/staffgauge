@@ -131,7 +131,7 @@
           data.addColumn('date', 'Date');
           data.addColumn('string', 'Level');
           data.addRows([
-            [responseDate, ocr.title],
+            [new Date(responseDate), ocr.title],
           ]);
 
         var options = {
