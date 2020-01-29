@@ -133,7 +133,7 @@
         // console.log('datetimes : ', datetimes);
 
         var data = new google.visualization.DataTable();
-          data.addColumn('date', 'Date');
+          data.addColumn('datetime', 'Date');
           data.addColumn('number', 'Level');
           data.addRows([
             [new Date(responseDate), numbers],
