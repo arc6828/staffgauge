@@ -130,13 +130,13 @@
         console.log('title : ', ocr.title);
         console.log('responseDate : ', responseDate);
         console.log('numbers : ', numbers);
-        console.log('datetimes : ', datetimes);
+        // console.log('datetimes : ', datetimes);
 
         var data = new google.visualization.DataTable();
           data.addColumn('date', 'Date');
           data.addColumn('number', 'Level');
           data.addRows([
-            [new Date(datetimes), numbers],
+            [new Date(responseDate), numbers],
           ]);
 
           var logOptions = {
