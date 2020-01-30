@@ -84,7 +84,9 @@
                 let data = [
                   [new Date() , 100]
                 ];
-                chart.draw(data, logOptions);
+                if(chart){
+                  chart.draw(data, logOptions);
+                }
               });
             });
           });
