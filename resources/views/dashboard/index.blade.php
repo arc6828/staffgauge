@@ -84,7 +84,41 @@
                 let data = [
                   [new Date() , 100]
                 ];
-                chart.draw(data, logOptions);
+                if(chart){
+                  var newArray = [
+                    [new Date(2019,12,01), 100],
+                    [new Date(2020,12,01), 200],
+                    [new Date(2021,12,01), 300]
+                  ];
+                  /*
+                  Array.prototype.forEach.call(ocr, function(ocr) {
+                    var responseDate = moment(ocr.created_at).format("YYYY/MM/DD HH:mm");
+                    var numbers = parseFloat(ocr.title);
+                    newArray.push([new Date(responseDate), numbers]);
+                  });
+                  */
+                  var data = new google.visualization.DataTable();
+                  data.addColumn('datetime', 'Date');
+                  data.addColumn('number', 'Level');
+                  data.addRows(newArray);
+
+                  var logOptions = {
+                    title: 'Staffgauge',
+                    legend: 'none',
+                    hAxis: {
+                      title: 'Date',
+                      format: 'YYYY/MM/dd'
+                    },
+                    vAxis: {
+                      title: 'Level',
+                      ticks: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+                    }
+                  };
+
+                  chart = new google.visualization.LineChart(document.getElementById('log_div'));
+                  chart.draw(data, logOptions);
+                }
+                
               });
             });
           });
@@ -121,7 +155,7 @@
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
-
+      var chart;
       function drawChart() {
         jQuery.getJSON('https://smartstaffgauge.com/api/map/ocrs', function (ocr) {
           console.log('ocr : ', ocr);
@@ -159,7 +193,7 @@
             }
           };
 
-          var chart = new google.visualization.LineChart(document.getElementById('log_div'));
+          chart = new google.visualization.LineChart(document.getElementById('log_div'));
           chart.draw(data, logOptions);
         });
       }
