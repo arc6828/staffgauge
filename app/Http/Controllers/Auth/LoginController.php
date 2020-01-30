@@ -44,12 +44,15 @@ class LoginController extends Controller
      */
     public function redirectToProvider($provider = 'line')
     {
-        return Socialite::driver($provider)->redirect();
+        //return Socialite::driver($provider)->redirect();
+        return Socialite::with('line')->redirect();
     }
 
     public function handleProviderCallback($provider = 'line')
     {
-        $providerUser = Socialite::driver($provider)->user();
+        //$providerUser = Socialite::driver($provider)->user();
+        $providerUser = Socialite::driver('line')->user();
+        $accessTokenResponseBody = $providerUser->accessTokenResponseBody;
             
         $user = $this->createOrGetUser($provider, $providerUser);
         auth()->login($user);
@@ -63,6 +66,7 @@ class LoginController extends Controller
         /*$account = SocialAccount::whereProvider($provider)
             ->whereProviderUserId($providerUser->getId())
             ->first();*/
+            
 
         $profile = Profile::firstOrCreate(
             ['lineid' => $providerUser->getId()],
