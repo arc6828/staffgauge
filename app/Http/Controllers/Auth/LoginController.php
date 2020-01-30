@@ -52,7 +52,7 @@ class LoginController extends Controller
     {
         //$providerUser = Socialite::driver($provider)->user();
         $providerUser = Socialite::driver('line')->user();
-        $accessTokenResponseBody = $providerUser->accessTokenResponseBody;
+        //$accessTokenResponseBody = $providerUser->accessTokenResponseBody;
             
         $user = $this->createOrGetUser($provider, $providerUser);
         auth()->login($user);
