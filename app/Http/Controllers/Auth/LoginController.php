@@ -60,22 +60,31 @@ class LoginController extends Controller
     public function createOrGetUser($provider, $providerUser)
     {
         /** Get Social Account */
-        $account = SocialAccount::whereProvider($provider)
+        /*$account = SocialAccount::whereProvider($provider)
             ->whereProviderUserId($providerUser->getId())
-            ->first();
+            ->first();*/
 
-        if ($account) {
-            return $account->user;
+        $profile = Profile::firstOrCreate(
+            ['lineid' => $providerUser->getId()],
+            [
+                'lineid' => $providerUser->getId(),
+                'provider' => $provider
+            ]
+        );
+
+        if ($profile) {
+            return $profile->user;
         } else {
 
             /** Get user detail */
             $userDetail = Socialite::driver($provider)->userFromToken($providerUser->token);
 
             /** Create new account */
-            $account = new SocialAccount([
+            /*$account = new SocialAccount([
                 'provider_user_id' => $providerUser->getId(),
                 'provider' => $provider,
             ]);
+            */
 
             /** Get email or not */
             $email = !empty($providerUser->getEmail()) ? $providerUser->getEmail() : $providerUser->getId() . '@' . $provider . '.com';
