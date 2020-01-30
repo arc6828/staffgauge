@@ -81,11 +81,8 @@
                 infoWindow.setContent(infowincontent);
                 infoWindow.open(map, marker);
                 //CALL TO DRAW LINE CHAER HERE
-                let data = [
-                  [new Date() , 100]
-                ];
                 if(chart){
-                  var newArray = [
+                  let newArray = [
                     [new Date(2019,12,01), 100],
                     [new Date(2020,12,01), 200],
                     [new Date(2021,12,01), 300]
@@ -97,12 +94,12 @@
                     newArray.push([new Date(responseDate), numbers]);
                   });
                   */
-                  var data = new google.visualization.DataTable();
+                  let data = new google.visualization.DataTable();
                   data.addColumn('datetime', 'Date');
                   data.addColumn('number', 'Level');
                   data.addRows(newArray);
 
-                  var logOptions = {
+                  let logOptions = {
                     title: 'Staffgauge',
                     legend: 'none',
                     hAxis: {
