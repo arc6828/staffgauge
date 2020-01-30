@@ -58,8 +58,8 @@ class LoginController extends Controller
         //$accessTokenResponseBody = $providerUser->accessTokenResponseBody;
             
         $user = $this->createOrGetUser($provider, $providerUser);
-        auth()->login($user);
-        //Auth::login($user);
+        //auth()->login($user);
+        Auth::login($user);
 
         return redirect()->to('/home');
     }
