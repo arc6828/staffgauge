@@ -123,7 +123,7 @@
 
           var newArray = [];
           Array.prototype.forEach.call(ocr, function(ocr) {
-            var responseDate = moment(ocr.updated_at).format("YYYY/MM/DD HH:mm");
+            var responseDate = moment(ocr.created_at).format("YYYY/MM/DD HH:mm");
             var numbers = parseFloat(ocr.title);
             // var datetimes = new google.visualization.DateFormat({pattern: 'dd/MM/yyyy HH:mm'});
             // datetimes.format(ocr.updated_at, 0);
@@ -146,7 +146,7 @@
             legend: 'none',
             hAxis: {
               title: 'Date',
-              format: 'YYYY/MM/DD HH:mm'
+              //format: 'YYYY/MM/DD HH:mm'
             },
             vAxis: {
               title: 'Level',
