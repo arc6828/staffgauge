@@ -75,13 +75,16 @@
               var marker = new google.maps.Marker({
                 map: map,
                 position: point,
-                label: icon.label
+                label: icon.label,
+                data : data
               });
               marker.addListener('click', function() {
+                console.log('click marker : ',marker);
                 infoWindow.setContent(infowincontent);
                 infoWindow.open(map, marker);
-                //CALL TO DRAW LINE CHAER HERE
+                //CALL TO DRAW LINE CHARGE HERE
                 if(chart){
+                  //FETCH HERE ..
                   let newArray = [
                     [new Date(2019,12,01), 100],
                     [new Date(2020,12,01), 200],
