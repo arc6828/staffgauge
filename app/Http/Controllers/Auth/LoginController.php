@@ -49,7 +49,7 @@ class LoginController extends Controller
         return Socialite::with('line')->redirect();
     }
 
-    public function handleProviderCallback($provider = 'line')
+    public function handleProviderCallback(Request $request,$provider = 'line')
     {
         //$providerUser = Socialite::driver($provider)->user();
         $providerUser =Socialite::driver('line')->user();
