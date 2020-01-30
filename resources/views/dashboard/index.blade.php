@@ -80,6 +80,11 @@
               marker.addListener('click', function() {
                 infoWindow.setContent(infowincontent);
                 infoWindow.open(map, marker);
+                //CALL TO DRAW LINE CHAER HERE
+                let data = [
+                  [new Date() , 100]
+                ];
+                chart.draw(data, logOptions);
               });
             });
           });
