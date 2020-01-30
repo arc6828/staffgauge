@@ -84,9 +84,7 @@
                 let data = [
                   [new Date() , 100]
                 ];
-                if(chart){
-                  chart.draw(data, logOptions);
-                }
+                chart.draw(data, logOptions);
               });
             });
           });
@@ -123,7 +121,7 @@
     <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
-      var chart = new google.visualization.LineChart(document.getElementById('log_div'));
+
       function drawChart() {
         jQuery.getJSON('https://smartstaffgauge.com/api/map/ocrs', function (ocr) {
           console.log('ocr : ', ocr);
@@ -161,7 +159,7 @@
             }
           };
 
-          
+          var chart = new google.visualization.LineChart(document.getElementById('log_div'));
           chart.draw(data, logOptions);
         });
       }
