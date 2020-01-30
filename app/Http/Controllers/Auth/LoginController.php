@@ -77,7 +77,7 @@ class LoginController extends Controller
                 'provider' => $provider
             ]
         );
-        echo print_r($profile);
+        echo print_r($profile->user);
         
 
         if ($profile) {
