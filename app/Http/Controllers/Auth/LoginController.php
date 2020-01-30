@@ -54,12 +54,12 @@ class LoginController extends Controller
     public function handleProviderCallback(Request $request,$provider = 'line')
     {
         //$providerUser = Socialite::driver($provider)->user();
-        $providerUser =Socialite::driver('line')->user();
+        $providerUser = Socialite::driver('line')->user();
         //$accessTokenResponseBody = $providerUser->accessTokenResponseBody;
             
         $user = $this->createOrGetUser($provider, $providerUser);
-        //auth()->login($user);
-        Auth::login($user);
+        auth()->login($user);
+        //Auth::login($user);
 
         return redirect()->to('/home');
     }
