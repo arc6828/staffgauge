@@ -57,9 +57,9 @@ class LoginController extends Controller
         //$accessTokenResponseBody = $providerUser->accessTokenResponseBody;
             
         $user = $this->createOrGetUser($provider, $providerUser);
-        auth()->login($user);
+        //auth()->login($user);
 
-        return redirect()->to('/home');
+        //return redirect()->to('/home');
     }
 
     public function createOrGetUser($provider, $providerUser)
