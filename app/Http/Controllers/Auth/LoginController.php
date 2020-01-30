@@ -7,6 +7,7 @@ use App\Profile;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -57,7 +58,8 @@ class LoginController extends Controller
         //$accessTokenResponseBody = $providerUser->accessTokenResponseBody;
             
         $user = $this->createOrGetUser($provider, $providerUser);
-        auth()->login($user);
+        //auth()->login($user);
+        Auth::login($user);
 
         return redirect()->to('/home');
     }
