@@ -50,7 +50,7 @@
 
           // Change this depending on the name of your PHP or XML file
           jQuery.getJSON('https://smartstaffgauge.com/api/map/staffgauges', function(data) {
-            console.log(data);
+            //console.log(data);
             // var xml = data.responseXML;
             // var markers = data.getElementsByTagName('marker');
             Array.prototype.forEach.call(data, function(data) {
@@ -121,42 +121,43 @@
         jQuery.getJSON('https://smartstaffgauge.com/api/map/ocrs', function (ocr) {
           console.log('ocr : ', ocr);
 
-      Array.prototype.forEach.call(ocr, function(ocr) {
-        var responseDate = moment(ocr.updated_at).format("YYYY/MM/DD HH:mm");
-        var numbers = parseFloat(ocr.title);
-        // var datetimes = new google.visualization.DateFormat({pattern: 'dd/MM/yyyy HH:mm'});
-        // datetimes.format(ocr.updated_at, 0);
-        console.log('upd_at : ', ocr.updated_at);
-        console.log('title : ', ocr.title);
-        console.log('responseDate : ', responseDate);
-        console.log('numbers : ', numbers);
-        // console.log('datetimes : ', datetimes);
-
-        var data = new google.visualization.DataTable();
+          var newArray = [];
+          Array.prototype.forEach.call(ocr, function(ocr) {
+            var responseDate = moment(ocr.updated_at).format("YYYY/MM/DD HH:mm");
+            var numbers = parseFloat(ocr.title);
+            // var datetimes = new google.visualization.DateFormat({pattern: 'dd/MM/yyyy HH:mm'});
+            // datetimes.format(ocr.updated_at, 0);
+            /*
+            console.log('upd_at : ', ocr.updated_at);
+            console.log('title : ', ocr.title);
+            console.log('responseDate : ', responseDate);
+            console.log('numbers : ', numbers);
+            */
+            // console.log('datetimes : ', datetimes);
+            newArray.push([new Date(responseDate), numbers]);
+          });
+          var data = new google.visualization.DataTable();
           data.addColumn('datetime', 'Date');
           data.addColumn('number', 'Level');
-          data.addRows([
-            [new Date(responseDate), numbers],
-          ]);
+          data.addRows(newArray);
 
           var logOptions = {
-        title: 'Staffgauge',
-        legend: 'none',
-         hAxis: {
-          title: 'Date',
-          format: 'YYYY/MM/DD HH:mm'
-        },
-        vAxis: {
-          title: 'Level',
-          ticks: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
-        }
-      };
+            title: 'Staffgauge',
+            legend: 'none',
+            hAxis: {
+              title: 'Date',
+              format: 'YYYY/MM/DD HH:mm'
+            },
+            vAxis: {
+              title: 'Level',
+              ticks: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+            }
+          };
 
-        var chart = new google.visualization.LineChart(document.getElementById('log_div'));
-        chart.draw(data, logOptions);
+          var chart = new google.visualization.LineChart(document.getElementById('log_div'));
+          chart.draw(data, logOptions);
         });
-      });
-    }
+      }
     </script>
   </head>
   <body>
