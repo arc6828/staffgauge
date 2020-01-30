@@ -146,7 +146,7 @@
             legend: 'none',
             hAxis: {
               title: 'Date',
-              //format: 'YYYY/MM/DD HH:mm'
+              format: 'YYYY/MM/DD'
             },
             vAxis: {
               title: 'Level',
