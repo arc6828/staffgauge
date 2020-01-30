@@ -84,7 +84,8 @@
                 infoWindow.open(map, marker);
                 //CALL TO DRAW LINE CHARGE HERE
                 if(chart){
-                  //FETCH HERE ..
+                  //GET JSON ....
+                  
                   let newArray = [
                     [new Date(2019,12,01), 100],
                     [new Date(2020,12,01), 200],

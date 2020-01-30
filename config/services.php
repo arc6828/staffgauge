@@ -35,9 +35,9 @@ return [
     ],
 
     'line' => [
-        'client_id' => env('LINE_CLIENT_ID', '1653633204'),
-        'client_secret' => env('LINE_CLIENT_SECRET', '8f0faab7bf1d74e75c7b32911df7fb5d'),
-        'redirect' => env('APP_URL') . 'login/line/callback',
+        'client_id' => env('LINE_KEY'),
+        'client_secret' => env('LINE_SECRET'),
+        'redirect' => env('LINE_REDIRECT_URI')
     ],
 
 ];
