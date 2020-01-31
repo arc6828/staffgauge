@@ -48,13 +48,13 @@ class LoginController extends Controller
     public function redirectToProvider($provider = 'line')
     {
         //return Socialite::driver($provider)->redirect();
-        return Socialite::with('line')->redirect();
+        return Socialite::with($provider)->redirect();
     }
 
     public function handleProviderCallback(Request $request,$provider = 'line')
     {
         //$providerUser = Socialite::driver($provider)->user();
-        $providerUser = Socialite::driver('line')->user();
+        $providerUser = Socialite::driver($provider)->user();
         //$accessTokenResponseBody = $providerUser->accessTokenResponseBody;
             
         $user = $this->createOrGetUser($provider, $providerUser);
@@ -83,9 +83,10 @@ class LoginController extends Controller
         //echo print_r($profile->user);
         
 
-        if ($profile) {
+        if ($profile->user_id) {
             return $profile->user;
         } else {
+            //มี Profile แล้วแต่ใน Profile ยังไม่มี user_id เพราะต้องสร้าง User ด้วย
 
             /** Get user detail */
             $userDetail = Socialite::driver($provider)->userFromToken($providerUser->token);
