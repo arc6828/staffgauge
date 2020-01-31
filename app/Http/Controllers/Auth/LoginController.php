@@ -80,11 +80,11 @@ class LoginController extends Controller
                 'provider' => $provider
             ]
         );
-        echo print_r($profile->user);
+        //echo print_r($profile->user);
         
 
         if ($profile) {
-            //return $profile->user;
+            return $profile->user;
         } else {
 
             /** Get user detail */
