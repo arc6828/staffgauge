@@ -141,11 +141,12 @@
       function drawChart() {
         jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs', function (ocr) {
           console.log('ocr : ', ocr);
-
+          let default = ocr.filter(item => item.staffgaugeid == "1");
+          console.log('default',default);
           var newArray = [];
-          Array.prototype.forEach.call(ocr, function(ocr) {
-            var responseDate = moment(ocr.created_at).format("YYYY/MM/DD HH:mm");
-            var numbers = parseFloat(ocr.title);
+          Array.prototype.forEach.call(default, function(default) {
+            var responseDate = moment(default.created_at).format("YYYY/MM/DD HH:mm");
+            var numbers = parseFloat(default.title);
             // var datetimes = new google.visualization.DateFormat({pattern: 'dd/MM/yyyy HH:mm'});
             // datetimes.format(ocr.updated_at, 0);
             /*
