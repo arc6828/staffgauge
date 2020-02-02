@@ -93,6 +93,8 @@
                       var numbers = parseFloat(result.title);
                       newArray.push([new Date(responseDate), numbers]);
                     });
+                  });
+                  
                   let data = new google.visualization.DataTable();
                   data.addColumn('datetime', 'Date');
                   data.addColumn('number', 'Level');
@@ -112,7 +114,7 @@
 
                   chart = new google.visualization.LineChart(document.getElementById('log_div'));
                   chart.draw(data, logOptions);
-                });
+                }
                 
               });
             });
