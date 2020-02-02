@@ -171,8 +171,7 @@
               format: 'YYYY/MM/dd'
             },
             vAxis: {
-              title: 'Level',
-              ticks: [0, 10, 50, 100, 200, 500, 1000, 3000, 5000, 8000, 10000]
+              title: 'Level'
             }
           };
 
