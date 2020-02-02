@@ -27,14 +27,11 @@
 
     <script>
       var customLabel = {
-        1: {
-          label: '1'
+        คลองหนึ่ง: {
+          label: 'A'
         },
-        2: {
-          label: '2'
-        },
-        3: {
-          label: '3'
+        ประชาธิปัตย์: {
+          label: 'B'
         }
       };
 
@@ -71,7 +68,7 @@
               var strong = document.createElement('strong');
               strong.textContent = name
               infowincontent.appendChild(strong);
-              infowincontent.appendChild(document.createElement('123'));
+              infowincontent.appendChild(document.createElement('ab'));
 
               var text = document.createElement('text');
               text.textContent = address
