@@ -86,8 +86,10 @@
                 if(chart){
                   //GET JSON ....
                   jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs', function (ocrid) {
-                    ocrid.filter(ocrid => ocrid.staffgaugeid === "1").map(ocrid => ocrid.staffgaugeid);
-                    console.log('ocrid',ocrid)
+                    ocrid.forEach((arrObj) => {
+                      var jsonData = JSON.parse(arrObj.valueInput);
+                      jsonData.data.forEach(({staffgaugeid}) => console.log(staffgaugeid));
+                    });
                   });
                   let newArray = [
                     [new Date(2019,12,01), 100],
