@@ -88,19 +88,11 @@
                   jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs', function (ocrid) {
                     let result = ocrid.filter(item => item.staffgaugeid == marker.data.id);
                     console.log('result',result);
-                  });
-                  let newArray = [
-                    [new Date(2019,12,01), 100],
-                    [new Date(2020,12,01), 200],
-                    [new Date(2021,12,01), 300]
-                  ];
-                  /*
-                  Array.prototype.forEach.call(ocr, function(ocr) {
-                    var responseDate = moment(ocr.created_at).format("YYYY/MM/DD HH:mm");
-                    var numbers = parseFloat(ocr.title);
-                    newArray.push([new Date(responseDate), numbers]);
-                  });
-                  */
+                    Array.prototype.forEach.call(result, function(result) {
+                      var responseDate = moment(result.created_at).format("YYYY/MM/DD HH:mm");
+                      var numbers = parseFloat(result.title);
+                      newArray.push([new Date(responseDate), numbers]);
+                    });
                   let data = new google.visualization.DataTable();
                   data.addColumn('datetime', 'Date');
                   data.addColumn('number', 'Level');
