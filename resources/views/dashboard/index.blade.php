@@ -112,7 +112,7 @@
 
                   chart = new google.visualization.LineChart(document.getElementById('log_div'));
                   chart.draw(data, logOptions);
-                }
+                });
                 
               });
             });
