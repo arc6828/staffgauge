@@ -87,7 +87,7 @@
                   //GET JSON ....
                   jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs', function (ocrid) {
                     myarray = [];
-                    myarray = ocrid.filter(x => x.id === '1');
+                    myarray = ocrid.filter(x => x.id === 1);
                     console.log('ocrid',ocrid)
                   });
                   let newArray = [
