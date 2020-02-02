@@ -2,7 +2,7 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <title>Using MySQL and PHP with Google Maps</title>
+    <title>Dashboard</title>
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -125,23 +125,6 @@
         }
 
 
-
-      function downloadUrl(url, callback) {
-        var request = window.ActiveXObject ?
-            new ActiveXObject('Microsoft.XMLHTTP') :
-            new XMLHttpRequest;
-
-        request.onreadystatechange = function() {
-          if (request.readyState == 4) {
-            request.onreadystatechange = doNothing;
-            callback(request, request.status);
-          }
-        };
-
-        request.open('GET', url, true);
-        request.send(null);
-      }
-
       function doNothing() {}
     </script>
     <script async defer
@@ -189,7 +172,7 @@
             },
             vAxis: {
               title: 'Level',
-              ticks: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+              ticks: [0, 10, 50, 100, 200, 500, 1000, 3000, 5000, 8000, 10000]
             }
           };
 
