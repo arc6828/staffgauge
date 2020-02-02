@@ -96,7 +96,6 @@
                       var numbers = parseFloat(result.title);
                       newArray1.push([new Date(responseDate), numbers]);
                     });
-                  });
                   
                   let data = new google.visualization.DataTable();
                   data.addColumn('datetime', 'Date');
@@ -118,6 +117,7 @@
 
                   chart = new google.visualization.LineChart(document.getElementById('log_div'));
                   chart.draw(data, logOptions);
+                  });
                 }
                 
               });
