@@ -21,6 +21,8 @@
 <html>
   <body>
   <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <div id="map"></div>
 
     <script>
@@ -85,21 +87,21 @@
                 //CALL TO DRAW LINE CHARGE HERE
                 if(chart){
                   //GET JSON ....
-                  var newArray = [];
+                  var newArray1 = [];
                   jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs', function (ocrid) {
                     let result = ocrid.filter(item => item.staffgaugeid == marker.data.id);
                     console.log('result',result);
                     Array.prototype.forEach.call(result, function(result) {
                       var responseDate = moment(result.created_at).format("YYYY/MM/DD HH:mm");
                       var numbers = parseFloat(result.title);
-                      newArray.push([new Date(responseDate), numbers]);
+                      newArray1.push([new Date(responseDate), numbers]);
                     });
                   });
                   
                   let data = new google.visualization.DataTable();
                   data.addColumn('datetime', 'Date');
                   data.addColumn('number', 'Level');
-                  data.addRows(newArray);
+                  data.addRows(newArray1);
 
                   let logOptions = {
                     title: 'Staffgauge',
