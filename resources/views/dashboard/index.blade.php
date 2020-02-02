@@ -102,6 +102,7 @@
                   data.addColumn('datetime', 'Date');
                   data.addColumn('number', 'Level');
                   data.addRows(newArray1);
+                  console.log('newArray1',newArray1);
 
                   let logOptions = {
                     title: 'Staffgauge',
