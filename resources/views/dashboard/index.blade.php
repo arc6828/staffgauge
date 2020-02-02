@@ -59,7 +59,7 @@
               var id = data.id;
               var name = data.province;
               var address = data.addressgauge;
-              var type = data.id;
+              var type = data.district;
               var point = new google.maps.LatLng(
                   parseFloat(data.latitudegauge),
                   parseFloat(data.longitudegauge));
