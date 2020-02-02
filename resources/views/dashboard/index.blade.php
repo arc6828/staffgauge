@@ -86,7 +86,6 @@
                 if(chart){
                   //GET JSON ....
                   jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs'), function (arraynew) {
-                  console.log('arraynew : ' , arraynew);
                   Array.prototype.forEach.filter(arraynew => arraynew.id == data.id).map(arraynew => arraynew.foo);
                   console.log('arraynew : ' , arraynew);
                   console.log('data : ', data);
@@ -105,7 +104,7 @@
                   let data = new google.visualization.DataTable();
                   data.addColumn('datetime', 'Date');
                   data.addColumn('number', 'Level');
-                  data.addRows(newArray);
+                  data.addRows(arraynew);
 
                   let logOptions = {
                     title: 'Staffgauge',
