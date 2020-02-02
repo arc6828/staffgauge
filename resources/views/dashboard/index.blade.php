@@ -49,7 +49,7 @@
         */
 
           // Change this depending on the name of your PHP or XML file
-          jQuery.getJSON('https://smartstaffgauge.com/api/map/staffgauges', function(data) {
+          jQuery.getJSON('https://www.smartstaffgauge.com/api/map/staffgauges', function(data) {
             //console.log(data);
             // var xml = data.responseXML;
             // var markers = data.getElementsByTagName('marker');
@@ -140,7 +140,7 @@
       google.charts.setOnLoadCallback(drawChart);
       var chart;
       function drawChart() {
-        jQuery.getJSON('https://smartstaffgauge.com/api/map/ocrs', function (ocr) {
+        jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs', function (ocr) {
           console.log('ocr : ', ocr);
 
           var newArray = [];
