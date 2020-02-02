@@ -87,7 +87,7 @@
                   //GET JSON ....
                   jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs', function (ocrid) {
                     console.log('ocrid',ocrid)
-                  }
+                  });
                   let newArray = [
                     [new Date(2019,12,01), 100],
                     [new Date(2020,12,01), 200],
