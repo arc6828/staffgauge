@@ -24,6 +24,7 @@ class MapController extends Controller
   }
   public function ocrsid()
   {
+    $requestData = $request->all();
     $staffgaugeid = $requestData['staffgaugeid'];
     $ocrsid = Ocr::where("staffguageid" , $staffgaugeid);
     return response()->json($ocrsid);
