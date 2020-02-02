@@ -85,6 +85,7 @@
                 //CALL TO DRAW LINE CHARGE HERE
                 if(chart){
                   //GET JSON ....
+                  var newArray = [];
                   jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs', function (ocrid) {
                     let result = ocrid.filter(item => item.staffgaugeid == marker.data.id);
                     console.log('result',result);
