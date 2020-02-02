@@ -85,7 +85,7 @@
                 //CALL TO DRAW LINE CHARGE HERE
                 if(chart){
                   //GET JSON ....
-                  
+                  jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs/{staffgaugeid}');
                   let newArray = [
                     [new Date(2019,12,01), 100],
                     [new Date(2020,12,01), 200],
