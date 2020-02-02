@@ -87,8 +87,8 @@
                   //GET JSON ....
                   arraynew = jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs');
                   console.log('arraynew : ' , arraynew);
-                  arraynew1 = arraynew.find(x => x.id === data.id).foo;
-                  console.log('arraynew1 : ' , arraynew1);
+                  arraynew.filter(x => x.id == data.id).map(x => x.foo);
+                  console.log('arraynew : ' , arraynew);
                   console.log('data : ', data);
                   let newArray = [
                     [new Date(2019,12,01), 100],
