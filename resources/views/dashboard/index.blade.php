@@ -85,7 +85,7 @@
                 //CALL TO DRAW LINE CHARGE HERE
                 if(chart){
                   //GET JSON ....
-                  jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs'), function (arraynew , data) {
+                  jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs'), function (arraynew) {
                   console.log('arraynew : ' , arraynew);
                   Array.prototype.forEach.filter(arraynew => arraynew.id == data.id).map(arraynew => arraynew.foo);
                   console.log('arraynew : ' , arraynew);
