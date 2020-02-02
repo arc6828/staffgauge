@@ -86,7 +86,7 @@
                 if(chart){
                   //GET JSON ....
                   jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs', function (ocrid) {
-                    let result = ocrid.filter(item => item.staffgaugeid == "1");
+                    let result = ocrid.filter(item => item.staffgaugeid == marker.data.id);
                     console.log('result',result);
                   });
                   let newArray = [
