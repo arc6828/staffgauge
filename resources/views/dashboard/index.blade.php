@@ -85,10 +85,7 @@
                 //CALL TO DRAW LINE CHARGE HERE
                 if(chart){
                   //GET JSON ....
-                  jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs'), function (arraynew) {
-                  Array.prototype.forEach.filter(arraynew => arraynew.id == data.id).map(arraynew => arraynew.foo);
-                  console.log('arraynew : ' , arraynew);
-                  console.log('data : ', data);
+                  
                   let newArray = [
                     [new Date(2019,12,01), 100],
                     [new Date(2020,12,01), 200],
@@ -104,7 +101,7 @@
                   let data = new google.visualization.DataTable();
                   data.addColumn('datetime', 'Date');
                   data.addColumn('number', 'Level');
-                  data.addRows(arraynew);
+                  data.addRows(newArray);
 
                   let logOptions = {
                     title: 'Staffgauge',
@@ -120,7 +117,6 @@
 
                   chart = new google.visualization.LineChart(document.getElementById('log_div'));
                   chart.draw(data, logOptions);
-                }
                 }
                 
               });
