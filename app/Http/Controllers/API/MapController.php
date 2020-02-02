@@ -22,11 +22,4 @@ class MapController extends Controller
     $ocrs = Ocr::get();
     return response()->json($ocrs);
   }
-  public function ocrsid(Request $request)
-  {
-    $requestData = $request->all();
-    $staffgaugeid = $requestData['staffgaugeid'];
-    $ocrsid = Ocr::where("staffguageid" , $staffgaugeid);
-    return response()->json($ocrsid);
-  }
 }
