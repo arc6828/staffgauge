@@ -27,11 +27,14 @@
 
     <script>
       var customLabel = {
-        คลองหนึ่ง: {
-          label: 'A'
+        1: {
+          label: '1'
         },
-        ประชาธิปัตย์: {
-          label: 'B'
+        2: {
+          label: '2'
+        },
+        3: {
+          label: '3'
         }
       };
 
@@ -59,7 +62,7 @@
               var id = data.id;
               var name = data.province;
               var address = data.addressgauge;
-              var type = data.district;
+              var type = data.id;
               var point = new google.maps.LatLng(
                   parseFloat(data.latitudegauge),
                   parseFloat(data.longitudegauge));
@@ -68,7 +71,7 @@
               var strong = document.createElement('strong');
               strong.textContent = name
               infowincontent.appendChild(strong);
-              infowincontent.appendChild(document.createElement('ab'));
+              infowincontent.appendChild(document.createElement('123'));
 
               var text = document.createElement('text');
               text.textContent = address
