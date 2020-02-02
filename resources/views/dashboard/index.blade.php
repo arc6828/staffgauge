@@ -85,9 +85,9 @@
                 //CALL TO DRAW LINE CHARGE HERE
                 if(chart){
                   //GET JSON ....
-                  arraynew = jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs');
+                  jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs'), function (arraynew , data) {
                   console.log('arraynew : ' , arraynew);
-                  arraynew.filter(x => x.id == data.id).map(x => x.foo);
+                  Array.prototype.forEach.filter(arraynew => arraynew.id == data.id).map(arraynew => arraynew.foo);
                   console.log('arraynew : ' , arraynew);
                   console.log('data : ', data);
                   let newArray = [
@@ -121,6 +121,7 @@
 
                   chart = new google.visualization.LineChart(document.getElementById('log_div'));
                   chart.draw(data, logOptions);
+                }
                 }
                 
               });
