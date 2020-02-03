@@ -136,8 +136,10 @@ class LoginController extends Controller
             }
 
             /** Attach User & Social Account */
+            /*
             $account->user()->associate($user);
             $account->save();
+            */
 
             return $user;
         }
