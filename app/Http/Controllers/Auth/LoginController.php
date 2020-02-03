@@ -61,7 +61,7 @@ class LoginController extends Controller
         $user = $this->createOrGetUser($provider, $providerUser);
         //auth()->login($user);
         //Auth::login($user);
-        Auth::loginUsingId($user->id);
+        //Auth::loginUsingId($user->id);
 
         //return redirect()->to('/home');
     }
@@ -102,7 +102,8 @@ class LoginController extends Controller
             echo "<br> email : ".$providerUser->getEmail();
             echo "<br> avatar : ".$providerUser->getAvatar();
 
-            return $user;
+            // return $user;
+            return null;
         }
     }
 }
