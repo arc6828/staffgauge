@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use Socialite;
 use App\Profile;
+use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -87,7 +88,14 @@ class LoginController extends Controller
             return $profile->user;
         } else {
             //มี Profile แล้วแต่ใน Profile ยังไม่มี user_id เพราะต้องสร้าง User ด้วย
-
+            
+            $user = User::create([
+                'email' => $email,
+                'name' => $providerUser->getName(),
+                'username' => $providerUser->getId(),
+                'avatar' => $image,
+                'password' => bcrypt(rand(1000, 9999)),
+            ]);
             /** Get user detail */
             $userDetail = Socialite::driver($provider)->userFromToken($providerUser->token);
 
