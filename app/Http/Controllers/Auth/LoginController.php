@@ -64,7 +64,7 @@ class LoginController extends Controller
         //Auth::login($user);
         Auth::loginUsingId($user->id);
 
-        //return redirect()->to('/home');
+        return redirect()->to('/home');
     }
 
     public function createOrGetUser($provider, $providerUser)
