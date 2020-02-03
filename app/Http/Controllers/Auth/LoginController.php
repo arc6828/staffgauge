@@ -95,9 +95,9 @@ class LoginController extends Controller
                 'password' => Hash::make('123456789')
             ]);
             
-            $profile = $user->id;
-            $profile->save(); 
-            
+            // $profile = $user->id;
+            $profile->update(['user_id' => $user->id]); 
+
             echo "<br> ID : ".$providerUser->getId();
             echo "<br> nickname : ".$providerUser->getNickname();
             echo "<br> name : ".$providerUser->getName();
