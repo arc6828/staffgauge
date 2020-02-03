@@ -87,7 +87,12 @@ class LoginController extends Controller
         } else {
             //มี Profile แล้วแต่ใน Profile ยังไม่มี user_id เพราะต้องสร้าง User ด้วย
 
-            $user = User::create();
+            $user = User::create([
+                'name' => 'guest',
+                'email' => 'guest@hotmail.com',
+                'password' => Hash::make('123456789')
+            ]);
+            
             $profile = $user->id;
             echo "<br> ID : ".$providerUser->getId();
             echo "<br> nickname : ".$providerUser->getNickname();
