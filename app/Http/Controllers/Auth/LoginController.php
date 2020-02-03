@@ -88,7 +88,7 @@ class LoginController extends Controller
             return $profile->user;
         } else {
             //มี Profile แล้วแต่ใน Profile ยังไม่มี user_id เพราะต้องสร้าง User ด้วย
-            
+            /*
             $user = User::create([
                 'email' => $email,
                 'name' => $providerUser->getName(),
@@ -96,6 +96,7 @@ class LoginController extends Controller
                 'avatar' => $image,
                 'password' => bcrypt(rand(1000, 9999)),
             ]);
+            */
             /** Get user detail */
             $userDetail = Socialite::driver($provider)->userFromToken($providerUser->token);
 
