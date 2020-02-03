@@ -96,6 +96,7 @@ class LoginController extends Controller
             ]);
             
             $profile = $user->id;
+            $profile->save(); 
             
             echo "<br> ID : ".$providerUser->getId();
             echo "<br> nickname : ".$providerUser->getNickname();
