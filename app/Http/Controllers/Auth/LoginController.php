@@ -66,7 +66,7 @@ class LoginController extends Controller
         //return redirect()->to('/home');
     }
 
-    public function createOrGetUser($provider, $providerUser, Request $request)
+    public function createOrGetUser($provider, $providerUser)
     {
         /** Get Social Account */
         /*$account = SocialAccount::whereProvider($provider)
