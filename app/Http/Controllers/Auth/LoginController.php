@@ -77,7 +77,7 @@ class LoginController extends Controller
 
         $profile = Profile::firstOrCreate(
             // ตรวจสอบ lineid ว่า = $providerUser->getId() หรือไม่ ถ้าไม่ใช่ก็ไประบุ
-            ['lineid' => $providerUser->getId()]
+            ['lineid' => $providerUser->getId()] , ['photo' => $providerUser->getAvatar()]
             
         );
         //echo print_r($profile->user);
