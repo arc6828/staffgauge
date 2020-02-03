@@ -63,10 +63,10 @@ class LoginController extends Controller
         //Auth::login($user);
         Auth::loginUsingId($user->id);
 
-        return redirect()->to('/home');
+        //return redirect()->to('/home');
     }
 
-    public function createOrGetUser($provider, $providerUser)
+    public function createOrGetUser($provider, $providerUser, Request $request)
     {
         /** Get Social Account */
         /*$account = SocialAccount::whereProvider($provider)
@@ -75,11 +75,9 @@ class LoginController extends Controller
             
 
         $profile = Profile::firstOrCreate(
-            ['lineid' => $providerUser->getId()],
-            [
-                'lineid' => $providerUser->getId(),
-                'provider' => $provider
-            ]
+            // ตรวจสอบ lineid ว่า = $providerUser->getId() หรือไม่ ถ้าไม่ใช่ก็ไประบุ
+            ['lineid' => $providerUser->getId()]
+            
         );
         //echo print_r($profile->user);
         
@@ -88,58 +86,14 @@ class LoginController extends Controller
             return $profile->user;
         } else {
             //มี Profile แล้วแต่ใน Profile ยังไม่มี user_id เพราะต้องสร้าง User ด้วย
-            /*
-            $user = User::create([
-                'email' => $email,
-                'name' => $providerUser->getName(),
-                'username' => $providerUser->getId(),
-                'avatar' => $image,
-                'password' => bcrypt(rand(1000, 9999)),
-            ]);
-            */
-            /** Get user detail */
-            $userDetail = Socialite::driver($provider)->userFromToken($providerUser->token);
 
-            /** Create new account */
-            /*$account = new SocialAccount([
-                'provider_user_id' => $providerUser->getId(),
-                'provider' => $provider,
-            ]);
-            */
-
-            /** Get email or not */
-            $email = !empty($providerUser->getEmail()) ? $providerUser->getEmail() : $providerUser->getId() . '@' . $provider . '.com';
-
-            /** Get User Auth */
-            if (auth()->check()) {
-                $user = auth()->user();
-            }else{
-                $user = User::whereEmail($email)->first();
-            }
-
-            if (!$user) {
-                /** Get Avatar */
-                $image = $provider . "_" . $providerUser->getId() . ".png";
-                $imagePath = public_path(config('app.media.directory') . "users/avatar/" . $image);
-                file_put_contents($imagePath, file_get_contents($providerUser->getAvatar()));
-
-
-                /** Create User */
-                $user = User::create([
-                    'email' => $email,
-                    'name' => $providerUser->getName(),
-                    'username' => $providerUser->getId(),
-                    'avatar' => $image,
-                    'password' => bcrypt(rand(1000, 9999)),
-                ]);
-
-            }
-
-            /** Attach User & Social Account */
-            /*
-            $account->user()->associate($user);
-            $account->save();
-            */
+            $user = User::create();
+            $profile = $user->id;
+            echo "<br> ID : ".$providerUser->getId();
+            echo "<br> nickname : ".$providerUser->getNickname();
+            echo "<br> name : ".$providerUser->getName();
+            echo "<br> email : ".$providerUser->getEmail();
+            echo "<br> avatar : ".$providerUser->getAvatar();
 
             return $user;
         }
