@@ -93,9 +93,9 @@ class LoginController extends Controller
                 'email' => 'guest@hotmail.com',
                 'password' => Hash::make('123456789')
             ]);
-            */
             
             $profile = $user->id;
+            */
             echo "<br> ID : ".$providerUser->getId();
             echo "<br> nickname : ".$providerUser->getNickname();
             echo "<br> name : ".$providerUser->getName();
