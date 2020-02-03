@@ -61,7 +61,7 @@ class LoginController extends Controller
         $user = $this->createOrGetUser($provider, $providerUser);
         //auth()->login($user);
         //Auth::login($user);
-        //Auth::loginUsingId($user->id);
+        Auth::loginUsingId($user->id);
 
         //return redirect()->to('/home');
     }
@@ -87,23 +87,23 @@ class LoginController extends Controller
         } else {
             //มี Profile แล้วแต่ใน Profile ยังไม่มี user_id เพราะต้องสร้าง User ด้วย
 
-            /*
+            
             $user = User::create([
-                'name' => 'guest',
-                'email' => 'guest@hotmail.com',
+                'name' => $providerUser->getName(),
+                'email' => $providerUser->getEmail(),
                 'password' => Hash::make('123456789')
             ]);
             
             $profile = $user->id;
-            */
+            
             echo "<br> ID : ".$providerUser->getId();
             echo "<br> nickname : ".$providerUser->getNickname();
             echo "<br> name : ".$providerUser->getName();
             echo "<br> email : ".$providerUser->getEmail();
             echo "<br> avatar : ".$providerUser->getAvatar();
 
-            // return $user;
-            return null;
+            return $user;
+            // return null;
         }
     }
 }
