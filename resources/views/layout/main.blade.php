@@ -19,7 +19,6 @@
  
       <!-- Main Content -->
       <div class="container-fluid">
-      <div class="overlay overlay-a"></div>
  
           @include('layout.navbar')
  
