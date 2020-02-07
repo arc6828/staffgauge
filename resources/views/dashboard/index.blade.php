@@ -141,9 +141,10 @@
     <!--------------------google chart-------------------->
     <head>
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']}, {'packages':['table']});
+      google.charts.load('current', {'packages':['corechart','table']});
       google.charts.setOnLoadCallback(drawChart);
       google.charts.setOnLoadCallback(drawTable);
+      
       var chart;
       function drawChart() {
         jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs', function (ocr) {
