@@ -125,6 +125,32 @@
                   chart.draw(data, logOptions);
                   });
                 }
+
+                if(table){
+                  //GET JSON ....
+                  var newArray1 = [];
+                  jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs', function (ocr) {
+                    console.log('ocr : ', ocr);
+                    let datatable = ocr.filter(item => item.staffgaugeid == marker.data.id);
+                    console.log('datatable',datatable);
+                    var tableArray = [];
+                    Array.prototype.forEach.call(datatable, function(datatable) {
+                      var responseDate = moment(datatable.created_at).format("YYYY/MM/DD HH:mm");
+                      var numbers = parseFloat(datatable.title);
+                      var stgid = parseFloat(datatable.id);
+                      tableArray.push([stgid, numbers, new Date(responseDate)]);
+                    });
+                      var data = new google.visualization.DataTable();
+                      data.addColumn('number', 'OCR Id');
+                      data.addColumn('number', 'Level');
+                      data.addColumn('datetime', 'Date - Time');
+                      data.addRows(tableArray);
+
+                      var table = new google.visualization.Table(document.getElementById('table_div'));
+
+                      table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+                  });
+                }
                 
               });
             });
@@ -210,7 +236,7 @@
             tableArray.push([stgid, numbers, new Date(responseDate)]);
           });
             var data = new google.visualization.DataTable();
-            data.addColumn('number', 'Staffgauge Id');
+            data.addColumn('number', 'OCR Id');
             data.addColumn('number', 'Level');
             data.addColumn('datetime', 'Date - Time');
             data.addRows(tableArray);
