@@ -128,7 +128,6 @@
 
                 if(table){
                   //GET JSON ....
-                  var newArray1 = [];
                   jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs', function (ocr) {
                     console.log('ocr : ', ocr);
                     let datatable = ocr.filter(item => item.staffgaugeid == marker.data.id);
@@ -140,13 +139,13 @@
                       var stgid = parseFloat(datatable.id);
                       tableArray.push([stgid, numbers, new Date(responseDate)]);
                     });
-                      var data = new google.visualization.DataTable();
+                      let data = new google.visualization.DataTable();
                       data.addColumn('number', 'OCR Id');
                       data.addColumn('number', 'Level');
                       data.addColumn('datetime', 'Date - Time');
                       data.addRows(tableArray);
 
-                      var table = new google.visualization.Table(document.getElementById('table_div'));
+                      table = new google.visualization.Table(document.getElementById('table_div'));
 
                       table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
                   });
@@ -172,6 +171,7 @@
       google.charts.setOnLoadCallback(drawTable);
       
       var chart;
+      var table;
       function drawChart() {
         jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs', function (ocr) {
           console.log('ocr : ', ocr);
@@ -241,7 +241,7 @@
             data.addColumn('datetime', 'Date - Time');
             data.addRows(tableArray);
 
-            var table = new google.visualization.Table(document.getElementById('table_div'));
+            table = new google.visualization.Table(document.getElementById('table_div'));
 
             table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
         });
