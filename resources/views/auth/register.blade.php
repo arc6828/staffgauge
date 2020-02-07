@@ -11,7 +11,7 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
-                        <div class="form-group row">
+                        <!-- <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
@@ -83,6 +83,15 @@
                             </div>
                         </div>
                     </form>
+                    <hr> -->
+                        
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <a class="btn btn-success" style="background-color: #00B900" href="{{ url('login') }}/line"><img src="images/Line-Transparent-Icon-400x400.png" style="width: 30px">
+                                    {{ __('LOGIN WITH LINE') }}
+                                </a>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>

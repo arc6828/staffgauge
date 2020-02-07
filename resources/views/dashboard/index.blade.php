@@ -27,13 +27,19 @@
 
     <script>
       var customLabel = {
-        คลองหนึ่ง: {
-          label: 'A'
+        1: {
+          label: '1'
         },
-        ประชาธิปัตย์: {
-          label: 'B'
+        2: {
+          label: '2'
+        },
+        3: {
+          label: '3'
         }
       };
+
+      var labels = '1234567890';
+      var labelIndex = 0;
 
         function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -59,7 +65,7 @@
               var id = data.id;
               var name = data.province;
               var address = data.addressgauge;
-              var type = data.district;
+              var type = data.id;
               var point = new google.maps.LatLng(
                   parseFloat(data.latitudegauge),
                   parseFloat(data.longitudegauge));
@@ -68,7 +74,7 @@
               var strong = document.createElement('strong');
               strong.textContent = name
               infowincontent.appendChild(strong);
-              infowincontent.appendChild(document.createElement('ab'));
+              infowincontent.appendChild(document.createElement('br'));
 
               var text = document.createElement('text');
               text.textContent = address
@@ -77,7 +83,7 @@
               var marker = new google.maps.Marker({
                 map: map,
                 position: point,
-                label: icon.label,
+                label: labels[labelIndex++ % labels.length],
                 data : data
               });
               marker.addListener('click', function() {
@@ -135,8 +141,9 @@
     <!--------------------google chart-------------------->
     <head>
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
+      google.charts.load('current', {'packages':['corechart']}, {'packages':['table']});
       google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawTable);
       var chart;
       function drawChart() {
         jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs', function (ocr) {
@@ -179,10 +186,44 @@
           chart.draw(data, logOptions);
         });
       }
+
+      function drawTable() {
+        jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs', function (ocr) {
+          console.log('ocr : ', ocr);
+          let datatable = ocr.filter(item => item.staffgaugeid === "1");
+          console.log('datatable',datatable);
+          var tableArray = [];
+          Array.prototype.forEach.call(datatable, function(datatable) {
+            var responseDate = moment(datatable.created_at).format("YYYY/MM/DD HH:mm");
+            var numbers = parseFloat(datatable.title);
+            var stgid = parseFloat(datatable.id);
+            // var datetimes = new google.visualization.DateFormat({pattern: 'dd/MM/yyyy HH:mm'});
+            // datetimes.format(ocr.updated_at, 0);
+            /*
+            console.log('upd_at : ', ocr.updated_at);
+            console.log('title : ', ocr.title);
+            console.log('responseDate : ', responseDate);
+            console.log('numbers : ', numbers);
+            */
+            // console.log('datetimes : ', datetimes);
+            tableArray.push([stgid, numbers, new Date(responseDate)]);
+          });
+            var data = new google.visualization.DataTable();
+            data.addColumn('number', 'Staffgauge Id');
+            data.addColumn('number', 'Level');
+            data.addColumn('datetime', 'Date - Time');
+            data.addRows(tableArray);
+
+            var table = new google.visualization.Table(document.getElementById('table_div'));
+
+            table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+        }
+      }
     </script>
   </head>
   <body>
     <div id="log_div" style="width: 100%; height: 500px;"></div>
+    <div id="table_div"></div>
   </body>
   </body>
 </html>
