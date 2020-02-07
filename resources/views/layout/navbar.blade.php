@@ -13,7 +13,7 @@
       <div class="navbar-collapse collapse justify-content-center" id="navbarDefault">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" href="{{ url('/dashboard') }}">Dashboard</a>
+            <a class="nav-link" href="{{ url('/dashboard') }}">Dashboard</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/ocr') }}">Ocr</a>
