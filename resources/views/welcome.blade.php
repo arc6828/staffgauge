@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    {{ config('app.name', 'STAFFGAUGE2019') }}
+                    {{ config('app.name', 'SMARTSTAFFGAUGE2020') }}
                 </div>
 
                 <div class="links">
