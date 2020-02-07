@@ -3,7 +3,12 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     <title>Dashboard</title>
-    <style>
+    
+  </head>
+
+<html>
+  <body>
+  <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
@@ -16,10 +21,6 @@
         padding: 0;
       }
     </style>
-  </head>
-
-<html>
-  <body>
   <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>

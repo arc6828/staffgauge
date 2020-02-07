@@ -2,7 +2,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; STAFFGAUGE 2019</span>
+            <span>Copyright &copy; SMART STAFFGAUGE 2020</span>
           </div>
         </div>
       </footer>

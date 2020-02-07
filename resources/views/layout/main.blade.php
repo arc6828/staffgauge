@@ -12,20 +12,26 @@
   @include('layout.js')
   
   <!-- Page Wrapper -->
-  <div id="wrapper">
- 
-    @include('layout.sidebar')
+  <div class="wrapper">
  
     <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+    <div class="wrapper">
  
       <!-- Main Content -->
-      <div id="content">
+      <div class="container-fluid">
+      <div class="overlay overlay-a"></div>
  
           @include('layout.navbar')
  
         <!-- Begin Page Content -->
-        <div class="container-fluid">
+        <section class="section-services section-t8">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+        </div>
+      </div>
+    </div>
+  </section>
  
             @yield('content')
  
@@ -36,6 +42,7 @@
       <!-- End of Main Content -->
  
       @include('layout.footer')
+      </div>
  
     </div>
     <!-- End of Content Wrapper -->
