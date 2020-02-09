@@ -201,7 +201,7 @@
           data.addRows(newArray);
 
           var logOptions = {
-            title: 'Staffgauge',
+            title: `Staffgauge ${default1.staffgaugeid}`,
             legend: 'none',
             hAxis: {
               title: 'Date',
