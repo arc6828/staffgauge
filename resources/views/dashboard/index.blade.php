@@ -1,12 +1,14 @@
-<!DOCTYPE html >
-  <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-    <title>Dashboard</title>
-    
-  </head>
+@extends('layout.main')
 
-<html>
+@section('content')
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <div class="card-header">Dashboard</div>
+                    <div class="card-body">
+                    <html>
   <body>
   <style>
       /* Always set the map height explicitly to define the size of the div
@@ -254,4 +256,15 @@
     <div id="table_div"></div>
   </body>
   </body>
-</html>
+  </html>
+  </div>
+
+</div>
+</div>
+
+
+
+</div>
+</div>
+</div>
+@endsection
