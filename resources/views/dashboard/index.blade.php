@@ -18,7 +18,7 @@
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
-        height: 50px;
+        height: 300px;
         margin: 0;
         padding: 0;
       }
