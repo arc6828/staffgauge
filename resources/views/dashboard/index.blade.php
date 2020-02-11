@@ -60,7 +60,7 @@
         */
 
           // Change this depending on the name of your PHP or XML file
-          jQuery.getJSON('https://www.smartstaffgauge.com/api/map/staffgauges', function(data) {
+          jQuery.getJSON('{{ url("/") }}/api/map/staffgauges', function(data) {
             //console.log(data);
             // var xml = data.responseXML;
             // var markers = data.getElementsByTagName('marker');
@@ -97,7 +97,7 @@
                 if(chart){
                   //GET JSON ....
                   var newArray1 = [];
-                  jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs', function (ocrid) {
+                  jQuery.getJSON('{{ url("/") }}/api/map/ocrs', function (ocrid) {
                     let result = ocrid.filter(item => item.staffgaugeid == marker.data.id);
                     console.log('result',result);
                     Array.prototype.forEach.call(result, function(result) {
@@ -131,7 +131,7 @@
 
                 if(table){
                   //GET JSON ....
-                  jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs', function (ocr) {
+                  jQuery.getJSON('{{ url("/") }}/api/map/ocrs', function (ocr) {
                     console.log('ocr : ', ocr);
                     let datatable = ocr.filter(item => item.staffgaugeid == marker.data.id);
                     console.log('datatable',datatable);
@@ -176,7 +176,7 @@
       var chart;
       var table;
       function drawChart() {
-        jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs', function (ocr) {
+        jQuery.getJSON('{{ url("/") }}/api/map/ocrs', function (ocr) {
           console.log('ocr : ', ocr);
           let default1 = ocr.filter(item => item.staffgaugeid === "1");
           console.log('default1',default1);
@@ -218,7 +218,7 @@
       }
 
       function drawTable() {
-        jQuery.getJSON('https://www.smartstaffgauge.com/api/map/ocrs', function (ocr) {
+        jQuery.getJSON('{{ url("/") }}/api/map/ocrs', function (ocr) {
           console.log('ocr : ', ocr);
           let datatable = ocr.filter(item => item.staffgaugeid === "1");
           console.log('datatable',datatable);

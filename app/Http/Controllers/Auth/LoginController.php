@@ -96,6 +96,7 @@ class LoginController extends Controller
             ]);
             
             // $profile = $user->id;
+            //UPDATE ตาราง Profile
             $profile->update(['user_id' => $user->id]); 
 
             echo "<br> ID : ".$providerUser->getId();
@@ -104,8 +105,13 @@ class LoginController extends Controller
             echo "<br> email : ".$providerUser->getEmail();
             echo "<br> avatar : ".$providerUser->getAvatar();
 
+            
+            // update user id ocr
+            
+
             return $user;
             // return null;
         }
+
     }
 }
