@@ -47,8 +47,8 @@ class LocationController extends Controller
             $lineid = $requestData['lineid'];
             
             //ระวัง query นี้อาจมีผลลัพธ์ เป็น null
-            $profile = Profile::where('lineid' , $lineid)->first();
-            $requestData['user_id'] = $profile ? $profile->user_id : 1 ;
+            $location = Location::where('lineid' , $lineid)->first();
+            $requestData['user_id'] = $location ? $location->user_id : 1 ;
         }
         // $requestData['latitude']
         // $requestData['longitude']

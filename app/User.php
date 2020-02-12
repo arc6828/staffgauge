@@ -45,4 +45,8 @@ class User extends Authenticatable
         return $this->hasMany('App\Ocr', 'user_id');
     }
 
+    public function location(){
+        return $this->hasMany('App\Location', 'user_id');
+    }
+
 }

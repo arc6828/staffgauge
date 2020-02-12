@@ -25,7 +25,7 @@ class Location extends Model
      *
      * @var array
      */
-    protected $fillable = ['address', 'latitude', 'longitude','typegroup','lineid','staffgaugeid'];
+    protected $fillable = ['address', 'latitude', 'longitude','typegroup','lineid','staffgaugeid','user_id'];
 
     public function staffgauge(){
         return $this->belongsTo('App\Staffgauge', 'staffgaugeid');
@@ -37,5 +37,9 @@ class Location extends Model
 
     public function profile(){
         return $this->belongsTo('App\Profile', 'lineid');
+    }
+
+    public function user(){
+        return $this->belongsTo('App\User', 'user_id');
     }
 }
