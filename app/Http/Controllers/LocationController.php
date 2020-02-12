@@ -32,6 +32,7 @@ class LocationController extends Controller
                         ->orWhere('longitude', 'LIKE', "%$keyword%")
                         ->orWhere('typegroup', 'LIKE', "%$keyword%")
                         ->orWhere('lineid', 'LIKE', "%$keyword%")
+                        ->orWhere('user_id', 'LIKE', "%$keyword%")
                         ->orWhere('staffgaugeid', 'LIKE', "%$keyword%")
                         ->latest()->paginate($perPage);
                 }
@@ -48,6 +49,7 @@ class LocationController extends Controller
                                 ->orWhere('longitude', 'LIKE', "%$keyword%")
                                 ->orWhere('typegroup', 'LIKE', "%$keyword%")
                                 ->orWhere('lineid', 'LIKE', "%$keyword%")
+                                ->orWhere('user_id', 'LIKE', "%$keyword%")
                                 ->orWhere('staffgaugeid', 'LIKE', "%$keyword%");
                         })->latest()->paginate($perPage);
                 }
