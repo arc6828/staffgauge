@@ -28,7 +28,11 @@
                             <table class="table">
                                 <tbody>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>User ID</th>
+                                        <td>{{ $profile->user->id }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Profile ID</th>
                                         <td>{{ $profile->id }}</td>
                                     </tr>
                                     <tr><th> Name </th><td> {{ $profile->user->name }} </td></tr>
