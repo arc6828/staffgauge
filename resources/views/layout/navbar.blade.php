@@ -24,16 +24,16 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/staffgauge') }}">Staffgauge</a>
           </li>
-          @if (Auth::user()->profile->role == "admin")
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url('/profile') }}">Manage Profile</a>
-          </li>
-          @endif
           @if(!Auth::check())
                 <li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">Login</a></li>
                 <!-- <li class="nav-item"><a class="nav-link" href="{{ url('/register') }}">Register</a></li> -->
               @else
                 <li class="nav-item">
+                @if (Auth::user()->profile->role == "admin")
+                  <li class="nav-item">
+                  <a class="nav-link" href="{{ url('/profile') }}">Manage Profile</a>
+                  </li>
+                @endif
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   @if(Auth::user()->profile->photo)
                     <img src="{{ url('storage') }}/{{Auth::user()->profile->photo}}" width=30 height=30 class="mr-2 rounded-circle">
