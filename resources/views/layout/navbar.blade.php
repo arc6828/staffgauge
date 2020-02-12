@@ -24,6 +24,11 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/staffgauge') }}">Staffgauge</a>
           </li>
+          @if (Auth::user()->profile->role == "admin")
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url('/profile') }}">Manage Profile</a>
+          </li>
+          @endif
           @if(!Auth::check())
                 <li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">Login</a></li>
                 <!-- <li class="nav-item"><a class="nav-link" href="{{ url('/register') }}">Register</a></li> -->
