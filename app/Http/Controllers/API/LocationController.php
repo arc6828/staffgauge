@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Location;
+use App\Profile;
 use Illuminate\Support\Facades\Auth;
 
 class LocationController extends Controller
@@ -39,6 +40,16 @@ class LocationController extends Controller
     {
 
         $requestData = $request->all();
+        $requestData['user_id'] = 1;
+
+        //ดึงข้อมูล location จาก lineid
+        if ($request->has('lineid')) {
+            $lineid = $requestData['lineid'];
+            
+            //ระวัง query นี้อาจมีผลลัพธ์ เป็น null
+            $profile = Profile::where('lineid' , $lineid)->first();
+            $requestData['user_id'] = $profile ? $profile->user_id : 1 ;
+        }
         // $requestData['latitude']
         // $requestData['longitude']
         Location::create($requestData);
