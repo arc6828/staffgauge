@@ -49,7 +49,7 @@
                                             <div>ละติจูด : {{ $item->latitude }}</div>
                                             <div>ลองจิจูด : {{ $item->longitude }}</div>
                                         </td>
-                                        <td>{{ $item->profile->user_id }}</td>
+                                        <td>{{ $item->profile->id }}</td>
                                         <td><div> รหัสมาตรวัด : {{ $item->staffgaugeid }} </div></td>
                                         @if (Auth::user()->profile->role == "admin")
                                             <td>  
