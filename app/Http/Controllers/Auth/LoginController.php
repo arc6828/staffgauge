@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Socialite;
 use App\Profile;
 use App\User;
+use App\Ocr;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Hash;
@@ -107,7 +108,8 @@ class LoginController extends Controller
 
             
             // update user id ocr
-            
+            $ocrs = Ocr::where('lineid', $profile->lineid)
+                        ->update(['user_id' => $user->id]);
 
             return $user;
             // return null;

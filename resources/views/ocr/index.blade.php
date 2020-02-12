@@ -8,9 +8,11 @@
                 <div class="card mb-4">
                     <div class="card-header">Ocr</div>
                     <div class="card-body">
+                    @if (Auth::user()->profile->role == "admin")
                         <a href="{{ url('/ocr/create') }}" class="btn btn-success btn-sm" title="Add New Ocr">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New 
                         </a>
+                    @endif
 
                         <form method="GET" action="{{ url('/ocr') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
                             <div class="input-group">
@@ -32,35 +34,38 @@
                                         <th>#</th>
                                         <th>Photo</th>
                                         <th>Owner</th>
-                                        <th>LocationId</th>
-                                        <th>StaffgaugeId</th>
-                                        <th>Datetime</th>
                                         <th>Level</th>
                                         <th>Extract Data</th>
+                                        @if (Auth::user()->profile->role == "admin")
                                         <th>Actions</th>
+                                        @endif
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($ocr as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td><img src="{{ url('storage') }}/{{ $item->photo }}" width=100 /></td>
-                                        <td>{{ $item->user->name }}</td>
-                                        <td>{{ $item->locationid }}</td>
-                                        <td>{{ $item->staffgaugeid }}</td>
-                                        <td>{{ $item->created_at }}</td>
-                                        <td>{{ $item->title }}</td>
-                                        <td style="max-width:200px;">{{ $item->content }}</td>
                                         <td>
-                                            <a href="{{ url('/ocr/' . $item->id) }}" title="View Ocr"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/ocr/' . $item->id . '/edit') }}" title="Edit Ocr"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
-
-                                            <form method="POST" action="{{ url('/ocr' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
-                                                {{ method_field('DELETE') }}
-                                                {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-sm" title="Delete Ocr" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
-                                            </form>
+                                            <div><img src="{{ url('storage') }}/{{ $item->photo }}" width=100 /> </div><div>สร้างเมื่อ : {{ $item->created_at }}</div>
                                         </td>
+                                        <td>
+                                            <div>ผู้อัปโหลด : {{ $item->user->name }}</div><div> รหัสสถานที่ : {{ $item->locationid }}</div><div> รหัสมาตรวัด : {{ $item->staffgaugeid }}</div>
+                                        </td>
+                                        <td><div>ระดับน้ำ : {{ $item->title }}</div></td>
+                                        <td style="max-width:200px;">{{ $item->content }}</td>
+                                        
+                                            @if (Auth::user()->profile->role == "admin")
+                                            <td>  
+                                                <a href="{{ url('/ocr/' . $item->id) }}" title="View Ocr"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                                                <a href="{{ url('/ocr/' . $item->id . '/edit') }}" title="Edit Ocr"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+
+                                                <form method="POST" action="{{ url('/ocr' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
+                                                    {{ method_field('DELETE') }}
+                                                    {{ csrf_field() }}
+                                                    <button type="submit" class="btn btn-danger btn-sm" title="Delete Ocr" onclick="return confirm(&quot;Confirm delete?&quot;)"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</button>
+                                                </form>
+                                            </td>
+                                            @endif
                                     </tr>
                                 @endforeach
                                 </tbody>
