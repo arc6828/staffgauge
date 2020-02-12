@@ -49,6 +49,7 @@ class OcrController extends Controller
                         ->orWhere('staffgaugeid', 'LIKE', "%$keyword%")
                         ->orWhere('locationid', 'LIKE', "%$keyword%")
                         ->orWhere('content', 'LIKE', "%$keyword%")
+                        ->orWhere('user_id', 'LIKE', "%$keyword%")
                         ->orWhere('photo', 'LIKE', "%$keyword%")
                         ->latest()->paginate($perPage);
                 }
@@ -64,6 +65,7 @@ class OcrController extends Controller
                                 ->orWhere('staffgaugeid', 'LIKE', "%$keyword%")
                                 ->orWhere('locationid', 'LIKE', "%$keyword%")
                                 ->orWhere('content', 'LIKE', "%$keyword%")
+                                ->orWhere('user_id', 'LIKE', "%$keyword%")
                                 ->orWhere('photo', 'LIKE', "%$keyword%");
                         })->latest()->paginate($perPage);
                 }
