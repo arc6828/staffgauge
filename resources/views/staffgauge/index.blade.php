@@ -31,9 +31,6 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Addressgauge</th>
-                                        <th>Amphoe</th>
-                                        <th>District</th>
-                                        <th>Province</th>
                                         <th>Latitudegauge</th>
                                         <th>Longitudegauge</th>
                                         <th>Actions</th>
@@ -43,10 +40,12 @@
                                 @foreach($staffgauge as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->addressgauge }}</td>
-                                        <td>{{ $item->amphoe }}</td>
-                                        <td>{{ $item->district }}</td>
-                                        <td>{{ $item->province }}</td>
+                                        <td>
+                                            <div>ที่อยู่ : {{ $item->addressgauge }}</div>
+                                            <div>ตำบล : {{ $item->district }}</div>
+                                            <div>อำเภอ : {{ $item->amphoe }}</div>
+                                            <div>จังหวัด : {{ $item->province }}</div>
+                                        </td>
                                         <td>{{ $item->latitudegauge }}</td>
                                         <td>{{ $item->longitudegauge }}</td>
                                         <td>
