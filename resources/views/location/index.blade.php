@@ -33,7 +33,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>address</th>
-                                        <th>lineid</th>
+                                        <th>Owner</th>
                                         <th>staffgaugeid</th>
                                         @if (Auth::user()->profile->role == "admin")
                                         <th>Actions</th>
@@ -49,7 +49,7 @@
                                             <div>ละติจูด : {{ $item->latitude }}</div>
                                             <div>ลองจิจูด : {{ $item->longitude }}</div>
                                         </td>
-                                        <td>{{ $item->profile->user->name }}</td>
+                                        <td>{{ $item->$profile->user->name }}</td>
                                         <td><div> รหัสมาตรวัด : {{ $item->staffgaugeid }} </div></td>
                                         @if (Auth::user()->profile->role == "admin")
                                             <td>  
