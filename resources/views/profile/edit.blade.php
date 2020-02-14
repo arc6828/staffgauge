@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">Edit Profile #{{ $profile->id }}</div>
                     <div class="card-body">
