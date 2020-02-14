@@ -26,10 +26,12 @@
                                     <tr>
                                         <th>ID</th><td>{{ $location->id }}</td>
                                     </tr>
+                                    <tr><th> Msg.ID </th><td> {{ $location->msglocid }} </td></tr>
                                     <tr><th> Address </th><td> {{ $location->address }} </td></tr>
                                     <tr><th> Latitude </th><td> {{ $location->latitude }} </td></tr>
                                     <tr><th> Longitude </th><td> {{ $location->longitude }} </td></tr>
-                                    <tr><th> TypeGroup </th><td> {{ $location->typegroup }} </td></tr>
+                                    <tr><th> Owner </th><td> {{ $location->user->name }} </td></tr>
+                                    <tr><th> UserId </th><td> {{ $location->user_id }} </td></tr>
                                     <tr><th> LineId </th><td> {{ $location->lineid }} </td></tr>
                                     <tr><th> StaffgaugeId </th><td> {{ $location->staffgaugeid }} </td></tr>
                                 </tbody>
