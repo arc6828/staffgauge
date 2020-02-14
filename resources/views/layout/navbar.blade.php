@@ -42,7 +42,7 @@
                   </a>
                 <!-- Dropdown - User Information -->
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{{url('/home')}}"">
+                  <a class="dropdown-item" href="{{url('/home')}}">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Profile
                   </a>
