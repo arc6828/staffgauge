@@ -46,7 +46,7 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>
-                                            <div><img src="{{ url('storage') }}/{{ $item->photo }}" width=100 /> </div><div>สร้างเมื่อ : {{ $item->created_at }}</div>
+                                            <div>Msg.ID : {{ $item->msgocrid }}</div><div><img src="{{ url('storage') }}/{{ $item->photo }}" width=100 /> </div><div>สร้างเมื่อ : {{ $item->created_at }}</div>
                                         </td>
                                         <td>
                                             <div>ผู้อัปโหลด : {{ $item->user->name }}</div><div> รหัสสถานที่ : {{ $item->locationid }}</div><div> รหัสมาตรวัด : {{ $item->staffgaugeid }}</div>

@@ -45,6 +45,7 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>
+                                            <div>Msg.ID : {{ $item->msglocid }}</div>
                                             <div>รายละเอียด : {{ $item->address }}</div>
                                             <div>ละติจูด : {{ $item->latitude }}</div>
                                             <div>ลองจิจูด : {{ $item->longitude }}</div>

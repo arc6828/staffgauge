@@ -28,6 +28,7 @@ class LocationController extends Controller
             case "admin" : //FOR ADMIN SEE ALL
                 if (!empty($keyword)) {
                     $location = Location::where('address', 'LIKE', "%$keyword%")
+                        ->orWhere('msglocid', 'LIKE', "%$keyword%")
                         ->orWhere('latitude', 'LIKE', "%$keyword%")
                         ->orWhere('longitude', 'LIKE', "%$keyword%")
                         ->orWhere('typegroup', 'LIKE', "%$keyword%")
@@ -45,6 +46,7 @@ class LocationController extends Controller
                     $location = Location::where('user_id' , Auth::user()->id)
                         ->where(function($query) use ($keyword){
                             $query->where('address', 'LIKE', "%$keyword%")
+                                ->orWhere('msglocid', 'LIKE', "%$keyword%")
                                 ->orWhere('latitude', 'LIKE', "%$keyword%")
                                 ->orWhere('longitude', 'LIKE', "%$keyword%")
                                 ->orWhere('typegroup', 'LIKE', "%$keyword%")

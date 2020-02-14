@@ -25,7 +25,7 @@ class Ocr extends Model
      *
      * @var array
      */
-    protected $fillable = ['title', 'content', 'photo','user_id','json_line','lineid','numbers','staffgaugeid','locationid'];
+    protected $fillable = ['title', 'content', 'photo','user_id','json_line','lineid','numbers','staffgaugeid','locationid','msgocrid'];
 
     public function user(){
         return $this->belongsTo('App\User', 'user_id');

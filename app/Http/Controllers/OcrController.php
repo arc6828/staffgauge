@@ -47,6 +47,7 @@ class OcrController extends Controller
                 if (!empty($keyword)) {
                     $ocr = Ocr::where('title', 'LIKE', "%$keyword%")
                         ->orWhere('staffgaugeid', 'LIKE', "%$keyword%")
+                        ->orWhere('msgocrid', 'LIKE', "%$keyword%")
                         ->orWhere('locationid', 'LIKE', "%$keyword%")
                         ->orWhere('content', 'LIKE', "%$keyword%")
                         ->orWhere('user_id', 'LIKE', "%$keyword%")
@@ -63,6 +64,7 @@ class OcrController extends Controller
                         ->where(function($query) use ($keyword){
                             $query->where('title', 'LIKE', "%$keyword%")
                                 ->orWhere('staffgaugeid', 'LIKE', "%$keyword%")
+                                ->orWhere('msgocrid', 'LIKE', "%$keyword%")
                                 ->orWhere('locationid', 'LIKE', "%$keyword%")
                                 ->orWhere('content', 'LIKE', "%$keyword%")
                                 ->orWhere('user_id', 'LIKE', "%$keyword%")
