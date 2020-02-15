@@ -1,9 +1,10 @@
 @extends('layout.main')
 
 @section('content')
-<div class="container-fluid">
-    <div class="row justify-content-center">
-        <div class="col-lg-12">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mb-4">
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
@@ -67,12 +68,13 @@
                     <hr> -->
                         
                         <div class="form-group row mb-0">
-                            <div class="col-md-12 offset-md-4">
+                            <div class="col-md-12 offset-md-5">
                                 <a class="btn btn-success" style="background-color: #00B900 , margin: auto " href="{{ url('login') }}/line"><img src="images/Line-Transparent-Icon-400x400.png" style="width: 30px">
                                     {{ __('LOGIN WITH LINE') }}
                                 </a>
                             </div>
                         </div>
+                </div>
             </div>
         </div>
     </div>
