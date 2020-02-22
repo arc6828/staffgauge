@@ -128,6 +128,7 @@ class OcrController extends Controller
         
     }
 
+    // update title in ocr
     function updateocrs(Request $request)
     {
         $requestData = $request->all();
