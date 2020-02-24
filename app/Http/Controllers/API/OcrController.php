@@ -128,6 +128,20 @@ class OcrController extends Controller
         
     }
 
+    // update title in ocr
+    function updateocrs(Request $request)
+    {
+        $requestData = $request->all();
+        $lineid = $requestData['lineid'];
+        $msgocrid = $requestData['msgocrid'];
+        $title = $requestData['title'];
+
+        // update title in ocr
+        $updatetitle = Ocr::where('lineid', $lineid)
+                ->where('msgocrid', $msgocrid)
+                ->update(['title' => $title]);
+    }
+
 
     /*public function store2(Request $request)
     {
