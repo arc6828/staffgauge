@@ -29,14 +29,20 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>#</th><th>Role</th><th>UserId</th><th>LineId</th><th>Photo</th><th>Actions</th>
+                                        <th>#</th>
+                                        <th>Role</th>
+                                        <th>UserId</th>
+                                        <th>LineId</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($profile as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->role }}</td><td>{{ $item->user_id }}</td><td>{{ $item->lineid }}</td><td>{{ $item->photo }}</td>
+                                        <td>{{ $item->role }}</td>
+                                        <td>{{ $item->user_id }}</td>
+                                        <td>{{ $item->lineid }}</td>
                                         <td>
                                             <a href="{{ url('/profile/' . $item->id) }}" title="View Profile"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/profile/' . $item->id . '/edit') }}" title="Edit Profile"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
