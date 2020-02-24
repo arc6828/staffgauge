@@ -1,8 +1,9 @@
 <div class="form-group {{ $errors->has('role') ? 'has-error' : ''}}">
     <label for="role" class="control-label">{{ 'Role' }}</label>
-    <select class="custom-select" name="role" type="text" id="role" value="{{ isset($profile->role) ? $profile->role : ''}}" ></select>
+    <select class="custom-select" name="role" type="text" id="role" value="{{ isset($profile->role) ? $profile->role : ''}}" >
         <option value="admin">เจ้าหน้าที่</option>
         <option value="guest">สมาชิกทั่วไป</option>
+    </select>
     {!! $errors->first('role', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('user_id') ? 'has-error' : ''}}">
