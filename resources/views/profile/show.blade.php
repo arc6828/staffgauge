@@ -24,9 +24,21 @@
                             <table class="table">
                                 <tbody>
                                     <tr>
-                                        <th>ID</th><td>{{ $profile->id }}</td>
+                                        <th>Profile ID</th><td>{{ $profile->id }}</td>
                                     </tr>
-                                    <tr><th> Role </th><td> {{ $profile->role }} </td></tr><tr><th> User Id </th><td> {{ $profile->user_id }} </td></tr><tr><th> Photo </th><td> {{ $profile->photo }} </td></tr>
+                                    <tr><th> Role </th><td> @switch( $item->role )
+                                                @case("admin")
+                                                    <div><span class="badge badge-primary">เจ้าหน้าที่</span></div>
+                                                    <div>{{ $item->role }}</div>
+                                                @break
+                                                         
+                                                @case("guest")
+                                                    <div><span class="badge badge-warning">สมาชิกทั่วไป</span></div>
+                                                    <div>{{ $item->role }}</div>
+                                                @break
+                                            @endswitch </td></tr>
+                                    <tr><th> User Id </th><td> {{ $profile->user_id }} </td></tr>
+                                    <tr><th> Line Id </th><td> {{ $profile->lineid }} </td></tr>
                                 </tbody>
                             </table>
                         </div>
