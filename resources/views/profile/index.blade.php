@@ -32,7 +32,7 @@
                                         <th>#</th>
                                         <th>Role</th>
                                         <th>UserId</th>
-                                        <th>LineId</th>
+                                        <th>Username</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -40,9 +40,21 @@
                                 @foreach($profile as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->role }}</td>
+                                        <td>
+                                            @switch( $item->role )
+                                                @case("admin")
+                                                    <div><span class="badge badge-primary">เจ้าหน้าที่</span></div>
+                                                    <div>{{ $item->role }}</div>
+                                                @break
+                                                         
+                                                @case("guest")
+                                                    <div><span class="badge badge-warning">สมาชิกทั่วไป</span></div>
+                                                    <div>{{ $item->role }}</div>
+                                                @break
+                                            @endswitch  
+                                        </td>
                                         <td>{{ $item->user_id }}</td>
-                                        <td>{{ $item->lineid }}</td>
+                                        <td>{{ $item->user->name }}</td>
                                         <td>
                                             <a href="{{ url('/profile/' . $item->id) }}" title="View Profile"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/profile/' . $item->id . '/edit') }}" title="Edit Profile"><button class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
