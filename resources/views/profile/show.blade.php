@@ -26,15 +26,15 @@
                                     <tr>
                                         <th>Profile ID</th><td>{{ $profile->id }}</td>
                                     </tr>
-                                    <tr><th> Role </th><td> @switch( $item->role )
+                                    <tr><th> Role </th><td> @switch( $profile->role )
                                                 @case("admin")
                                                     <div><span class="badge badge-primary">เจ้าหน้าที่</span></div>
-                                                    <div>{{ $item->role }}</div>
+                                                    <div>{{ $profile->role }}</div>
                                                 @break
                                                          
                                                 @case("guest")
                                                     <div><span class="badge badge-warning">สมาชิกทั่วไป</span></div>
-                                                    <div>{{ $item->role }}</div>
+                                                    <div>{{ $profile->role }}</div>
                                                 @break
                                             @endswitch </td></tr>
                                     <tr><th> User Id </th><td> {{ $profile->user_id }} </td></tr>
