@@ -20,12 +20,12 @@
 </div>
 <div class="form-group {{ $errors->has('latitudegauge') ? 'has-error' : ''}}">
     <label for="latitudegauge" class="control-label">{{ 'Latitudegauge' }}</label>
-    <input class="form-control" name="latitudegauge" type="number" id="latitudegauge" value="{{ isset($staffgauge->latitudegauge) ? $staffgauge->latitudegauge : ''}}"  required>
+    <input class="form-control" name="latitudegauge" type="number" step=0.000000000000001 id="latitudegauge" value="{{ isset($staffgauge->latitudegauge) ? $staffgauge->latitudegauge : ''}}"  required>
     {!! $errors->first('latitudegauge', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('longitudegauge') ? 'has-error' : ''}}">
     <label for="longitudegauge" class="control-label">{{ 'Longitudegauge' }}</label>
-    <input class="form-control" name="longitudegauge" type="number" id="longitudegauge" value="{{ isset($staffgauge->longitudegauge) ? $staffgauge->longitudegauge : ''}}"  required>
+    <input class="form-control" name="longitudegauge" type="number" step=0.000000000000001 id="longitudegauge" value="{{ isset($staffgauge->longitudegauge) ? $staffgauge->longitudegauge : ''}}"  required>
     {!! $errors->first('longitudegauge', '<p class="help-block">:message</p>') !!}
 </div>
 
