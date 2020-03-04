@@ -20,6 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::resource('ocr', 'API\OcrController');
 Route::resource('location', 'API\LocationController');
 Route::get('/map/locations','API\MapController@locations');
-Route::get('/map/staffgauges','API\MapController@staffgauges');
+Route::post('/map/staffgauges','API\MapController@staffgauges');
 Route::get('/map/ocrs','API\MapController@ocrs');
-Route::post('updateocr', 'API\OcrController@updateocrs');
+Route::get('/updateocr', 'API\OcrController@updateocrs');
