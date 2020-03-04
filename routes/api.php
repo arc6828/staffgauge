@@ -22,4 +22,4 @@ Route::resource('location', 'API\LocationController');
 Route::get('/map/locations','API\MapController@locations');
 Route::get('/map/staffgauges','API\MapController@staffgauges');
 Route::get('/map/ocrs','API\MapController@ocrs');
-Route::get('/updateocr', 'API\OcrController@updateocrs');
+Route::post('/updateocr', 'API\OcrController@updateocrs');
