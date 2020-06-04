@@ -5,3 +5,5 @@ php artisan crud:generate Profile --fields_from_file="resources/crud-generator/j
 
 
 php artisan crud:generate LogOcr --fields_from_file="resources/crud-generator/json/log_ocr.json"
+
+php artisan crud:generate MyLog --fields_from_file="resources/crud-generator/json/mylog.json"

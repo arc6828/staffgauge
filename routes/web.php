@@ -37,3 +37,8 @@ Route::prefix('login')->group(function () {
 
 Route::resource('log-ocr', 'LogOcrController');
 Route::resource('my-log-ocr', 'MyLogOcrController');
+Route::resource('my-log', 'MyLogController');
+
+Route::get('user-manual', function(){
+    return view('user-manual');
+});

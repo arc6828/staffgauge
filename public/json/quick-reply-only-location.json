@@ -1,0 +1,15 @@
+{
+    "type": "text", 
+    "text": "กรุณา Share Location เพื่อระบุตำแหน่งของรูปภาพที่คุณส่งมา ...",
+    "quickReply": { 
+      "items": [        
+        {
+          "type": "action", 
+          "action": {
+            "type": "location",
+            "label": "Send location"
+          }
+        }
+      ]
+    }
+  }

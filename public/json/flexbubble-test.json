@@ -1,0 +1,154 @@
+{
+    "type": "flex",
+    "altText": "Flex Message",
+    "contents": {
+      "type": "bubble",
+      "direction": "ltr",
+      "hero": {
+        "type": "image",
+        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+        "size": "full",
+        "aspectRatio": "20:13",
+        "aspectMode": "cover",
+        "action": {
+          "type": "uri",
+          "label": "Line",
+          "uri": "https://linecorp.com/"
+        }
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "Brown Cafe",
+            "size": "xl",
+            "weight": "bold"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "spacing": "sm",
+            "margin": "lg",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "sm",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "ข้อมูลที่ตรวจพบ",
+                    "flex": 1,
+                    "size": "lg",
+                    "align": "center",
+                    "color": "#AAAAAA"
+                  },
+                  {
+                    "type": "text",
+                    "text": "Miraina Tower, 4-1-6 Shinjuku, Tokyo",
+                    "flex": 1,
+                    "size": "sm",
+                    "color": "#666666",
+                    "wrap": true
+                  },
+                  {
+                    "type": "spacer",
+                    "size": "lg"
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "spacing": "sm",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "ระดับน้ำ",
+                    "flex": 1,
+                    "size": "lg",
+                    "align": "center",
+                    "color": "#AAAAAA"
+                  },
+                  {
+                    "type": "text",
+                    "text": "100",
+                    "flex": 1,
+                    "size": "4xl",
+                    "align": "center",
+                    "color": "#666666",
+                    "wrap": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "button",
+                "action": {
+                  "type": "uri",
+                  "label": "10",
+                  "uri": "https://linecorp.com"
+                },
+                "style": "primary"
+              },
+              {
+                "type": "button",
+                "action": {
+                  "type": "uri",
+                  "label": "Button",
+                  "uri": "https://linecorp.com"
+                }
+              },
+              {
+                "type": "button",
+                "action": {
+                  "type": "uri",
+                  "label": "Button",
+                  "uri": "https://linecorp.com"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "flex": 0,
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "CALL",
+              "uri": "https://linecorp.com"
+            },
+            "height": "sm",
+            "style": "link"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "WEBSITE",
+              "uri": "https://linecorp.com"
+            },
+            "height": "sm",
+            "style": "link"
+          },
+          {
+            "type": "spacer",
+            "size": "sm"
+          }
+        ]
+      }
+    }
+  }

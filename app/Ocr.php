@@ -39,8 +39,15 @@ class Ocr extends Model
         return $this->hasOne('App\Location', 'lineid');
     }
 
+    /*
     public function staffgauge(){
         return $this->hasOne('App\Staffgauge', 'lineid');
+    }
+    */
+
+    public function staffgauge()
+    {
+        return $this->belongsTo('App\Staffgauge', 'staffgaugeid');
     }
     
 }

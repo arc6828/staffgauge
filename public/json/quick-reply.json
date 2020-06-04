@@ -1,0 +1,39 @@
+{
+    "type": "text", 
+    "text": "Select your favorite choice ...",
+    "quickReply": { 
+      "items": [
+        
+        {
+          "type": "action", 
+          "action": {
+            "type": "location",
+            "label": "Send location"
+          }
+        },
+        {
+          "type": "action", 
+          "action": {
+              "type": "camera",
+              "label": "Camera"
+          }
+        },
+        {
+          "type": "action",
+          "action": {
+              "type": "cameraRoll",
+              "label": "Camera Roll"
+          }
+        },
+        {
+          "type": "action", 
+          "imageUrl": "https://img.icons8.com/color/48/000000/cloud.png",
+          "action": {
+            "type": "message",
+            "label": "Weather Now",
+            "text": "Line Weather Now"
+          }
+        }
+      ]
+    }
+  }

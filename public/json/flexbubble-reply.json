@@ -1,0 +1,275 @@
+{
+    "type": "flex",
+    "altText": "Flex Message",
+    "contents": {
+        "type": "bubble",
+        "header": {
+            "type": "box",
+            "layout": "horizontal",
+            "flex": 0,
+            "contents": [{
+                    "type": "image",
+                    "url": "<image>",
+                    "size": "full"
+                }
+            ]
+        },
+        "body": {
+            "type": "box",
+            "layout": "vertical",
+            "spacing": "xs",
+            "contents": [{
+                    "type": "text",
+                    "text": "Msg.ID : <message_id>",
+                    "size": "xl",
+                    "gravity": "center",
+                    "weight": "bold",
+                    "wrap": true
+                }, {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "sm",
+                    "margin": "lg",
+                    "contents": [{
+                        "type": "box",
+                        "layout": "baseline",
+                        "spacing": "sm",
+                        "contents": [{
+                                "type": "text",
+                                "text": "มาตรวัดที่",
+                                "flex": 3,
+                                "size": "sm",
+                                "color": "#AAAAAA"
+                            }, {
+                                "type": "text",
+                                "text": "<staffgauge_name>",
+                                "flex": 4,
+                                "size": "sm",
+                                "color": "#666666",
+                                "wrap": true
+                            }
+                        ]
+                    }, {
+                            "type": "box",
+                            "layout": "baseline",
+                            "spacing": "sm",
+                            "contents": [{
+                                    "type": "text",
+                                    "text": "ข้อมูลทั้งหมด",
+                                    "flex": 3,
+                                    "size": "sm",
+                                    "color": "#AAAAAA"
+                                }, {
+                                    "type": "text",
+                                    "text": "<content>",
+                                    "flex": 4,
+                                    "size": "sm",
+                                    "color": "#666666",
+                                    "wrap": true
+                                }
+                            ]
+                        }, {
+                            "type": "box",
+                            "layout": "baseline",
+                            "spacing": "sm",
+                            "contents": [{
+                                    "type": "text",
+                                    "text": "ตัวเลข",
+                                    "flex": 3,
+                                    "size": "sm",
+                                    "color": "#AAAAAA"
+                                }, {
+                                    "type": "text",
+                                    "text": "<numbers>",
+                                    "flex": 4,
+                                    "size": "sm",
+                                    "color": "#666666",
+                                    "wrap": true
+                                }
+                            ]
+                        }, {
+                            "type": "box",
+                            "layout": "baseline",
+                            "spacing": "sm",
+                            "contents": [{
+                                    "type": "text",
+                                    "text": "ระดับน้ำ",
+                                    "flex": 3,
+                                    "size": "xl",
+                                    "color": "#AAAAAA"
+                                }, {
+                                    "type": "text",
+                                    "text": "<title>",
+                                    "flex": 4,
+                                    "size": "xl",
+                                    "color": "#666666",
+                                    "wrap": true
+                                }
+                            ]
+                        }, {
+                            "type": "box",
+                            "layout": "vertical",
+                            "margin": "xxl",
+                            "contents": [{
+                                    "type": "text",
+                                    "text": "** หากข้อมูลมีความผิดพลาดสามารถยืนยันข้อมูลที่ถูกต้องได้ที่ปุ่มด้านล่าง",
+                                    "size": "xs",
+                                    "color": "#AAAAAA",
+                                    "wrap": true
+                                }
+                            ]
+                        }, {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "spacing": "md",
+                            "margin": "lg",
+                            "contents": [{
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [{
+                                            "type": "button",
+                                            "action": {
+                                                "type": "postback",
+                                                "label": "<min0>",                                                
+                                                "data": "lineid=<lineid>&msgocrid=<msgocrid>&title=<min0>"
+                                            },
+                                            "style": "primary"
+                                        }
+                                    ]
+                                }, {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [{
+                                            "type": "button",
+                                            "action": {
+                                                "type": "postback",
+                                                "label": "<min1>",
+                                                "data": "lineid=<lineid>&msgocrid=<msgocrid>&title=<min1>"
+                                            },
+                                            "style": "primary"
+                                        }
+                                    ]
+                                }, {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [{
+                                            "type": "button",
+                                            "action": {
+                                                "type": "postback",
+                                                "label": "<min2>",
+                                                "data": "lineid=<lineid>&msgocrid=<msgocrid>&title=<min2>"
+                                            },
+                                            "style": "primary"
+                                        }
+                                    ]
+                                }, {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [{
+                                            "type": "button",
+                                            "action": {
+                                                "type": "postback",
+                                                "label": "<min3>",
+                                                "data": "lineid=<lineid>&msgocrid=<msgocrid>&title=<min3>"
+                                            },
+                                            "style": "primary"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }, {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "spacing": "md",
+                            "margin": "lg",
+                            "contents": [{
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [{
+                                            "type": "button",
+                                            "action": {
+                                                "type": "postback",
+                                                "label": "<min4>",
+                                                "data": "lineid=<lineid>&msgocrid=<msgocrid>&title=<min4>"
+                                            },
+                                            "style": "primary"
+                                        }
+                                    ]
+                                }, {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [{
+                                            "type": "button",
+                                            "action": {
+                                                "type": "postback",
+                                                "label": "<min5>",
+                                                "data": "lineid=<lineid>&msgocrid=<msgocrid>&title=<min5>"
+                                            },
+                                            "style": "primary"
+                                        }
+                                    ]
+                                }, {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [{
+                                            "type": "button",
+                                            "action": {
+                                                "type": "postback",
+                                                "label": "<min6>",
+                                                "data": "lineid=<lineid>&msgocrid=<msgocrid>&title=<min6>"
+                                            },
+                                            "style": "primary"
+                                        }
+                                    ]
+                                }, {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "contents": [{
+                                            "type": "button",
+                                            "action": {
+                                                "type": "postback",
+                                                "label": "<min7>",
+                                                "data": "lineid=<lineid>&msgocrid=<msgocrid>&title=<min7>"
+                                            },
+                                            "style": "primary"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }, {
+                            "type": "box",
+                            "layout": "vertical",
+                            "margin": "xxl",
+                            "contents": [{
+                                    "type": "text",
+                                    "text": "** อย่าลืมอัปเดตสถานที่อยู่เสมอ เพื่อความถูกต้องของข้อมูล",
+                                    "size": "xs",
+                                    "color": "#AAAAAA",
+                                    "wrap": true
+                                }, {
+                                    "type": "button",
+                                    "action": {
+                                        "type": "uri",
+                                        "label": "ดูข้อมูล",
+                                        "uri": "<login>"
+                                    },
+                                    "margin": "xxl",
+                                    "style": "primary"
+                                }, {
+                                    "type": "button",
+                                    "action": {
+                                        "type": "uri",
+                                        "label": "ดูคู่มือ",
+                                        "uri": "<user_manual>"
+                                    },
+                                    "margin": "md",
+                                    "style": "secondary"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

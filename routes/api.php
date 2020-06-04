@@ -17,8 +17,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('ocr', 'API\OcrController');
-Route::resource('location', 'API\LocationController');
+Route::apiResource('ocr', 'API\OcrController');
+Route::apiResource('location', 'API\LocationController');
 Route::get('/map/locations','API\MapController@locations');
 Route::get('/map/staffgauges','API\MapController@staffgauges');
 Route::get('/map/ocrs','API\MapController@ocrs');

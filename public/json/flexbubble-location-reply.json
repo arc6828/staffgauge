@@ -1,0 +1,177 @@
+{
+    "type": "flex",
+    "altText": "Flex Message",
+    "contents": {
+        "type": "bubble",
+        "header": {
+            "type": "box",
+            "layout": "vertical",
+            "flex": 0,
+            "contents": [{
+                    "type": "text",
+                    "text": "ตอนนี้คุณสามารถอัปโหลดรูปภาพได้แล้ว",
+                    "color": "#AAAAAA",
+                    "wrap": true
+                }, {
+                    "type": "text",
+                    "text": "** อย่าลืมอัปเดตสถานที่อยู่เสมอ เพื่อความถูกต้องของข้อมูล",
+                    "size": "xs",
+                    "color": "#AAAAAA",
+                    "wrap": true
+                }
+            ]
+        },
+        "body": {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [{
+                    "type": "text",
+                    "text": "Msg.ID : <message_id>",
+                    "size": "xl",
+                    "weight": "bold",
+                    "wrap": true
+                }, {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "sm",
+                    "margin": "lg",
+                    "contents": [{
+                            "type": "box",
+                            "layout": "baseline",
+                            "spacing": "sm",
+                            "contents": [{
+                                    "type": "text",
+                                    "text": "สถานที่",
+                                    "flex": 3,
+                                    "size": "sm",
+                                    "color": "#AAAAAA"
+                                }, {
+                                    "type": "text",
+                                    "text": "<address>",
+                                    "flex": 5,
+                                    "size": "sm",
+                                    "color": "#666666",
+                                    "wrap": true
+                                }
+                            ]
+                        }, {
+                            "type": "box",
+                            "layout": "baseline",
+                            "spacing": "sm",
+                            "contents": [{
+                                    "type": "text",
+                                    "text": "ละติจูด",
+                                    "flex": 3,
+                                    "size": "sm",
+                                    "color": "#AAAAAA"
+                                }, {
+                                    "type": "text",
+                                    "text": "<latitude>",
+                                    "flex": 5,
+                                    "size": "sm",
+                                    "color": "#666666",
+                                    "wrap": true
+                                }
+                            ]
+                        }, {
+                            "type": "box",
+                            "layout": "baseline",
+                            "spacing": "sm",
+                            "contents": [{
+                                    "type": "text",
+                                    "text": "ลองจิจูด",
+                                    "flex": 3,
+                                    "size": "sm",
+                                    "color": "#AAAAAA"
+                                }, {
+                                    "type": "text",
+                                    "text": "<longitude>",
+                                    "flex": 5,
+                                    "size": "sm",
+                                    "color": "#666666",
+                                    "wrap": true
+                                }
+                            ]
+                        }, {
+                            "type": "box",
+                            "layout": "baseline",
+                            "spacing": "sm",
+                            "contents": [{
+                                    "type": "text",
+                                    "text": "มาตรวัดที่",
+                                    "flex": 3,
+                                    "size": "sm",
+                                    "color": "#AAAAAA"
+                                }, {
+                                    "type": "text",
+                                    "text": "<staffgauge_name>",
+                                    "flex": 5,
+                                    "size": "sm",
+                                    "color": "#666666",
+                                    "wrap": true
+                                }
+                            ]
+                        }, {
+                            "type": "box",
+                            "layout": "baseline",
+                            "spacing": "sm",
+                            "contents": [{
+                                    "type": "text",
+                                    "text": "เวลา",
+                                    "flex": 3,
+                                    "size": "sm",
+                                    "color": "#AAAAAA"
+                                }, {
+                                    "type": "text",
+                                    "text": "<created_at>",
+                                    "flex": 5,
+                                    "size": "sm",
+                                    "color": "#666666",
+                                    "wrap": true
+                                }
+                            ]
+                        }, {
+                            "type": "text",
+                            "text": "** อย่าลืมอัปเดตสถานที่อยู่เสมอ เพื่อความถูกต้องของข้อมูล",
+                            "margin": "xxl",
+                            "size": "xs",
+                            "color": "#AAAAAA",
+                            "wrap": true
+                        }
+                    ]
+                }
+            ]
+        },
+        "footer": {
+            "type": "box",
+            "layout": "vertical",
+            "flex": 0,
+            "spacing": "sm",
+            "contents": [{
+                    "type": "button",
+                    "action": {
+                        "type": "uri",
+                        "label": "ดูข้อมูล",
+                        "uri": "https://www.smartstaffgauge.com/login/"
+                    },
+                    "margin": "xxl",
+                    "height": "sm",
+                    "style": "primary"
+                }, {
+                    "type": "button",
+                    "action": {
+                        "type": "uri",
+                        "label": "ดูคู่มือ",
+                        "uri": "https://www.smartstaffgauge.com/login/"
+                    },
+                    "margin": "md",
+                    "height": "sm",
+                    "style": "secondary"
+                }, {
+                    "type": "spacer",
+                    "size": "sm"
+                }
+            ]
+        }
+    }
+}

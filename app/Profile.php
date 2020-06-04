@@ -10,7 +10,7 @@ class Profile extends Model
 
     protected $primaryKey = 'id';
 
-    protected $fillable = ['role','user_id','photo','lineid'];
+    protected $fillable = ['role','user_id','photo','lineid','newsletter','last_newsletter_date'];
 
     public function user(){
         return $this->belongsTo('App\User', 'user_id');
