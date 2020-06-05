@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\DB;
 
 class LineMessagingAPI //extends Model
 {
-    public $channel_access_token = "UZmfH2bLSKTKIAWNcQ+MJiIjtwiMyCCletK/OGjy0Ybe0EUOor2lN6CZcDKknPwaD4DX93T2MeI+ocBP6+tNcU/ORteuPvaORZIvKGg5x/1ZtpY5yyjH+xyAbqSe+5BUZbuUi+KSZ3WDC283ilfCfgdB04t89/1O/w1cDnyilFU=";
+    public $channel_access_token = "CwidDVLoPXq67JDO1gEO8ObTbrglznVwdW8xs6mz8WSEsUoPIVubZ0vzo3Jy6g3ZEEC1qVewX0wUbry56kb8HWLoP5765llRDpbfd+dq/xW5r+zHBPtyStV+EaXxtVUyifNHpgRRXxlCLA+3OH+WkgdB04t89/1O/w1cDnyilFU=";
     
     public function replyToUser($data, $event, $message_type)
     {
