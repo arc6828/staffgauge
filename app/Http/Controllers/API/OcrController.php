@@ -228,7 +228,8 @@ class OcrController extends Controller
                 ->orderBy('created_at','desc')
                 ->first(); 
             //FINALLY REPLY TO USER          
-            $line = new LineMessagingAPI();         
+            $line = new LineMessagingAPI();     
+            $event['message']['id'] = $ocr->msgocrid;    
             $line->replyToUser($ocr,$event,"flex-image");
         }       
     }
