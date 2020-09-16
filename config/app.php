@@ -182,6 +182,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         //Laravel\Socialite\SocialiteServiceProvider::class,
         \SocialiteProviders\Manager\ServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
     ],
 
@@ -238,6 +239,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'GMaps' => FarhanWazir\GoogleMaps\Facades\GMapsFacade::class,
         'Lava' => Khill\Lavacharts\Laravel\Lava::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 

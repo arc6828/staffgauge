@@ -13,7 +13,7 @@
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New 
                         </a>
                     @endif
-
+                    <a class="btn btn-primary" href="{{ url('/ocr/pdf') }}">Export to PDF</a>
                         <form method="GET" action="{{ url('/ocr') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
                             <div class="input-group">
                                 <input type="text" class="form-control" name="search" placeholder="Search..." value="{{ request('search') }}">

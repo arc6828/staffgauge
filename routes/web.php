@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/ocr/lineoa', 'OcrController@store2');
 
 Route::group(['middleware' => ['auth']], function () {
+    Route::get('ocr/pdf','OcrController@createPDF');
     Route::resource('ocr', 'OcrController');
     Route::resource('profile', 'ProfileController');
     Route::resource('dashboard', 'DashboardController');

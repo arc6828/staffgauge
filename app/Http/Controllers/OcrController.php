@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Profile;
 use App\User;
 use App\Ocr;
+use PDF;
 use Illuminate\Http\Request;
 use Google\Cloud\Vision\VisionClient;
 
@@ -80,13 +81,25 @@ class OcrController extends Controller
         return view('ocr.index', compact('ocr'));
     }
 
+    // Generate PDF
+    public function createPDF(Request $request) {
+        // retreive all records from db
+        $data = Ocr::all();
+  
+        // share data to view
+        view()->share('ocr',$data);
+        $pdf = PDF::loadView('pdf_view', $data);
+  
+        // download PDF file with download method
+        return $pdf->download('pdf_file.pdf');
+      }
     
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\View\View
      */
-    public function create()
+    public function create(Request $request)
     {
         return view('ocr.create');
     }
